@@ -9,7 +9,7 @@
 import React, { useState } from 'react';
 import { Form, Button, Input, Icon } from 'antd';
 import { FormComponentProps } from 'antd/lib/form';
-import { useDynamicList } from '@umijs/hooks'
+import { useDynamicList } from '@umijs/hooks';
 
 export default Form.create()((props: FormComponentProps) => {
   const { list, remove, getKey, push } = useDynamicList(['David', 'Jack']);
@@ -56,7 +56,9 @@ export default Form.create()((props: FormComponentProps) => {
         onClick={() =>
           validateFields((err, val) => {
             if (!err) {
-              setResult(JSON.stringify((val || {}).names.filter((e: string) => !!e)));
+              setResult(
+                JSON.stringify((val || {}).names.filter((e: string) => !!e)),
+              );
             }
           })
         }

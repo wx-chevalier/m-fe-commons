@@ -1,7 +1,8 @@
 import { act, renderHook } from '@testing-library/react-hooks';
 import useCounter, { Options } from '../index';
 
-const setUp = (init?: number, options?: Options) => renderHook(() => useCounter(init, options));
+const setUp = (init?: number, options?: Options) =>
+  renderHook(() => useCounter(init, options));
 
 it('should init counter', () => {
   const { result } = setUp(100);
@@ -34,7 +35,7 @@ it('should max, min, actions work', () => {
   });
   expect(result.current[0]).toEqual(1);
   act(() => {
-    set(c => c + 2);
+    set((c) => c + 2);
   });
   expect(result.current[0]).toEqual(3);
 

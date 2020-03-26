@@ -8,12 +8,14 @@
 
 import { InputNumber } from 'antd';
 import React from 'react';
-import { useControllableValue } from '@umijs/hooks'
+import { useControllableValue } from '@umijs/hooks';
 
 export default (props: any) => {
   const [state, setState] = useControllableValue<number>(props, {
     defaultValue: 1,
   });
 
-  return <InputNumber value={state} onChange={setState} style={{ width: 300 }} />;
+  return (
+    <InputNumber value={state} onChange={setState} style={{ width: 300 }} />
+  );
 };

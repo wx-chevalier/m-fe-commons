@@ -7,17 +7,17 @@
  */
 
 import React, { useState } from 'react';
-import {useKeyPress} from '@umijs/hooks';
+import { useKeyPress } from '@umijs/hooks';
 
 export default () => {
   const [counter, setCounter] = useState(0);
 
-  useKeyPress('left', event => {
-    setCounter(s => s - 1);
+  useKeyPress('left', (event) => {
+    setCounter((s) => s - 1);
   });
 
-  useKeyPress('right', event => {
-    setCounter(s => s + 1);
+  useKeyPress('right', (event) => {
+    setCounter((s) => s + 1);
   });
 
   return (

@@ -61,7 +61,8 @@ describe('usePrevious', () => {
     const obj2 = { label: 'Jonny', value: 'john' };
     const obj3 = { label: 'Kate', value: 'kate' };
     type Obj = { label: string; value: string };
-    const predicate = (a: Obj | undefined, b: Obj) => (a ? a.value !== b.value : true);
+    const predicate = (a: Obj | undefined, b: Obj) =>
+      a ? a.value !== b.value : true;
 
     const hook = getHook(obj1 as Obj, predicate);
 

@@ -1,4 +1,8 @@
-import { act, renderHook, RenderHookResult } from '@testing-library/react-hooks';
+import {
+  act,
+  renderHook,
+  RenderHookResult,
+} from '@testing-library/react-hooks';
 import useDebounce from '../index';
 
 interface ParamsObj {

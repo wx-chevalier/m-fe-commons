@@ -8,7 +8,10 @@ export interface ReturnValue<T extends any[]> {
   cancel: () => void;
 }
 
-function useDebounceFn<T extends any[]>(fn: (...args: T) => any, wait: number): ReturnValue<T>;
+function useDebounceFn<T extends any[]>(
+  fn: (...args: T) => any,
+  wait: number,
+): ReturnValue<T>;
 function useDebounceFn<T extends any[]>(
   fn: (...args: T) => any,
   deps: DependencyList,
@@ -19,7 +22,9 @@ function useDebounceFn<T extends any[]>(
   deps: DependencyList | number,
   wait?: number,
 ): ReturnValue<T> {
-  const _deps: DependencyList = (Array.isArray(deps) ? deps : []) as DependencyList;
+  const _deps: DependencyList = (Array.isArray(deps)
+    ? deps
+    : []) as DependencyList;
   const _wait: number = typeof deps === 'number' ? deps : wait || 0;
   const timer = useRef<any>();
 

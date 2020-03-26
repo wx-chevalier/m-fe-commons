@@ -1,4 +1,8 @@
-import { act, renderHook, RenderHookResult } from '@testing-library/react-hooks';
+import {
+  act,
+  renderHook,
+  RenderHookResult,
+} from '@testing-library/react-hooks';
 import useDebounceFn, { ReturnValue } from '../index';
 
 interface ParamsObj {
@@ -26,7 +30,8 @@ const debounceFn = (gap: number) => {
   count += gap;
 };
 
-const setUp = ({ fn, wait }: ParamsObj) => renderHook(() => useDebounceFn(fn, wait));
+const setUp = ({ fn, wait }: ParamsObj) =>
+  renderHook(() => useDebounceFn(fn, wait));
 
 let hook: RenderHookResult<ParamsObj, ReturnValue>;
 

@@ -15,7 +15,7 @@ export interface Actions {
 
 function useCounter(
   initialValue: number = 0,
-  options: Options = {}
+  options: Options = {},
 ): [number, Actions] {
   const { min, max } = options;
 
@@ -33,7 +33,7 @@ function useCounter(
   const [current, setCurrent] = useState(init);
 
   const actions = useMemo(() => {
-    const setValue = (value: (number | ((c: number) => number))) => {
+    const setValue = (value: number | ((c: number) => number)) => {
       setCurrent((c: number) => {
         // get target value
         let target = typeof value === 'number' ? value : value(c);
@@ -45,20 +45,20 @@ function useCounter(
         }
         return target;
       });
-    }
+    };
     const inc = (delta: number = 1) => {
-      setValue(c => c + delta);
-    }
+      setValue((c) => c + delta);
+    };
     const dec = (delta: number = 1) => {
-      setValue(c => c - delta);
-    }
+      setValue((c) => c - delta);
+    };
     const set = (value: number | ((c: number) => number)) => {
       setValue(value);
-    }
+    };
     const reset = () => {
       setValue(init);
-    }
-    return { inc, dec, set, reset }
+    };
+    return { inc, dec, set, reset };
   }, []);
 
   return [current, actions];

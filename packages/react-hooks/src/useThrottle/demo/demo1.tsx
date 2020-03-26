@@ -18,7 +18,7 @@ export default () => {
     <div>
       <Input
         value={value}
-        onChange={e => setValue(e.target.value)}
+        onChange={(e) => setValue(e.target.value)}
         placeholder="Typed value"
         style={{ width: 280 }}
       />

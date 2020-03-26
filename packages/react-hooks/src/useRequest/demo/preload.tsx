@@ -11,15 +11,17 @@ import { Button, Spin } from 'antd';
 import React from 'react';
 import Mock from 'mockjs';
 
-async function getArticle(type?: string): Promise<{ data: string, time: number }> {
+async function getArticle(
+  type?: string,
+): Promise<{ data: string; time: number }> {
   console.log(type);
-  return new Promise(resolve => {
+  return new Promise((resolve) => {
     setTimeout(() => {
       resolve({
         data: Mock.mock('@paragraph'),
-        time: new Date().getTime()
-      })
-    }, 1000)
+        time: new Date().getTime(),
+      });
+    }, 1000);
   });
 }
 
@@ -27,22 +29,26 @@ export default () => {
   const { state, toggle } = useBoolean();
   const { run } = useRequest(getArticle, {
     cacheKey: 'article',
-    manual: true
+    manual: true,
   });
   return (
     <div>
-      <p>When the mouse hovers over the button, the article data is preloaded.</p>
       <p>
-        <Button onMouseEnter={() => run()} onClick={() => toggle()}>show/hidden</Button>
+        When the mouse hovers over the button, the article data is preloaded.
+      </p>
+      <p>
+        <Button onMouseEnter={() => run()} onClick={() => toggle()}>
+          show/hidden
+        </Button>
       </p>
       {state && <Article />}
     </div>
-  )
+  );
 };
 
 const Article = () => {
   const { data, loading } = useRequest(getArticle, {
-    cacheKey: 'article'
+    cacheKey: 'article',
   });
   return (
     <Spin spinning={!data && loading}>
@@ -50,4 +56,4 @@ const Article = () => {
       <p>{data?.data}</p>
     </Spin>
   );
-}
+};

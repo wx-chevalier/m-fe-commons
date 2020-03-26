@@ -1,4 +1,8 @@
-import { act, renderHook, RenderHookResult } from '@testing-library/react-hooks';
+import {
+  act,
+  renderHook,
+  RenderHookResult,
+} from '@testing-library/react-hooks';
 import useFormTable, { BaseOptions, Result } from '../index';
 
 interface Query {
@@ -54,7 +58,7 @@ describe('useFormTable', () => {
     setFieldsValue(values: object) {
       this.fieldsValue = {
         ...this.fieldsValue,
-        ...values
+        ...values,
       };
     },
     resetFields() {

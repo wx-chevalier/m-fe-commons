@@ -15,7 +15,7 @@ const { Option } = Select;
 
 async function getEmail(search: string): Promise<string[]> {
   console.log(search);
-  return new Promise(resolve => {
+  return new Promise((resolve) => {
     setTimeout(() => {
       resolve(Mock.mock({ 'data|5': ['@email'] }).data);
     }, 300);
@@ -25,7 +25,7 @@ async function getEmail(search: string): Promise<string[]> {
 export default () => {
   const { data, loading, run, cancel } = useRequest(getEmail, {
     debounceInterval: 500,
-    manual: true
+    manual: true,
   });
 
   return (
@@ -40,7 +40,7 @@ export default () => {
         loading={loading}
         style={{ width: 300 }}
       >
-        {data && data.map(i => <Option key={i}>{i}</Option>)}
+        {data && data.map((i) => <Option key={i}>{i}</Option>)}
       </Select>
     </div>
   );

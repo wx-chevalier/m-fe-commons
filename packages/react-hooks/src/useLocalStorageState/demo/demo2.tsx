@@ -1,7 +1,7 @@
 /**
  * title: Persist objects
  * desc: useLocalStorageState will do the serialization and deserialization work automatically.
- * 
+ *
  * title.zh-CN: 存储对象
  * desc.zh-CN: useLocalStorageState 会自动处理序列化和反序列化的操作。
  */
@@ -49,7 +49,12 @@ export default function () {
   const [value, setValue] = useLocalStorageState('cascader');
   return (
     <>
-      <Cascader options={options} value={value} onChange={setValue} placeholder="Please select" />
+      <Cascader
+        options={options}
+        value={value}
+        onChange={setValue}
+        placeholder="Please select"
+      />
     </>
   );
 }

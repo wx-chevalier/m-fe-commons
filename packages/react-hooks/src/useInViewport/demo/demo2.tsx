@@ -7,7 +7,7 @@
  */
 
 import React from 'react';
-import {useInViewport} from '@umijs/hooks';
+import { useInViewport } from '@umijs/hooks';
 
 export default () => {
   const [inViewPort] = useInViewport(() => document.querySelector('#demo2'));

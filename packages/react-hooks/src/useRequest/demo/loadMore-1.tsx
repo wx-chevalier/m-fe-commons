@@ -10,77 +10,79 @@ import { useBoolean, useRequest } from '@umijs/hooks';
 import { Button, Spin, List, Typography } from 'antd';
 import React from 'react';
 
-
 interface Item {
-  id?: string,
-  name: string
+  id?: string;
+  name: string;
 }
 
 interface Result {
-  list: Item[],
-  nextId: string | undefined
+  list: Item[];
+  nextId: string | undefined;
 }
 
 const resultData = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9'];
 
-export async function getLoadMoreList(nextId: any, limit: any): Promise<Result> {
+export async function getLoadMoreList(
+  nextId: any,
+  limit: any,
+): Promise<Result> {
   let start = 0;
   if (nextId) {
-    start = resultData.findIndex(i => i === nextId);
+    start = resultData.findIndex((i) => i === nextId);
   }
   const end = start + limit;
-  const list = resultData.slice(start, end).map(id => ({
+  const list = resultData.slice(start, end).map((id) => ({
     id,
-    name: `project ${id} (server time: ${Date.now()})`
+    name: `project ${id} (server time: ${Date.now()})`,
   }));
   const nId = resultData.length >= end ? resultData[end] : undefined;
-  return new Promise(resolve => {
+  return new Promise((resolve) => {
     setTimeout(() => {
       resolve({
         list,
-        nextId: nId
+        nextId: nId,
       });
     }, 1000);
   });
 }
 
-
 export default () => {
   const { state, toggle } = useBoolean(true);
   return (
     <div>
-      <p>You can click the button multiple times, the loadmore will be cached.</p>
+      <p>
+        You can click the button multiple times, the loadmore will be cached.
+      </p>
       <p>
         <Button onClick={() => toggle()}>show/hidden</Button>
       </p>
       {state && <LoadMoreComponent />}
     </div>
-  )
+  );
 };
 
 const LoadMoreComponent = () => {
-  const { data, loading, loadMore, loadingMore } = useRequest((d: Result | undefined) => getLoadMoreList(d?.nextId, 3), {
-    loadMore: true,
-    cacheKey: 'loadMoreDemoCacheId',
-  });
+  const { data, loading, loadMore, loadingMore } = useRequest(
+    (d: Result | undefined) => getLoadMoreList(d?.nextId, 3),
+    {
+      loadMore: true,
+      cacheKey: 'loadMoreDemoCacheId',
+    },
+  );
 
   return (
     <div>
       <Spin spinning={loading}>
         <List
           dataSource={data?.list}
-          renderItem={item => (
+          renderItem={(item) => (
             <List.Item key={item.id}>
               <Typography.Text mark>[{item.id}]</Typography.Text> {item.name}
             </List.Item>
           )}
         />
       </Spin>
-      <Button
-        onClick={loadMore}
-        loading={loadingMore}
-        disabled={!data?.nextId}
-      >
+      <Button onClick={loadMore} loading={loadingMore} disabled={!data?.nextId}>
         click to load more
       </Button>
     </div>

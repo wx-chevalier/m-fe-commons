@@ -12,7 +12,10 @@ export interface Props {
   [key: string]: any;
 }
 
-export default function useControllableValue<T>(props: Props = {}, options: Options<T> = {}) {
+export default function useControllableValue<T>(
+  props: Props = {},
+  options: Options<T> = {},
+) {
   const {
     defaultValue,
     defaultValuePropName = 'defaultValue',

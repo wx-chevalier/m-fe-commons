@@ -23,7 +23,11 @@ export default () => {
         <Button type="default" onClick={() => toggle()}>
           Toggle
         </Button>
-        <Button type="danger" onClick={() => toggle(false)} style={{ margin: '0 16px' }}>
+        <Button
+          type="danger"
+          onClick={() => toggle(false)}
+          style={{ margin: '0 16px' }}
+        >
           Toggle False
         </Button>
         <Button type="primary" onClick={() => toggle(true)}>

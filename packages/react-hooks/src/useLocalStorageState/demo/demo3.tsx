@@ -1,7 +1,7 @@
 /**
  * title: Persist objects with function updater
  * desc: function updater is also acceptable with useLocalStorageState.
- * 
+ *
  * title.zh-CN: 使用 function updater 存储
  * desc.zh-CN: useLocalStorageState 里也可以用 function updater，就像 useState 那样。
  */
@@ -29,7 +29,7 @@ export default function () {
         style={{ width: 200 }}
         defaultValue={user.name}
         placeholder="input user name"
-        onChange={e => {
+        onChange={(e) => {
           setUser((u: IUser) => ({ ...u, name: e.target.value }));
         }}
       />

@@ -13,16 +13,18 @@ import { useControllableValue } from '@umijs/hooks';
 const ControllableComponent = (props: any) => {
   const [state, setState] = useControllableValue(props);
 
-  return <InputNumber value={state} onChange={setState} style={{ width: 300 }} />;
+  return (
+    <InputNumber value={state} onChange={setState} style={{ width: 300 }} />
+  );
 };
 const Parent = () => {
   const [state, setState] = useState<number>(0);
   const increment = () => {
-    setState(s => s + 1);
+    setState((s) => s + 1);
   };
 
   const decrease = () => {
-    setState(s => s - 1);
+    setState((s) => s - 1);
   };
 
   return (

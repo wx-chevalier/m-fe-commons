@@ -1,4 +1,10 @@
-import { MutableRefObject, useRef, useEffect, useCallback, useMemo } from 'react';
+import {
+  MutableRefObject,
+  useRef,
+  useEffect,
+  useCallback,
+  useMemo,
+} from 'react';
 
 // 鼠标点击事件，click 不会监听右键
 const defaultEvent = 'click';
@@ -13,7 +19,7 @@ export default function useClickAway<T extends HTMLElement = HTMLDivElement>(
   const element = useRef<T>();
 
   const handler = useCallback(
-    event => {
+    (event) => {
       const targetElement = typeof dom === 'function' ? dom() : dom;
       const el = targetElement || element.current;
       if (!el || el.contains(event.target)) {

@@ -12,31 +12,36 @@ import { List, Pagination } from 'antd';
 import Mock from 'mockjs';
 
 interface UserListItem {
-  id: string,
-  name: string,
-  gender: 'male' | 'female',
-  email: string,
-  disabled: boolean
+  id: string;
+  name: string;
+  gender: 'male' | 'female';
+  email: string;
+  disabled: boolean;
 }
 
-const userList = (current, pageSize) => (
+const userList = (current, pageSize) =>
   Mock.mock({
     total: 55,
-    [`list|${pageSize}`]: [{
-      id: '@guid',
-      name: '@cname',
-      'gender|1': ['male', 'female'],
-      email: '@email',
-      disabled: false
-    }],
-  })
-)
+    [`list|${pageSize}`]: [
+      {
+        id: '@guid',
+        name: '@cname',
+        'gender|1': ['male', 'female'],
+        email: '@email',
+        disabled: false,
+      },
+    ],
+  });
 
-async function getUserList(params: { current: number, pageSize: number, gender?: string }): Promise<{ total: number, list: UserListItem[] }> {
-  return new Promise(resolve => {
+async function getUserList(params: {
+  current: number;
+  pageSize: number;
+  gender?: string;
+}): Promise<{ total: number; list: UserListItem[] }> {
+  return new Promise((resolve) => {
     setTimeout(() => {
-      resolve(userList(params.current, params.pageSize))
-    }, 1000)
+      resolve(userList(params.current, params.pageSize));
+    }, 1000);
   });
 }
 
@@ -45,7 +50,7 @@ export default () => {
     ({ current, pageSize }) => getUserList({ current, pageSize }),
     {
       paginated: true,
-    }
+    },
   );
   return (
     <div>

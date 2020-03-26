@@ -8,8 +8,8 @@
 
 import React from 'react';
 import { Button, Col, Form, Input, Row, Table, Select } from 'antd';
-import { useFormTable } from '@umijs/hooks'
-import { PaginatedParams } from '@umijs/hooks/useFormTable/lib'
+import { useFormTable } from '@umijs/hooks';
+import { PaginatedParams } from '@umijs/hooks/useFormTable/lib';
 
 const { Option } = Select;
 
@@ -27,17 +27,20 @@ interface Result {
   list: Item[];
 }
 
-const getTableData = ({ current, pageSize }: PaginatedParams[0], formData: Object): Promise<Result> => {
+const getTableData = (
+  { current, pageSize }: PaginatedParams[0],
+  formData: Object,
+): Promise<Result> => {
   let query = `page=${current}&size=${pageSize}`;
   Object.entries(formData).forEach(([key, value]) => {
     if (value) {
-      query += `&${key}=${value}`
+      query += `&${key}=${value}`;
     }
   });
 
   return fetch(`https://randomuser.me/api?results=55&${query}`)
-    .then(res => res.json())
-    .then(res => ({
+    .then((res) => res.json())
+    .then((res) => ({
       total: res.info.results,
       list: res.results,
     }));
@@ -120,7 +123,11 @@ export default () => {
           </Select>
         </Form.Item>
         <Form.Item name="name">
-          <Input.Search placeholder="enter name" style={{ width: 240 }} onSearch={submit} />
+          <Input.Search
+            placeholder="enter name"
+            style={{ width: 240 }}
+            onSearch={submit}
+          />
         </Form.Item>
         <Button type="link" onClick={changeType}>
           Advanced Search

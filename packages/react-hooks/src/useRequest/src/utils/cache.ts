@@ -1,4 +1,4 @@
-const cache: { [key: string]: { data: any, timer: any } } = {};
+const cache: { [key: string]: { data: any; timer: any } } = {};
 
 const setCache = (key: string, data: any) => {
   if (cache[key]) {
@@ -12,14 +12,10 @@ const setCache = (key: string, data: any) => {
 
   cache[key] = {
     data,
-    timer
+    timer,
   };
 };
 
-const getCache = (key: string) => cache[key]?.data
+const getCache = (key: string) => cache[key]?.data;
 
-
-export {
-  getCache,
-  setCache
-};
+export { getCache, setCache };

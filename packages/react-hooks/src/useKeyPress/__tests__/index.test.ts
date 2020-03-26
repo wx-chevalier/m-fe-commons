@@ -14,11 +14,12 @@ describe('useKeyPress', () => {
 
   it('test on mounted', async () => {
     const { rerender, unmount } = renderHook(
-      (props: Props) => useKeyPress(props.keyFilter, props.eventHandler, props.events),
+      (props: Props) =>
+        useKeyPress(props.keyFilter, props.eventHandler, props.events),
       {
         initialProps: {
           keyFilter: 'a',
-          eventHandler: event => {},
+          eventHandler: (event) => {},
           events: ['keydown'],
         },
       },

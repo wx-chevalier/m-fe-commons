@@ -35,8 +35,13 @@ export default Form.create()((props: FormComponentProps) => {
       render: (text: string, row: Item, index: number) => (
         <>
           <Icon style={{ cursor: 'move', marginRight: 8 }} type="drag" />
-          {getFieldDecorator(`params[${getKey(index)}].name`, { initialValue: text })(
-            <Input style={{ width: 120, marginRight: 16 }} placeholder="name" />,
+          {getFieldDecorator(`params[${getKey(index)}].name`, {
+            initialValue: text,
+          })(
+            <Input
+              style={{ width: 120, marginRight: 16 }}
+              placeholder="name"
+            />,
           )}
         </>
       ),
@@ -47,7 +52,9 @@ export default Form.create()((props: FormComponentProps) => {
       key: 'age',
       render: (text: string, row: Item, index: number) => (
         <>
-          {getFieldDecorator(`params[${getKey(index)}].age`, { initialValue: text })(
+          {getFieldDecorator(`params[${getKey(index)}].age`, {
+            initialValue: text,
+          })(
             <Input style={{ width: 120, marginRight: 16 }} placeholder="age" />,
           )}
         </>
@@ -59,8 +66,13 @@ export default Form.create()((props: FormComponentProps) => {
       dataIndex: 'memo',
       render: (text: string, row: Item, index: number) => (
         <>
-          {getFieldDecorator(`params[${getKey(index)}].memo`, { initialValue: text })(
-            <Input style={{ width: 300, marginRight: 16 }} placeholder="please input the memo" />,
+          {getFieldDecorator(`params[${getKey(index)}].memo`, {
+            initialValue: text,
+          })(
+            <Input
+              style={{ width: 300, marginRight: 16 }}
+              placeholder="please input the memo"
+            />,
           )}
           <Button.Group>
             <Button type="danger" onClick={() => remove(index)}>
@@ -75,7 +87,9 @@ export default Form.create()((props: FormComponentProps) => {
   return (
     <>
       <ReactDragListView
-        onDragEnd={(oldIndex: number, newIndex: number) => move(oldIndex, newIndex)}
+        onDragEnd={(oldIndex: number, newIndex: number) =>
+          move(oldIndex, newIndex)
+        }
         handleSelector={'i[aria-label="icon: drag"]'}
       >
         <Table
@@ -96,7 +110,9 @@ export default Form.create()((props: FormComponentProps) => {
       <Button
         type="primary"
         style={{ marginTop: 16 }}
-        onClick={() => setResult(JSON.stringify(sortForm(getFieldsValue().params), null, 2))}
+        onClick={() =>
+          setResult(JSON.stringify(sortForm(getFieldsValue().params), null, 2))
+        }
       >
         Submit
       </Button>

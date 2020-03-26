@@ -18,7 +18,9 @@ export interface Result<T> {
   ref?: MutableRefObject<T>;
 }
 
-export default <T extends HTMLElement = HTMLElement>(options?: Options<T>): Result<T> => {
+export default <T extends HTMLElement = HTMLElement>(
+  options?: Options<T>,
+): Result<T> => {
   const { dom, onExitFull, onFull } = options || {};
 
   const onExitFullRef = useRef(onExitFull);

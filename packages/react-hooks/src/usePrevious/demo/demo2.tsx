@@ -1,7 +1,7 @@
 /**
  * title: Using compare function
  * desc: The stored previous value update only when the compare function returns true.
- * 
+ *
  * title.zh-CN: 使用 compare function
  * desc.zh-CN: 只有 compare function 返回 true 时，才会记录值的变化
  */
@@ -59,12 +59,12 @@ export default () => {
         <Input
           style={{ width: 220 }}
           value={nameInput}
-          onChange={e => setNameInput(e.target.value)}
+          onChange={(e) => setNameInput(e.target.value)}
           placeholder={`${state.name}'s new name`}
         />
         <Button
           onClick={() => {
-            setState(s => ({ ...s, name: nameInput }));
+            setState((s) => ({ ...s, name: nameInput }));
           }}
         >
           update
@@ -74,12 +74,12 @@ export default () => {
         <Input
           style={{ width: 220 }}
           value={jobInput}
-          onChange={e => setJobInput(e.target.value)}
+          onChange={(e) => setJobInput(e.target.value)}
           placeholder={`${state.name}'s new job`}
         />
         <Button
           onClick={() => {
-            setState(s => ({ ...s, job: jobInput }));
+            setState((s) => ({ ...s, job: jobInput }));
           }}
         >
           update

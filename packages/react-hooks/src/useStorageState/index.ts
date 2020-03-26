@@ -7,7 +7,10 @@ export interface IFuncUpdater<T> {
 
 export type StorageStateDefaultValue<T> = T | IFuncUpdater<T>;
 
-export type StorageStateResult<T> = [T | undefined, (value: StorageStateDefaultValue<T>) => void];
+export type StorageStateResult<T> = [
+  T | undefined,
+  (value: StorageStateDefaultValue<T>) => void,
+];
 
 function isFunction<T>(obj: any): obj is T {
   return typeof obj === 'function';
@@ -16,7 +19,7 @@ function isFunction<T>(obj: any): obj is T {
 function useStorageState<T>(
   storage: Storage,
   key: string,
-  defaultValue?: StorageStateDefaultValue<T>
+  defaultValue?: StorageStateDefaultValue<T>,
 ): StorageStateResult<T> {
   const [state, setState] = useState<T | undefined>(() => getStoredValue());
 

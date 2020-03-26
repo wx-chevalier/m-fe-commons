@@ -4,13 +4,13 @@ const useUnmount = (fn: any) => {
   const fnRef = useRef(fn);
   fnRef.current = fn;
 
-  useEffect(()=>{
+  useEffect(() => {
     return () => {
-      if(fnRef.current && typeof fnRef.current === 'function') {
+      if (fnRef.current && typeof fnRef.current === 'function') {
         fnRef.current();
       }
-    }
-  }, [])
+    };
+  }, []);
 };
 
 export default useUnmount;

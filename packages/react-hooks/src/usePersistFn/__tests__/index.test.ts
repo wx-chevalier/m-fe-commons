@@ -1,4 +1,8 @@
-import { act, renderHook, RenderHookResult } from '@testing-library/react-hooks';
+import {
+  act,
+  renderHook,
+  RenderHookResult,
+} from '@testing-library/react-hooks';
 import { useState } from 'react';
 import usePersistFn from '..';
 
@@ -8,12 +12,12 @@ const testHooks = () => {
   const [count, setCount] = useState(0);
 
   const addCount = () => {
-    setCount(c => c + 1);
-  }
+    setCount((c) => c + 1);
+  };
   const persistFn = usePersistFn(() => count);
 
-  return { addCount, persistFn }
-}
+  return { addCount, persistFn };
+};
 
 let hook: RenderHookResult<[], ReturnType<typeof testHooks>>;
 

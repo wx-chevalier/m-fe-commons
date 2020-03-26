@@ -12,20 +12,24 @@ import { useCreation } from '@umijs/hooks';
 
 class Foo {
   constructor() {
-    this.data = Math.random()
+    this.data = Math.random();
   }
-  data: number
+  data: number;
 }
 
 export default function () {
-  const foo = useCreation(() => new Foo(), [])
-  const [, setFlag] = useState({})
+  const foo = useCreation(() => new Foo(), []);
+  const [, setFlag] = useState({});
   return (
     <>
-      <p>
-        {foo.data}
-      </p>
-      <Button onClick={() => {setFlag({})}}>Rerender</Button>
+      <p>{foo.data}</p>
+      <Button
+        onClick={() => {
+          setFlag({});
+        }}
+      >
+        Rerender
+      </Button>
     </>
   );
 }

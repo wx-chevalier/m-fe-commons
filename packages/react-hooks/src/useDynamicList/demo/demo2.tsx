@@ -31,12 +31,28 @@ const Card = (props: CardProps) => {
       <Form.Item label="frequency">
         {list.map((ele, index) => (
           <div style={{ marginBottom: 16 }} key={getKey(index)}>
-            {props.form.getFieldDecorator(`params[${props.index}].ad[${getKey(index)}].name`, {
-              initialValue: ele.name,
-            })(<Input placeholder="Please enter the advertisement name" addonBefore="name：" />)}
-            {props.form.getFieldDecorator(`params[${props.index}].ad[${getKey(index)}].frequency`, {
-              initialValue: ele.value,
-            })(<Input placeholder="Please entery the frequency" addonAfter="times/day" />)}
+            {props.form.getFieldDecorator(
+              `params[${props.index}].ad[${getKey(index)}].name`,
+              {
+                initialValue: ele.name,
+              },
+            )(
+              <Input
+                placeholder="Please enter the advertisement name"
+                addonBefore="name："
+              />,
+            )}
+            {props.form.getFieldDecorator(
+              `params[${props.index}].ad[${getKey(index)}].frequency`,
+              {
+                initialValue: ele.value,
+              },
+            )(
+              <Input
+                placeholder="Please entery the frequency"
+                addonAfter="times/day"
+              />,
+            )}
           </div>
         ))}
       </Form.Item>
@@ -58,7 +74,10 @@ export default Form.create()((props: FormComponentProps) => {
   const { list, push, getKey, sortForm } = useDynamicList<ListItem>([
     {
       name: 'Group 1',
-      list: [{ name: 'ad1', value: 2 }, { name: 'ad2', value: 1 }],
+      list: [
+        { name: 'ad1', value: 2 },
+        { name: 'ad2', value: 1 },
+      ],
     },
   ]);
 
@@ -74,7 +93,11 @@ export default Form.create()((props: FormComponentProps) => {
             index={getKey(index)}
           />
         ))}
-        <Button style={{ marginTop: 16 }} block onClick={() => push({} as ListItem)}>
+        <Button
+          style={{ marginTop: 16 }}
+          block
+          onClick={() => push({} as ListItem)}
+        >
           Add Group
         </Button>
       </div>

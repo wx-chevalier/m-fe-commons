@@ -9,7 +9,10 @@ type Target = HTMLElement | Document;
 
 type Arg = Target | (() => Target) | null;
 
-function useScroll<T extends Target = HTMLElement>(): [Position, MutableRefObject<T>];
+function useScroll<T extends Target = HTMLElement>(): [
+  Position,
+  MutableRefObject<T>,
+];
 function useScroll<T extends Target = HTMLElement>(arg: Arg): [Position];
 function useScroll<T extends Target = HTMLElement>(...args: [Arg] | []) {
   const [position, setPosition] = useState<Position>({

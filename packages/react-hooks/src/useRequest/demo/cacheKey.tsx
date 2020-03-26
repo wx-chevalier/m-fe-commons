@@ -11,15 +11,17 @@ import { Button, Spin } from 'antd';
 import Mock from 'mockjs';
 import React from 'react';
 
-async function getArticle(type?: string): Promise<{ data: string, time: number }> {
+async function getArticle(
+  type?: string,
+): Promise<{ data: string; time: number }> {
   console.log(type);
-  return new Promise(resolve => {
+  return new Promise((resolve) => {
     setTimeout(() => {
       resolve({
         data: Mock.mock('@paragraph'),
-        time: new Date().getTime()
-      })
-    }, 1000)
+        time: new Date().getTime(),
+      });
+    }, 1000);
   });
 }
 
@@ -27,18 +29,21 @@ export default () => {
   const { state, toggle } = useBoolean();
   return (
     <div>
-      <p>You can click the button multiple times, the article component will show the cached data first.</p>
+      <p>
+        You can click the button multiple times, the article component will show
+        the cached data first.
+      </p>
       <p>
         <Button onClick={() => toggle()}>show/hidden</Button>
       </p>
       {state && <Article />}
     </div>
-  )
+  );
 };
 
 const Article = () => {
   const { data, loading } = useRequest(getArticle, {
-    cacheKey: 'article'
+    cacheKey: 'article',
   });
   return (
     <Spin spinning={!data && loading}>
@@ -46,4 +51,4 @@ const Article = () => {
       <p>{data?.data}</p>
     </Spin>
   );
-}
+};

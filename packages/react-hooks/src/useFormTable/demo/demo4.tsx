@@ -25,17 +25,20 @@ interface Result {
   list: Item[];
 }
 
-const getTableData = ({ current, pageSize }: PaginatedParams[0], formData: Object): Promise<Result> => {
+const getTableData = (
+  { current, pageSize }: PaginatedParams[0],
+  formData: Object,
+): Promise<Result> => {
   let query = `page=${current}&size=${pageSize}`;
   Object.entries(formData).forEach(([key, value]) => {
     if (value) {
-      query += `&${key}=${value}`
+      query += `&${key}=${value}`;
     }
   });
 
   return fetch(`https://randomuser.me/api?results=55&${query}`)
-    .then(res => res.json())
-    .then(res => ({
+    .then((res) => res.json())
+    .then((res) => ({
       total: res.info.results,
       list: res.results,
     }));
@@ -72,7 +75,10 @@ const AppList = () => {
     {
       title: 'gender',
       dataIndex: 'gender',
-      filters: [{ text: 'male', value: 'male' }, { text: 'female', value: 'female' }],
+      filters: [
+        { text: 'male', value: 'male' },
+        { text: 'female', value: 'female' },
+      ],
       filteredValue: filters.gender,
     },
   ];
@@ -81,17 +87,26 @@ const AppList = () => {
     <div style={{ marginBottom: 16 }}>
       <Form form={form} style={{ display: 'flex', justifyContent: 'flex-end' }}>
         <Form.Item name="name">
-          <Input placeholder="enter name" style={{ width: 140, marginRight: 16 }} />
+          <Input
+            placeholder="enter name"
+            style={{ width: 140, marginRight: 16 }}
+          />
         </Form.Item>
 
         {type === 'advance' && (
           <>
             <Form.Item name="email">
-              <Input placeholder="enter email" style={{ width: 140, marginRight: 16 }} />
-              </Form.Item>
+              <Input
+                placeholder="enter email"
+                style={{ width: 140, marginRight: 16 }}
+              />
+            </Form.Item>
             <Form.Item name="phone">
-              <Input placeholder="enter phone" style={{ width: 140, marginRight: 16 }} />
-              </Form.Item>
+              <Input
+                placeholder="enter phone"
+                style={{ width: 140, marginRight: 16 }}
+              />
+            </Form.Item>
           </>
         )}
         <Button type="primary" onClick={submit}>

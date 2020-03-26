@@ -129,11 +129,14 @@ describe('useDynamicList', () => {
   });
 
   it('initialValue changes', () => {
-    const hook = renderHook(({ initialValue }) => useDynamicList(initialValue), {
-      initialProps: {
-        initialValue: [1],
+    const hook = renderHook(
+      ({ initialValue }) => useDynamicList(initialValue),
+      {
+        initialProps: {
+          initialValue: [1],
+        },
       },
-    });
+    );
     expect(hook.result.current.list[0]).toEqual(1);
     expect(hook.result.current.getKey(0)).toEqual(0);
 

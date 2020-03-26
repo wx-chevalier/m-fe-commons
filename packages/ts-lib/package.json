@@ -34,7 +34,9 @@
     "test:cov": "npm run cleanCov && npm test -- --coverage",
     "test:watch": "npm test -- --watch"
   },
-  "dependencies": {},
+  "dependencies": {
+    "@m-fe/utils": "^0.2.4"
+  },
   "devDependencies": {
     "@m-fe/app-config": "^0.4.2",
     "cross-env": "^6.0.3",

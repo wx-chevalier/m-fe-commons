@@ -7,13 +7,14 @@
  */
 
 import React from 'react';
-import {useSize} from '@umijs/hooks';
+import { useSize } from '@umijs/hooks';
 
 export default () => {
   const [state] = useSize(document.querySelector('body'));
   return (
     <div>
-      this demo is listening to body size change, try to resize the window instead <br />
+      this demo is listening to body size change, try to resize the window
+      instead <br />
       dimensions -- width: {state.width} px, height: {state.height} px
     </div>
   );

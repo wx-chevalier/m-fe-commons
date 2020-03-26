@@ -12,7 +12,7 @@ import React, { useState } from 'react';
 import Mock from 'mockjs';
 
 function getUsername(): Promise<string> {
-  return new Promise(resolve => {
+  return new Promise((resolve) => {
     setTimeout(() => {
       resolve(Mock.mock('@name'));
     }, 1000);
@@ -21,7 +21,7 @@ function getUsername(): Promise<string> {
 
 function changeUsername(username: string): Promise<{ success: boolean }> {
   console.log(username);
-  return new Promise(resolve => {
+  return new Promise((resolve) => {
     setTimeout(() => {
       resolve({ success: true });
     }, 1000);
@@ -31,9 +31,9 @@ function changeUsername(username: string): Promise<{ success: boolean }> {
 export default () => {
   const [state, setState] = useState('');
   const { data, mutate } = useRequest(getUsername, {
-    onSuccess: result => {
+    onSuccess: (result) => {
       setState(result);
-    }
+    },
   });
   const { loading, run } = useRequest(changeUsername, {
     manual: true,
@@ -42,14 +42,14 @@ export default () => {
         mutate(params[0]);
         message.success(`The username was changed to "${params[0]}" !`);
       }
-    }
+    },
   });
 
   return (
     <div>
       <p>usrename: {data}</p>
       <Input
-        onChange={e => setState(e.target.value)}
+        onChange={(e) => setState(e.target.value)}
         value={state}
         placeholder="Please enter username"
         style={{ width: 240, marginRight: 16 }}

@@ -2,7 +2,10 @@ import { useEffect, useCallback, useRef, RefObject } from 'react';
 
 export type KeyPredicate = (event: KeyboardEvent) => boolean;
 export type keyType = KeyboardEvent['keyCode'] | KeyboardEvent['key'];
-export type KeyFilter = keyType | Array<keyType> | ((event: KeyboardEvent) => boolean);
+export type KeyFilter =
+  | keyType
+  | Array<keyType>
+  | ((event: KeyboardEvent) => boolean);
 export type EventHandler = (event: KeyboardEvent) => void;
 export type keyEvent = 'keydown' | 'keyup';
 export type RefType = HTMLElement | (() => HTMLElement | null);
@@ -120,7 +123,8 @@ function genKeyFormater(keyFilter: any): KeyPredicate {
     return (event: KeyboardEvent) => genFilterKey(event, keyFilter);
   }
   if (type === 'array') {
-    return (event: KeyboardEvent) => keyFilter.some((item: any) => genFilterKey(event, item));
+    return (event: KeyboardEvent) =>
+      keyFilter.some((item: any) => genFilterKey(event, item));
   }
   return keyFilter ? () => true : () => false;
 }
@@ -138,7 +142,7 @@ function useKeyPress<T extends HTMLElement = HTMLInputElement>(
   callbackRef.current = eventHandler;
 
   const callbackHandler = useCallback(
-    event => {
+    (event) => {
       const genGuard: KeyPredicate = genKeyFormater(keyFilter);
       if (genGuard(event)) {
         return callbackRef.current(event);

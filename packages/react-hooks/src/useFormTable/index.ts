@@ -6,7 +6,7 @@ import {
   BasePaginatedOptions,
   PaginatedOptionsWithFormat,
   PaginatedFormatReturn,
-  PaginatedResult
+  PaginatedResult,
 } from '@umijs/use-request/lib/types';
 import useUpdateEffect from '../useUpdateEffect';
 import usePersistFn from '../usePersistFn';
@@ -17,7 +17,7 @@ export {
   BasePaginatedOptions,
   PaginatedOptionsWithFormat,
   PaginatedFormatReturn,
-  PaginatedResult
+  PaginatedResult,
 };
 
 export interface Store {
@@ -41,35 +41,34 @@ export interface Result<Item> extends PaginatedResult<Item> {
   };
 }
 
-export interface BaseOptions<U> extends Omit<BasePaginatedOptions<U>, 'paginated'> {
+export interface BaseOptions<U>
+  extends Omit<BasePaginatedOptions<U>, 'paginated'> {
   form: UseAntdTableFormUtils;
 }
 
-export interface OptionsWithFormat<R, Item, U> extends Omit<PaginatedOptionsWithFormat<R, Item, U>, 'paginated'> {
+export interface OptionsWithFormat<R, Item, U>
+  extends Omit<PaginatedOptionsWithFormat<R, Item, U>, 'paginated'> {
   form: UseAntdTableFormUtils;
 }
 
 function useFormTable<R = any, Item = any, U extends Item = any>(
   service: CombineService<R, PaginatedParams>,
-  options: OptionsWithFormat<R, Item, U>
-): Result<Item>
+  options: OptionsWithFormat<R, Item, U>,
+): Result<Item>;
 function useFormTable<R = any, Item = any, U extends Item = any>(
   service: CombineService<PaginatedFormatReturn<Item>, PaginatedParams>,
-  options: BaseOptions<U>
-): Result<Item>
+  options: BaseOptions<U>,
+): Result<Item>;
 function useFormTable<R = any, Item = any, U extends Item = any>(
   service: CombineService<any, any>,
-  options: BaseOptions<U> | OptionsWithFormat<R, Item, U>
+  options: BaseOptions<U> | OptionsWithFormat<R, Item, U>,
 ): any {
   const { form, refreshDeps = [], manual, ...restOptions } = options;
-  const result = useRequest(
-    service,
-    {
-      ...restOptions,
-      paginated: true as true,
-      manual: true,
-    }
-  );
+  const result = useRequest(service, {
+    ...restOptions,
+    paginated: true as true,
+    manual: true,
+  });
 
   const { params, run } = result;
 
@@ -79,7 +78,9 @@ function useFormTable<R = any, Item = any, U extends Item = any>(
   const [type, setType] = useState(cacheFormTableData.type || 'simple');
 
   // 全量 form 数据，包括 simple 和 advance
-  const [allFormData, setAllFormData] = useState<Store>(cacheFormTableData.allFormData || {});
+  const [allFormData, setAllFormData] = useState<Store>(
+    cacheFormTableData.allFormData || {},
+  );
 
   // 获取当前展示的 form 字段值
   const getActivetFieldValues = useCallback((): Store => {
@@ -127,8 +128,7 @@ function useFormTable<R = any, Item = any, U extends Item = any>(
     if (!manual) {
       submit();
     }
-  }, [])
-
+  }, []);
 
   const changeType = useCallback(() => {
     const currentFormData = getActivetFieldValues();
@@ -138,26 +138,32 @@ function useFormTable<R = any, Item = any, U extends Item = any>(
     setType(targetType);
   }, [type, allFormData, getActivetFieldValues]);
 
-
-  const submit = useCallback((e?: any) => {
-    if (e?.preventDefault) {
-      e.preventDefault();
-    }
-    setTimeout(() => {
-      const activeFormData = getActivetFieldValues();
-      // 记录全量数据
-      const _allFormData = { ...allFormData, ...activeFormData };
-      setAllFormData(_allFormData);
-      run({
-        pageSize: options.defaultPageSize || 10,
-        ...(params[0] || {}), // 防止 manual 情况下，第一次触发 submit，此时没有 params[0]
-        current: 1
-      }, activeFormData, {
-        allFormData: _allFormData,
-        type
+  const submit = useCallback(
+    (e?: any) => {
+      if (e?.preventDefault) {
+        e.preventDefault();
+      }
+      setTimeout(() => {
+        const activeFormData = getActivetFieldValues();
+        // 记录全量数据
+        const _allFormData = { ...allFormData, ...activeFormData };
+        setAllFormData(_allFormData);
+        run(
+          {
+            pageSize: options.defaultPageSize || 10,
+            ...(params[0] || {}), // 防止 manual 情况下，第一次触发 submit，此时没有 params[0]
+            current: 1,
+          },
+          activeFormData,
+          {
+            allFormData: _allFormData,
+            type,
+          },
+        );
       });
-    });
-  }, [getActivetFieldValues, run, params, allFormData, type]);
+    },
+    [getActivetFieldValues, run, params, allFormData, type],
+  );
 
   const reset = useCallback(() => {
     form.resetFields();
@@ -180,8 +186,8 @@ function useFormTable<R = any, Item = any, U extends Item = any>(
       type,
       changeType,
       reset,
-    }
-  }
+    },
+  };
 }
 
 export default useFormTable;

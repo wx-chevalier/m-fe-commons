@@ -12,31 +12,36 @@ import React, { useState } from 'react';
 import Mock from 'mockjs';
 
 interface UserListItem {
-  id: string,
-  name: string,
-  gender: 'male' | 'female',
-  email: string,
-  disabled: boolean
+  id: string;
+  name: string;
+  gender: 'male' | 'female';
+  email: string;
+  disabled: boolean;
 }
 
-const userList = (current, pageSize) => (
+const userList = (current, pageSize) =>
   Mock.mock({
     total: 55,
-    [`list|${pageSize}`]: [{
-      id: '@guid',
-      name: '@cname',
-      'gender|1': ['male', 'female'],
-      email: '@email',
-      disabled: false
-    }],
-  })
-)
+    [`list|${pageSize}`]: [
+      {
+        id: '@guid',
+        name: '@cname',
+        'gender|1': ['male', 'female'],
+        email: '@email',
+        disabled: false,
+      },
+    ],
+  });
 
-async function getUserList(params: { current: number, pageSize: number, gender?: string }): Promise<{ total: number, list: UserListItem[] }> {
-  return new Promise(resolve => {
+async function getUserList(params: {
+  current: number;
+  pageSize: number;
+  gender?: string;
+}): Promise<{ total: number; list: UserListItem[] }> {
+  return new Promise((resolve) => {
     setTimeout(() => {
-      resolve(userList(params.current, params.pageSize))
-    }, 1000)
+      resolve(userList(params.current, params.pageSize));
+    }, 1000);
   });
 }
 
@@ -44,13 +49,16 @@ export default () => {
   const { state, toggle } = useBoolean();
   return (
     <div>
-      <p>You can click the button multiple times, the conditions of pagination will be cached.</p>
+      <p>
+        You can click the button multiple times, the conditions of pagination
+        will be cached.
+      </p>
       <p>
         <Button onClick={() => toggle()}>show/hidden</Button>
       </p>
       {state && <PaginationComponent />}
     </div>
-  )
+  );
 };
 
 const PaginationComponent = () => {
@@ -58,20 +66,22 @@ const PaginationComponent = () => {
     (p, gender?: string) => getUserList({ ...p, gender }),
     {
       cacheKey: 'paginationDemo',
-      paginated: true
-    }
+      paginated: true,
+    },
   );
 
   const [gender, setGender] = useState<string>(params[1]);
 
   useUpdateEffect(() => {
-      // reload when gender change
-      run({
+    // reload when gender change
+    run(
+      {
         current: 1,
-        pageSize: 10
-      }, gender);
-  }, [gender])
-
+        pageSize: 10,
+      },
+      gender,
+    );
+  }, [gender]);
 
   return (
     <div>
@@ -88,7 +98,7 @@ const PaginationComponent = () => {
       <List
         dataSource={data && data.list}
         loading={loading}
-        renderItem={item => (
+        renderItem={(item) => (
           <List.Item>
             {item.name} - {item.email}
           </List.Item>

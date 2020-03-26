@@ -21,7 +21,7 @@ import React from 'react';
 import Mock from 'mockjs';
 
 function getUsername(): Promise<string> {
-  return new Promise(resolve => {
+  return new Promise((resolve) => {
     setTimeout(() => {
       resolve(Mock.mock('@name'));
     }, 1000);
@@ -31,8 +31,8 @@ function getUsername(): Promise<string> {
 export default () => {
   const { data, loading, run, cancel } = useRequest(getUsername, {
     pollingInterval: 1000,
-    pollingWhenHidden: false
-  })
+    pollingWhenHidden: false,
+  });
 
   return (
     <>
@@ -44,5 +44,5 @@ export default () => {
         <Button onClick={cancel}>stop</Button>
       </Button.Group>
     </>
-  )
-}
+  );
+};

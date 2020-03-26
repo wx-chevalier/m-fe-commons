@@ -9,7 +9,9 @@ function usePersistFn<T extends noop>(fn: T) {
 
   ref.current = fn;
 
-  const persistFn = useCallback(((...args) => ref.current(...args)) as T, [ref]);
+  const persistFn = useCallback(((...args) => ref.current(...args)) as T, [
+    ref,
+  ]);
 
   return persistFn;
 }
