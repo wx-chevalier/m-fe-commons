@@ -6,15 +6,15 @@ import { isValidArray } from './is';
 
 const DATE_TIME_FIELDS = ['createdAt', 'updatedAt', 'deletedAt'] as const;
 
-export type Id = 'string';
+export type EntityId = 'string';
 
-export class Base {
+export class BaseEntity {
   // 唯一主键，Snowflake
-  id: Id;
+  id: EntityId;
 
   // 共有属性
   // 所属的租户信息
-  tenantId?: Id;
+  tenantId?: EntityId;
   createdAt?: string;
   updatedAt?: string;
   deletedAt?: string;
@@ -48,8 +48,8 @@ export class Base {
             if (
               (newValue == null ||
                 !(isValidArray(newValue)
-                  ? newValue.every((v: any) => v instanceof Base)
-                  : newValue instanceof Base)) &&
+                  ? newValue.every((v: any) => v instanceof BaseEntity)
+                  : newValue instanceof BaseEntity)) &&
               value != null &&
               !DATE_TIME_FIELDS.includes(
                 prop as typeof DATE_TIME_FIELDS[number],
@@ -78,5 +78,9 @@ export class Base {
         this['__raw' + uField] = value;
       }
     });
+  }
+
+  public toString() {
+    return JSON.stringify(this);
   }
 }
