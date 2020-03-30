@@ -8,7 +8,7 @@ const DATE_TIME_FIELDS = ['createdAt', 'updatedAt', 'deletedAt'] as const;
 
 export type EntityId = 'string';
 
-export class BaseEntity {
+export class BaseEntity<T> {
   // 唯一主键，Snowflake
   id: EntityId;
 
@@ -21,7 +21,7 @@ export class BaseEntity {
 
   readonly _apiBase?: string;
 
-  constructor(props?: {}) {
+  constructor(props?: Partial<T>) {
     if (!props) {
       return;
     }
@@ -83,4 +83,11 @@ export class BaseEntity {
   public toString() {
     return JSON.stringify(this);
   }
+}
+
+export class BaseKV extends BaseEntity<BaseKV> {
+  key: string;
+  value: string;
+  type: string;
+  desc: string;
 }
