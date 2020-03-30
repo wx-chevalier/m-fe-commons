@@ -8,18 +8,13 @@ const DATE_TIME_FIELDS = ['createdAt', 'updatedAt', 'deletedAt'] as const;
 
 export type EntityId = 'string';
 
-export class BaseEntity<T> {
+export class BaseEntity<T = {}, I = EntityId> {
   // 唯一主键，Snowflake
-  id: EntityId;
+  id: I;
 
-  // 共有属性
-  // 所属的租户信息
-  tenantId?: EntityId;
   createdAt?: string;
   updatedAt?: string;
   deletedAt?: string;
-
-  readonly _apiBase?: string;
 
   constructor(props?: Partial<T>) {
     if (!props) {
