@@ -5,6 +5,7 @@ export * from './entity';
 export * from './is';
 export * from './number';
 export * from './object';
+export * from './regex';
 export * from './set';
 export * from './str';
 export * from './uri';
