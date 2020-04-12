@@ -1,6 +1,6 @@
 /* 基础模型，提供基础的数据赋值操作，以及将 createdAt, updatedAt 以及 deletedAt 进行格式转化 */
 import dayjs from 'dayjs';
-import { upperFirst } from 'lodash-es';
+import upperFirst from 'lodash.upperfirst';
 
 import { isValidArray } from './is';
 
