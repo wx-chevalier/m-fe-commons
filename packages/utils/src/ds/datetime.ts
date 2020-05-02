@@ -1,7 +1,8 @@
 import dayjs, { Dayjs } from 'dayjs';
 
-import { paddingLeftZero } from './number';
 import { inBrowser } from '../env';
+
+import { paddingLeftZero } from './number';
 
 export let now: () => number = inBrowser
   ? () => window.performance.now()

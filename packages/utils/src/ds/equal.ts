@@ -1,4 +1,4 @@
-import { isObject, is } from './is';
+import { is, isObject } from './is';
 
 const isArray = Array.isArray;
 const keyList = Object.keys;
@@ -30,7 +30,7 @@ export const shallowEqual = (objA: any, objB: any) => {
   if (keysA.length !== keysB.length) return false;
 
   for (let i = 0; i < keysA.length; i++) {
-    //eslint-disable-line
+    // eslint-disable-line
     if (!hasOwn.call(objB, keysA[i]) || !is(objA[keysA[i]], objB[keysA[i]])) {
       return false;
     }

@@ -1,5 +1,5 @@
-import { inBrowser, isNative, isIOS } from '../env';
 import { now } from '../ds';
+import { inBrowser, isIOS, isNative } from '../env';
 
 import { handleError, noop } from '.';
 

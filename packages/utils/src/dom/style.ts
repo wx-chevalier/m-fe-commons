@@ -1,6 +1,7 @@
-import { element } from './element';
-import { raf } from '../func';
 import { hash } from '../ds';
+import { raf } from '../func';
+
+import { element } from './element';
 
 let stylesheet: CSSGroupingRule | StyleSheet | null;
 let active = 0;

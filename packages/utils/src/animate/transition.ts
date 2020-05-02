@@ -1,6 +1,7 @@
-import { cubicOut, cubicInOut } from './easing';
-import { assign } from '../func';
 import { isFunction } from '../ds';
+import { assign } from '../func';
+
+import { cubicInOut, cubicOut } from './easing';
 
 export interface TransitionConfig {
   delay?: number;
@@ -30,7 +31,7 @@ export function fade(
   return {
     delay,
     duration,
-    css: (t) => `opacity: ${t * o}`,
+    css: t => `opacity: ${t * o}`,
   };
 }
 
@@ -94,7 +95,7 @@ export function slide(
     delay,
     duration,
     easing,
-    css: (t) =>
+    css: t =>
       `overflow: hidden;` +
       `opacity: ${Math.min(t * 20, 1) * opacity};` +
       `height: ${t * height}px;` +
@@ -224,9 +225,8 @@ export function crossfade({
       css: (t, u) => `
 				opacity: ${t * opacity};
 				transform-origin: top left;
-				transform: ${transform} translate(${u * dx}px,${u * dy}px) scale(${
-        t + (1 - t) * dw
-      }, ${t + (1 - t) * dh});
+				transform: ${transform} translate(${u * dx}px,${u * dy}px) scale(${t +
+        (1 - t) * dw}, ${t + (1 - t) * dh});
 			`,
     };
   }

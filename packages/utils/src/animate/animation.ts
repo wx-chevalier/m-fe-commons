@@ -1,5 +1,6 @@
-import { noop, loop } from '../func';
 import { createRule, deleteRule } from '../dom/style';
+import { loop, noop } from '../func';
+
 import { linear } from './easing';
 
 export interface AnimationConfig {
@@ -10,7 +11,7 @@ export interface AnimationConfig {
   tick?: (t: number, u: number) => void;
 }
 
-//todo: documentation says it is DOMRect, but in IE it would be ClientRect
+// todo: documentation says it is DOMRect, but in IE it would be ClientRect
 type PositionRect = DOMRect | ClientRect;
 
 type AnimationFn = (

@@ -62,7 +62,7 @@ export class BaseEntity<T = {}, I = EntityId> {
   }
 
   private _formatDatetime() {
-    DATE_TIME_FIELDS.forEach(field => {
+    DATE_TIME_FIELDS.forEach((field) => {
       const value = this[field];
 
       if (value && typeof value === 'string') {

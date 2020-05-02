@@ -51,7 +51,7 @@ export function groupByDistinctly(
 ) {
   const map = {};
 
-  arr.forEach(a => {
+  arr.forEach((a) => {
     map[a[key]] = valueKey ? a[valueKey] : a;
   });
 
@@ -86,7 +86,7 @@ export function addOrRemove(arr: any[], obj: any) {
 
   // 存在则删除
   if (arr.indexOf(obj) > -1) {
-    return arr.filter(a => a !== obj);
+    return arr.filter((a) => a !== obj);
   }
 
   return [...arr, obj];

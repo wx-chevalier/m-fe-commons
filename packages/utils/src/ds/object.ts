@@ -68,14 +68,14 @@ export function hasOwn(obj: Object | Array<any>, key: string): boolean {
  * Create a cached version of a pure function.
  */
 export const cached = (fn: Function) => {
-  //1
+  // 1
   let cache = {}; // 2
   return (...args: any[]) => {
-    //3
-    let stringifiedArgs = JSON.stringify(args); //4
+    // 3
+    let stringifiedArgs = JSON.stringify(args); // 4
     let result = (cache[stringifiedArgs] =
-      cache[stringifiedArgs] || fn(...args)); //5
-    return result; //6
+      cache[stringifiedArgs] || fn(...args)); // 5
+    return result; // 6
   };
 };
 /**
