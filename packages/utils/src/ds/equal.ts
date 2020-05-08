@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/prefer-for-of */
 import { is, isObject } from './is';
 
 const isArray = Array.isArray;
@@ -81,11 +82,11 @@ export function deepEqual(a: any, b: any): boolean {
   if (a === b) return true;
 
   if (a && b && typeof a == 'object' && typeof b == 'object') {
-    var arrA = isArray(a),
-      arrB = isArray(b),
-      i,
-      length,
-      key;
+    const arrA = isArray(a);
+    const arrB = isArray(b);
+    let i: number;
+    let length: number;
+    let key: any;
 
     if (arrA && arrB) {
       length = a.length;
@@ -96,17 +97,17 @@ export function deepEqual(a: any, b: any): boolean {
 
     if (arrA != arrB) return false;
 
-    var dateA = a instanceof Date,
+    const dateA = a instanceof Date,
       dateB = b instanceof Date;
     if (dateA != dateB) return false;
     if (dateA && dateB) return a.getTime() == b.getTime();
 
-    var regexpA = a instanceof RegExp,
+    const regexpA = a instanceof RegExp,
       regexpB = b instanceof RegExp;
     if (regexpA != regexpB) return false;
     if (regexpA && regexpB) return a.toString() == b.toString();
 
-    var keys = keyList(a);
+    const keys = keyList(a);
     length = keys.length;
 
     if (length !== keyList(b).length) return false;

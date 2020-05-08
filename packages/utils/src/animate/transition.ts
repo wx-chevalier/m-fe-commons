@@ -1,3 +1,5 @@
+/* eslint-disable @typescript-eslint/camelcase */
+/* tslint-disable variable-name */
 import { isFunction } from '../ds';
 import { assign } from '../func';
 
@@ -56,10 +58,10 @@ export function fly(
   }: FlyParams,
 ): TransitionConfig {
   const style = getComputedStyle(node);
-  const target_opacity = +(style.opacity || 0);
+  const targetOpacity = +(style.opacity || 0);
   const transform = style.transform === 'none' ? '' : style.transform;
 
-  const od = target_opacity * (1 - opacity);
+  const od = targetOpacity * (1 - opacity);
 
   return {
     delay,
@@ -67,7 +69,7 @@ export function fly(
     easing,
     css: (t, u) => `
 			transform: ${transform} translate(${(1 - t) * x}px, ${(1 - t) * y}px);
-			opacity: ${target_opacity - od * u}`,
+			opacity: ${targetOpacity - od * u}`,
   };
 }
 
@@ -84,12 +86,12 @@ export function slide(
   const style = getComputedStyle(node);
   const opacity = +(style.opacity || 0);
   const height = parseFloat(style.height || '');
-  const padding_top = parseFloat(style.paddingTop || '');
-  const padding_bottom = parseFloat(style.paddingBottom || '');
-  const margin_top = parseFloat(style.marginTop || '');
-  const margin_bottom = parseFloat(style.marginBottom || '');
-  const border_top_width = parseFloat(style.borderTopWidth || '');
-  const border_bottom_width = parseFloat(style.borderBottomWidth || '');
+  const paddingTop = parseFloat(style.paddingTop || '');
+  const paddingBottom = parseFloat(style.paddingBottom || '');
+  const marginTop = parseFloat(style.marginTop || '');
+  const marginBottom = parseFloat(style.marginBottom || '');
+  const borderTopWidth = parseFloat(style.borderTopWidth || '');
+  const borderBottomWidth = parseFloat(style.borderBottomWidth || '');
 
   return {
     delay,
@@ -99,12 +101,12 @@ export function slide(
       `overflow: hidden;` +
       `opacity: ${Math.min(t * 20, 1) * opacity};` +
       `height: ${t * height}px;` +
-      `padding-top: ${t * padding_top}px;` +
-      `padding-bottom: ${t * padding_bottom}px;` +
-      `margin-top: ${t * margin_top}px;` +
-      `margin-bottom: ${t * margin_bottom}px;` +
-      `border-top-width: ${t * border_top_width}px;` +
-      `border-bottom-width: ${t * border_bottom_width}px;`,
+      `padding-top: ${t * paddingTop}px;` +
+      `padding-bottom: ${t * paddingBottom}px;` +
+      `margin-top: ${t * marginTop}px;` +
+      `margin-bottom: ${t * marginBottom}px;` +
+      `border-top-width: ${t * borderTopWidth}px;` +
+      `border-bottom-width: ${t * borderBottomWidth}px;`,
   };
 }
 
@@ -127,11 +129,11 @@ export function scale(
   }: ScaleParams,
 ): TransitionConfig {
   const style = getComputedStyle(node);
-  const target_opacity = +(style.opacity || 0);
+  const targetOpacity = +(style.opacity || 0);
   const transform = style.transform === 'none' ? '' : style.transform;
 
   const sd = 1 - start;
-  const od = target_opacity * (1 - opacity);
+  const od = targetOpacity * (1 - opacity);
 
   return {
     delay,
@@ -139,7 +141,7 @@ export function scale(
     easing,
     css: (_t, u) => `
 			transform: ${transform} scale(${1 - sd * u});
-			opacity: ${target_opacity - od * u}
+			opacity: ${targetOpacity - od * u}
 		`,
   };
 }
@@ -193,8 +195,8 @@ export function crossfade({
     intro: boolean,
   ) => TransitionConfig;
 }) {
-  const to_receive: ClientRectMap = new Map();
-  const to_send: ClientRectMap = new Map();
+  const toReceive: ClientRectMap = new Map();
+  const toSend: ClientRectMap = new Map();
 
   function crossfade(
     from: ClientRect,
@@ -259,7 +261,7 @@ export function crossfade({
   }
 
   return [
-    transition(to_send, to_receive, false),
-    transition(to_receive, to_send, true),
+    transition(toSend, toReceive, false),
+    transition(toReceive, toSend, true),
   ];
 }

@@ -1,5 +1,6 @@
 export { Argument } from './Argument';
 export { Arguments } from './Arguments';
+export * from './Constructor';
 export { Fn } from './Fn';
 export { IsValidArg } from './IsValidArg';
 export { NumberOfArgs } from './NumberOfArgs';

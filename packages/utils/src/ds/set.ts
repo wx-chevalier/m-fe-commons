@@ -9,7 +9,7 @@ if (typeof Set !== 'undefined' && isNative(Set)) {
 } else {
   // a non-standard Set polyfill that only works with primitive keys.
   _Set = class Set implements ISet {
-    set: Object;
+    set: object;
     constructor() {
       this.set = Object.create(null);
     }

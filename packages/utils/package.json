@@ -1,6 +1,6 @@
 {
   "name": "@m-fe/utils",
-  "version": "0.2.11",
+  "version": "0.2.12",
   "description": "@m-fe/utils",
   "repository": {
     "type": "git",
@@ -32,7 +32,7 @@
     "test": "jest --config ../../scripts/jest/jest.config.js"
   },
   "dependencies": {
-    "dayjs": "^1.8.20",
+    "dayjs": "^1.8.26",
     "fast-deep-equal": "^2.0.1",
     "history": "^4.10.1",
     "lodash.chunk": "^4.2.0",

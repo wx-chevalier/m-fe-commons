@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/prefer-for-of */
 /**
  * Convert a value to a string that is actually rendered.
  */
@@ -28,10 +29,11 @@ export function makeMap(
 ): (key: string) => true | void {
   const map = Object.create(null);
   const list: Array<string> = str.split(',');
+  // eslint-disable-next-line @typescript-eslint/prefer-for-of
   for (let i = 0; i < list.length; i++) {
     map[list[i]] = true;
   }
-  return expectsLowerCase ? (val) => map[val.toLowerCase()] : (val) => map[val];
+  return expectsLowerCase ? val => map[val.toLowerCase()] : val => map[val];
 }
 
 /**
@@ -60,7 +62,7 @@ export function remove(arr: Array<any>, item: any): Array<any> | void {
  * Check whether the object has the property.
  */
 const hasOwnProperty = Object.prototype.hasOwnProperty;
-export function hasOwn(obj: Object | Array<any>, key: string): boolean {
+export function hasOwn(obj: object | Array<any>, key: string): boolean {
   return hasOwnProperty.call(obj, key);
 }
 
@@ -69,11 +71,11 @@ export function hasOwn(obj: Object | Array<any>, key: string): boolean {
  */
 export const cached = (fn: Function) => {
   // 1
-  let cache = {}; // 2
+  const cache = {}; // 2
   return (...args: any[]) => {
     // 3
-    let stringifiedArgs = JSON.stringify(args); // 4
-    let result = (cache[stringifiedArgs] =
+    const stringifiedArgs = JSON.stringify(args); // 4
+    const result = (cache[stringifiedArgs] =
       cache[stringifiedArgs] || fn(...args)); // 5
     return result; // 6
   };
@@ -107,12 +109,13 @@ export const hyphenate = cached((str: string): string => {
 /**
  * Simple bind, faster than native
  */
-export function bind(fn: Function, ctx: Object): Function {
+export function bind(fn: Function, ctx: object): Function {
   function boundFn(a: any) {
     const l: number = arguments.length;
     return l
       ? l > 1
-        ? fn.apply(ctx, arguments)
+        ? // eslint-disable-next-line prefer-rest-params
+          fn.apply(ctx, arguments)
         : fn.call(ctx, a)
       : fn.call(ctx);
   }
@@ -124,7 +127,7 @@ export function bind(fn: Function, ctx: Object): Function {
 /**
  * Mix properties into target object.
  */
-export function extend(to: Object, _from?: Object): Object {
+export function extend(to: object, _from?: object): object {
   for (const key in _from) {
     to[key] = _from[key];
   }
@@ -151,9 +154,9 @@ export function objectWithoutProperties<T, K extends keyof T>(
 }
 
 /**
- * Merge an Array of Objects into a single Object.
+ * Merge an Array of objects into a single object.
  */
-export function toObject(arr: Array<any>): Object {
+export function toobject(arr: Array<any>): object {
   const res = {};
   for (let i = 0; i < arr.length; i++) {
     if (arr[i]) {

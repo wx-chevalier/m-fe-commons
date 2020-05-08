@@ -3,6 +3,7 @@ export * from './datetime';
 export * from './equal';
 export * from './entity';
 export * from './is';
+export * from './kv';
 export * from './number';
 export * from './object';
 export * from './regex';

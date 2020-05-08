@@ -81,9 +81,9 @@ export function removeUtmParamsFromQuery(originUrl: string) {
     return originUrl;
   }
 
-  let uriObj = URI(originUrl);
+  const uriObj = URI(originUrl);
 
-  utmParams.forEach((p) => {
+  utmParams.forEach(p => {
     uriObj.removeQuery(p);
   });
 

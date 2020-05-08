@@ -3,9 +3,9 @@
  */
 export type Procedure = (...args: any[]) => void;
 
-export type Options = {
+export interface Options {
   isImmediate: boolean;
-};
+}
 
 export function debounce<F extends Procedure>(
   func: F,
@@ -16,10 +16,11 @@ export function debounce<F extends Procedure>(
 ): F {
   let timeoutId: NodeJS.Timeout | undefined;
 
-  return function (this: any, ...args: any[]) {
+  return function(this: any, ...args: any[]) {
+    // eslint-disable-next-line @typescript-eslint/no-this-alias
     const context = this;
 
-    const doLater = function () {
+    const doLater = () => {
       timeoutId = undefined;
       if (!options.isImmediate) {
         func.apply(context, args);

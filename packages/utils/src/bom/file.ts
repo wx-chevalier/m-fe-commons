@@ -57,7 +57,7 @@ export function readFileAsArrayBufferAsync(file: File): Promise<ArrayBuffer> {
       const data = fr.result as ArrayBuffer;
       resolve(data);
     };
-    fr.onerror = (e) => {
+    fr.onerror = e => {
       reject(e);
     };
 

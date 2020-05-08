@@ -16,7 +16,7 @@ export const flatten = (list: Array<any>): Array<any> =>
  */
 export function shuffle(a: Array<any>) {
   for (let i = a.length; i; i--) {
-    let j = Math.floor(Math.random() * i);
+    const j = Math.floor(Math.random() * i);
     [a[i - 1], a[j]] = [a[j], a[i - 1]];
   }
   return a;
@@ -32,7 +32,7 @@ export function toArray(listLike: any) {
     return [];
   }
 
-  let list = [];
+  const list = [];
 
   for (let i = 0, len = listLike.length; i < len; i++) {
     list.push(listLike[i]);
@@ -51,7 +51,7 @@ export function groupByDistinctly(
 ) {
   const map = {};
 
-  arr.forEach((a) => {
+  arr.forEach(a => {
     map[a[key]] = valueKey ? a[valueKey] : a;
   });
 
@@ -86,7 +86,7 @@ export function addOrRemove(arr: any[], obj: any) {
 
   // 存在则删除
   if (arr.indexOf(obj) > -1) {
-    return arr.filter((a) => a !== obj);
+    return arr.filter(a => a !== obj);
   }
 
   return [...arr, obj];

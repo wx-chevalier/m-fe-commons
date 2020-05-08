@@ -42,9 +42,9 @@ export function createAnimation(
     duration = 300,
     easing = linear,
     // @ts-ignore todo: should this be separated from destructuring? Or start/end added to public api and documentation?
-    start: start_time = now() + delay,
+    start: startTime = now() + delay,
     // @ts-ignore todo:
-    end = start_time + duration,
+    end = startTime + duration,
     tick = noop,
     css,
   } = fn(node, { from, to }, params);
@@ -68,8 +68,8 @@ export function createAnimation(
     running = false;
   }
 
-  loop((now) => {
-    if (!started && now >= start_time) {
+  loop(now => {
+    if (!started && now >= startTime) {
       started = true;
     }
 
@@ -83,7 +83,7 @@ export function createAnimation(
     }
 
     if (started) {
-      const p = now - start_time;
+      const p = now - startTime;
       const t = 0 + 1 * easing(p / duration);
       tick(t, 1 - t);
     }
@@ -121,8 +121,7 @@ export function addTransform(
     const style = getComputedStyle(node);
     const transform = style.transform === 'none' ? '' : style.transform;
 
-    node.style.transform = `${transform} translate(${a.left - b.left}px, ${
-      a.top - b.top
-    }px)`;
+    node.style.transform = `${transform} translate(${a.left -
+      b.left}px, ${a.top - b.top}px)`;
   }
 }

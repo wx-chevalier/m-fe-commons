@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/camelcase */
 import { hash } from '../ds';
 import { raf } from '../func';
 
@@ -5,7 +6,7 @@ import { element } from './element';
 
 let stylesheet: CSSGroupingRule | StyleSheet | null;
 let active = 0;
-let current_rules = {};
+let currentRules = {};
 
 export function createRule(
   node: Element & ElementCSSInlineStyle,
@@ -28,14 +29,14 @@ export function createRule(
   const rule = keyframes + `100% {${fn(b, 1 - b)}}\n}`;
   const name = `__ueact_${hash(rule)}_${uid}`;
 
-  if (!current_rules[name]) {
+  if (!currentRules[name]) {
     if (!stylesheet) {
       const style = element('style');
       document.head.appendChild(style);
       stylesheet = style.sheet;
     }
 
-    current_rules[name] = true;
+    currentRules[name] = true;
 
     if (stylesheet && stylesheet instanceof CSSGroupingRule) {
       stylesheet.insertRule(
@@ -62,8 +63,8 @@ export function deleteRule(
     .split(', ')
     .filter(
       name
-        ? (anim) => anim.indexOf(name) < 0 // remove specific animation
-        : (anim) => anim.indexOf('__svelte') === -1, // remove all Svelte animations
+        ? anim => anim.indexOf(name) < 0 // remove specific animation
+        : anim => anim.indexOf('__svelte') === -1, // remove all Svelte animations
     )
     .join(', ');
 
@@ -76,7 +77,7 @@ export function clearRules() {
     if (stylesheet && stylesheet instanceof CSSGroupingRule) {
       let i = stylesheet.cssRules.length;
       while (i--) stylesheet.deleteRule(i);
-      current_rules = {};
+      currentRules = {};
     }
   });
 }

@@ -41,7 +41,7 @@ export function getQueryValues(
   const locationParams = new URLSearchParams(searchStr);
   const queryValues = {};
 
-  Object.keys(params).forEach((param) => {
+  Object.keys(params).forEach(param => {
     const { defaultValue, stringToValue = defaultStringToValue } = params[
       param
     ];
@@ -62,7 +62,7 @@ export function updateQueryValues(
 
   const locationParams = new URLSearchParams(searchStr);
 
-  Object.keys(queryValues).forEach((param) => {
+  Object.keys(queryValues).forEach(param => {
     const rv = queryValues[param];
     if (rv == null) {
       return;

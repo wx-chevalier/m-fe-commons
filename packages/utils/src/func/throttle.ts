@@ -3,9 +3,10 @@
  */
 export function once(fn: Function): Function {
   let called = false;
-  return function (this: any) {
+  return function(this: any) {
     if (!called) {
       called = true;
+      // eslint-disable-next-line prefer-rest-params
       fn.apply(this, arguments);
     }
   };
@@ -23,11 +24,11 @@ export function once(fn: Function): Function {
 export function throttle(fn: Function, wait: number) {
   let isCalled = false;
 
-  return function (...args: any[]) {
+  return (...args: any[]) => {
     if (!isCalled) {
       fn(...args);
       isCalled = true;
-      setTimeout(function () {
+      setTimeout(() => {
         isCalled = false;
       }, wait);
     }
@@ -41,9 +42,9 @@ export function throttle(fn: Function, wait: number) {
  */
 export function throttleAndQueue(fn: Function, wait: number) {
   let isCalled = false;
-  let callQueue: Function[] = [];
+  const callQueue: Function[] = [];
 
-  let caller = function () {
+  const caller = () => {
     if (callQueue && callQueue.length && !isCalled) {
       isCalled = true;
       const callable = callQueue.shift();
@@ -52,14 +53,14 @@ export function throttleAndQueue(fn: Function, wait: number) {
         callable();
       }
 
-      setTimeout(function () {
+      setTimeout(() => {
         isCalled = false;
         caller();
       }, wait);
     }
   };
 
-  return function (this: any, ...args: any[]) {
+  return function(this: any, ...args: any[]) {
     callQueue.push(fn.bind(this, ...args));
 
     caller();

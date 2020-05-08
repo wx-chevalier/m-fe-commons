@@ -3,8 +3,8 @@ import { inBrowser, isIOS, isNative } from '../env';
 
 import { handleError, noop } from '.';
 
-/** 异步调用某个函数的简单实现，这里混用了 MicroTask 与 MacroTask
- *	@param {Function} callback
+/**
+ * 异步调用某个函数的简单实现，这里混用了 MicroTask 与 MacroTask
  */
 export const defer =
   typeof Promise === 'function'
@@ -25,7 +25,7 @@ export function setRaf(_raf: typeof raf) {
 }
 
 /** 使用 MicroTask 来异步执行批次任务 */
-export const nextTick = (function () {
+export const nextTick = (() => {
   // 需要执行的回调列表
   const callbacks: Function[] = [];
 
@@ -40,6 +40,7 @@ export const nextTick = (function () {
     pending = false;
     const copies = callbacks.slice(0);
     callbacks.length = 0;
+    // eslint-disable-next-line @typescript-eslint/prefer-for-of
     for (let i = 0; i < copies.length; i++) {
       copies[i]();
     }
@@ -48,8 +49,8 @@ export const nextTick = (function () {
   // nextTick 的回调会被加入到 MicroTask 队列中，这里我们主要通过原生的 Promise 与 MutationObserver 实现
   /* istanbul ignore if */
   if (typeof Promise !== 'undefined' && isNative(Promise)) {
-    let p = Promise.resolve();
-    let logError = (err: Error) => {
+    const p = Promise.resolve();
+    const logError = (err: Error) => {
       console.error(err);
     };
     timerFunc = () => {
@@ -67,8 +68,8 @@ export const nextTick = (function () {
     // 当 Promise 不可用时候使用 MutationObserver
     // e.g. PhantomJS IE11, iOS7, Android 4.4
     let counter = 1;
-    let observer = new MutationObserver(nextTickHandler);
-    let textNode = document.createTextNode(String(counter));
+    const observer = new MutationObserver(nextTickHandler);
+    const textNode = document.createTextNode(String(counter));
     observer.observe(textNode, {
       characterData: true,
     });
@@ -86,7 +87,7 @@ export const nextTick = (function () {
 
   return function queueNextTick(
     cb?: Function,
-    ctx?: Object,
+    ctx?: object,
   ): void | Promise<any> {
     let _resolve: Function;
     callbacks.push(() => {
@@ -123,8 +124,8 @@ export interface EventLoopTask {
 const tasks = new Set<[Function, Function]>();
 let running = false;
 
-function run_tasks() {
-  tasks.forEach((task) => {
+function runTasks() {
+  tasks.forEach(task => {
     if (!task[0](now())) {
       tasks.delete(task);
       task[1]();
@@ -132,12 +133,12 @@ function run_tasks() {
   });
 
   running = tasks.size > 0;
-  if (running) raf(run_tasks);
+  if (running) raf(runTasks);
 }
 
-export function clear_loops() {
+export function clearLoops() {
   // for testing...
-  tasks.forEach((task) => tasks.delete(task));
+  tasks.forEach(task => tasks.delete(task));
   running = false;
 }
 
@@ -146,11 +147,11 @@ export function loop(fn: (num: number) => void): EventLoopTask {
 
   if (!running) {
     running = true;
-    raf(run_tasks);
+    raf(runTasks);
   }
 
   return {
-    promise: new Promise<void>((fulfil) => {
+    promise: new Promise<void>(fulfil => {
       tasks.add((task = [fn, fulfil]));
     }),
     abort() {
