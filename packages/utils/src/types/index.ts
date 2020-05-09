@@ -10,9 +10,3 @@ export * from './array';
 export * from './tuple';
 export * from './function';
 export * from './ramda';
-
-export type DeepPartial<T> = {
-  [key in keyof T]?: DeepPartial<T[key]>;
-};
-
-export type Type<T> = new (...args: unknown[]) => T;
