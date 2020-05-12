@@ -2,7 +2,6 @@ export { Awaited } from './Awaited';
 export { Const } from './Const';
 export { DiscriminateUnion } from './DiscriminateUnion';
 export { Flatten } from './Flatten';
-export { Id } from './Id';
 export { InstanceOf } from './InstanceOf';
 export { Matches } from './Matches';
 // export { PrototypeOf } from './PrototypeOf';
