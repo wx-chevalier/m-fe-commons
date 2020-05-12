@@ -11,6 +11,38 @@ export const now: () => number = inBrowser
 
 export type Dateable = string | number | Dayjs | undefined;
 
+export function getYesterdayDateStr() {
+  return dayjs()
+    .subtract(1, 'day')
+    .format('YYYY-MM-DD');
+}
+
+export function getTodayDateStr() {
+  return dayjs().format('YYYY-MM-DD');
+}
+
+export function getLastWeekDateStrList() {
+  const dateStrList = [];
+
+  for (let i = 7; i > 0; i--) {
+    dateStrList.push(
+      dayjs()
+        .subtract(i, 'day')
+        .format('YYYY-MM-DD'),
+    );
+  }
+
+  return dateStrList;
+}
+
+export function formatDatetimeWithoutYear(m: Dateable) {
+  if (!m) {
+    return '-';
+  }
+
+  return dayjs(m).format('MM-DD HH:mm:sss');
+}
+
 /** 格式化为标准时间形式 */
 export function formatDate(m: Dateable) {
   if (!m || !dayjs(m).isValid()) {
