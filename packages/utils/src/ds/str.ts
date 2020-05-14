@@ -20,3 +20,8 @@ export function parseJson(str: string, defaultValue = {}) {
     return defaultValue;
   }
 }
+
+/** 从路径中获取到文件名 */
+export function getFileNameFromPath(str: string = '') {
+  return str.split(/(\\|\/)/g).pop();
+}
