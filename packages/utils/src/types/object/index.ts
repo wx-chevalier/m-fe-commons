@@ -4,6 +4,7 @@ export { DeepPartial } from './DeepPartial';
 export { DeepReadonly } from './DeepReadonly';
 export { DeepRequired } from './DeepRequired';
 export { DeepWiden } from './DeepWiden';
+export { Dictionary } from './Dictionary';
 export { FunctionPropNames } from './FunctionPropNames';
 export { FunctionProps } from './FunctionProps';
 export { HasKey } from './HasKey';
