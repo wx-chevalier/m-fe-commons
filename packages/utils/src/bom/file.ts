@@ -1,5 +1,26 @@
 import { inBrowser } from '../env';
 
+/** 下载文本 */
+export function downloadText(
+  fileName: string,
+  text: string,
+  type = 'text/plain',
+) {
+  const element = document.createElement('a');
+  element.setAttribute(
+    'href',
+    `data:${type};charset=utf-8,` + encodeURIComponent(text),
+  );
+  element.setAttribute('download', fileName);
+
+  element.style.display = 'none';
+  document.body.appendChild(element);
+
+  element.click();
+
+  document.body.removeChild(element);
+}
+
 /** 下载某个 ArrayBuffer */
 export function downloadArraybuffer(
   arrayBuffer: ArrayBuffer,
