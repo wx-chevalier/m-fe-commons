@@ -25,3 +25,7 @@ export function parseJson(str: string, defaultValue = {}) {
 export function getFileNameFromPath(str: string = '') {
   return str.split(/(\\|\/)/g).pop();
 }
+
+export function searchWithTextTransform(targetStr = '', featStr = '') {
+  return `${targetStr.toLowerCase()}`.indexOf(featStr.toLowerCase()) > -1;
+}

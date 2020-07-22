@@ -10,3 +10,4 @@ export * from './regex';
 export * from './set';
 export * from './str';
 export * from './uri';
+export * from './validator';

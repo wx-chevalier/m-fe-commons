@@ -1,5 +1,5 @@
 /** 将某个对象转化为 KV */
-export function transformToKV(obj: object) {
+export function transformToKV(obj: Record<string, unknown>) {
   const kvEntries: {
     key: string;
     type: string;
@@ -8,9 +8,17 @@ export function transformToKV(obj: object) {
 
   Object.keys(obj).forEach(k => {
     let type;
+    let value = obj[k] as string | number;
+
+    if (!obj[k]) {
+      return;
+    }
 
     if (typeof obj[k] === 'number') {
       type = 'LONG';
+    } else if (typeof obj[k] === 'object') {
+      type = 'STRING';
+      value = JSON.stringify(value);
     } else {
       type = 'STRING';
     }
@@ -18,7 +26,7 @@ export function transformToKV(obj: object) {
     kvEntries.push({
       key: k,
       type,
-      value: obj[k],
+      value,
     });
   });
 

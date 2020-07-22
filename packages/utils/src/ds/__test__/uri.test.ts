@@ -1,23 +1,23 @@
-import { getParamFromSearch } from '../uri';
+import { getUrlParam } from '../uri';
 
-describe('getParamFromSearch', () => {
-  it('getParamFromSearch', () => {
+describe('getUrlParam', () => {
+  it('getUrlParam', () => {
     console.log(
-      getParamFromSearch(
+      getUrlParam(
         'http://0.0.0.0:8080/?token1=1#/home/dashboard/0?token2=2',
         'token1',
       ),
     );
 
     console.log(
-      getParamFromSearch(
+      getUrlParam(
         'http://0.0.0.0:8080/?token1=1#/home/dashboard/0?token2=2',
         'token2',
       ),
     );
 
     console.log(
-      getParamFromSearch(
+      getUrlParam(
         'http://0.0.0.0:8080/?token1=1#/home/dashboard/0?token2=2',
         'token3',
       ),

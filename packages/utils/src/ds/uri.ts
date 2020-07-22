@@ -100,8 +100,16 @@ export function getFileNameFromUrl(href: string): string {
   return URI(href).filename();
 }
 
+/** 获取当前 url 中的参数 */
+export function getUrlParamWithRegex(name: string) {
+  const reg = new RegExp('(^|&)' + name + '=([^&]*)(&|$)');
+  const r = window.location.search.substr(1).match(reg);
+  if (r != null) return unescape(r[2]);
+  return null;
+}
+
 /** 从 Url 中获取参数 */
-export function getParamFromSearch(href: string, key: string) {
+export function getUrlParam(href: string, key: string) {
   // 首先从 href 中获取，不存在则从 token 中获取
   const uriObj = newUri(href);
   const sp = new URLSearchParams(uriObj.query());
@@ -116,4 +124,27 @@ export function getParamFromSearch(href: string, key: string) {
   const hashUriObj = newUri(hash.replace('#', 'http://domain'));
   const hashSp = new URLSearchParams(hashUriObj.query());
   return hashSp.get(key);
+}
+
+/** 添加默认的图片 URI 后缀 */
+export function setOssResize(url: string, width = 150) {
+  // 过滤无效的 url
+  if (!url) {
+    return url;
+  }
+
+  if (url.indexOf('aliyuncs.com') === -1 || url.indexOf('Signature') > -1) {
+    return url;
+  }
+
+  const uri = URI(url);
+
+  return (
+    uri
+      .addQuery({
+        'x-oss-process': `image/resize,w_${width}`,
+      })
+      .href()
+      .replace('http://', 'https://') || ''
+  );
 }
