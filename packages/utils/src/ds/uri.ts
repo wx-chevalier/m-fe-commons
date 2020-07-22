@@ -91,11 +91,29 @@ export function removeUtmParamsFromQuery(originUrl: string) {
 }
 
 // See http://medialize.github.io/URI.js/docs.html
-export function newUri(href: string) {
+export function newUri(href: string): URI {
   return URI(href);
 }
 
 /** 从 Url 中获取到最后的文件名 */
 export function getFileNameFromUrl(href: string): string {
   return URI(href).filename();
+}
+
+/** 从 Url 中获取参数 */
+export function getParamFromSearch(href: string, key: string) {
+  // 首先从 href 中获取，不存在则从 token 中获取
+  const uriObj = newUri(href);
+  const sp = new URLSearchParams(uriObj.query());
+  const value = sp.get(key);
+
+  if (value) {
+    return value;
+  }
+
+  // 不存在，则从 hash 中获取
+  const hash = uriObj.hash();
+  const hashUriObj = newUri(hash.replace('#', 'http://domain'));
+  const hashSp = new URLSearchParams(hashUriObj.query());
+  return hashSp.get(key);
 }
