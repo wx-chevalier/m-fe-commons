@@ -126,6 +126,15 @@ export function getUrlParam(href: string, key: string) {
   return hashSp.get(key);
 }
 
+export function addQueryParams(url: string, params: Record<string, string>) {
+  const uri = URI(url);
+  return uri
+    .addQuery({
+      ...params,
+    })
+    .href();
+}
+
 /** 添加默认的图片 URI 后缀 */
 export function setOssResize(url: string, width = 150) {
   // 过滤无效的 url
