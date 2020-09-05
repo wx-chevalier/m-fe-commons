@@ -5,7 +5,7 @@ export function parseCookieStr(cookieStr: string) {
     .reduce((cookieObject: Record<string, any>, cookieString) => {
       const splitCookie = cookieString
         .split('=')
-        .map((cookiePart) => cookiePart.trim());
+        .map(cookiePart => cookiePart.trim());
       try {
         cookieObject[splitCookie[0]] = JSON.parse(splitCookie[1]);
       } catch (error) {
