@@ -1,5 +1,5 @@
 /** 文本转化为语音播报 */
-export function textToSpeech(str: string, lang: 'zh' | 'en') {
+export function textToSpeech(str: string, lang: 'zh' | 'en' = 'zh') {
   if (
     typeof window === 'undefined' ||
     typeof SpeechSynthesisUtterance === 'undefined'
