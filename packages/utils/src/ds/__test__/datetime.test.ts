@@ -1,7 +1,7 @@
-import { chunkWithFill } from '../array';
+import { getCurrentWeekDates } from '../datetime';
 
-describe('chunk', () => {
-  it('chunkWithFill', () => {
-    chunkWithFill(['1'], 2, '1');
+describe('weekly', () => {
+  it('get weekly info', () => {
+    console.log(getCurrentWeekDates());
   });
 });
