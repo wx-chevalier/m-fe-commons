@@ -22,18 +22,18 @@ export function getTodayDateStr() {
 }
 
 /** 获取当前天所在周 */
-export function getCurrentWeekDates() {
-  const dayInWeek = dayjs().day();
+export function getCurrentWeekDates(targetDay: Dayjs = dayjs()) {
+  const dayInWeek = targetDay.day();
   const dates = [];
 
   let monday: Dayjs;
 
   if (dayInWeek === 0) {
     // 如果当天是周日，则向前推算七天
-    monday = dayjs().subtract(6, 'day');
+    monday = targetDay.subtract(6, 'day');
   } else {
     // 否则从当天向前推几天
-    monday = dayjs().subtract(dayInWeek - 1, 'day');
+    monday = targetDay.subtract(dayInWeek - 1, 'day');
   }
 
   for (let i = 0; i < 7; i++) {
