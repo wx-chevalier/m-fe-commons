@@ -29,3 +29,11 @@ export function getFileNameFromPath(str: string = '') {
 export function searchWithTextTransform(targetStr = '', featStr = '') {
   return `${targetStr.toLowerCase()}`.indexOf(featStr.toLowerCase()) > -1;
 }
+
+/** 判断是否包含中文 */
+export function hasChinese(str: string) {
+  const REGEX_CHINESE = /[\u3040-\u30ff\u3400-\u4dbf\u4e00-\u9fff\uf900-\ufaff\uff66-\uff9f]/;
+  const hasChinese = str.match(REGEX_CHINESE);
+
+  return hasChinese;
+}

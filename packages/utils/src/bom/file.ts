@@ -74,10 +74,16 @@ export function blobToFile(theBlob: Blob, fileName: string = 'fileName'): File {
 export function readFileAsArrayBufferAsync(file: File): Promise<ArrayBuffer> {
   return new Promise((resolve, reject) => {
     const fr = new FileReader();
+
     fr.onload = () => {
       const data = fr.result as ArrayBuffer;
       resolve(data);
+
+      setTimeout(() => {
+        fr.abort();
+      });
     };
+
     fr.onerror = e => {
       reject(e);
     };

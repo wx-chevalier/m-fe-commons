@@ -1,4 +1,5 @@
 import URI from 'urijs';
+import { hasChinese } from './str';
 
 const utmParams = [
   'utm_source',
@@ -156,4 +157,13 @@ export function setOssResize(url: string, width = 150) {
       .href()
       .replace('http://', 'https://') || ''
   );
+}
+
+/** 执行 URL 编码，注意避免多次重复 */
+export function encodeUri(uri: string) {
+  if (hasChinese(uri)) {
+    return encodeURI(uri);
+  }
+
+  return uri;
 }

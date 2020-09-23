@@ -1,6 +1,13 @@
-import { getUrlParam } from '../uri';
+import { encodeUri, getUrlParam } from '../uri';
 
 describe('getUrlParam', () => {
+  it('encodeUri', () => {
+    const testUri = 'https://a.com/我';
+
+    console.log(encodeUri(testUri));
+    console.log(encodeUri(encodeUri(testUri)));
+  });
+
   it('getUrlParam', () => {
     console.log(
       getUrlParam(

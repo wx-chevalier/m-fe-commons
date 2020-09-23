@@ -211,3 +211,34 @@ export function formatDurationAsDigitalClock(
 /**
  * @end Formatter
  */
+
+/** 自定义日期格式化 */
+export function formatDateByCustom(m: Dateable, template?: string) {
+  if (!m) {
+    return '-';
+  }
+
+  return dayjs(m).format(template);
+}
+
+/** 获取当天所在周 */
+export function formatDayInWeek(i: number) {
+  switch (i) {
+    case 0:
+      return '周日';
+    case 1:
+      return '周一';
+    case 2:
+      return '周二';
+    case 3:
+      return '周三';
+    case 4:
+      return '周四';
+    case 5:
+      return '周五';
+    case 6:
+      return '周六';
+    default:
+      return '未知';
+  }
+}
