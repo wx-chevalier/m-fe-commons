@@ -1,4 +1,7 @@
-/** 将某个对象转化为 KV */
+/**
+ * 将某个对象转化为 KV
+ * @param obj Record 对象
+ */
 export function transformToKV(obj: Record<string, unknown>) {
   const kvEntries: {
     key: string;

@@ -19,6 +19,10 @@ export const cancelablePromise = <T>(promise: Promise<T>) => {
   };
 };
 
+/**
+ * 允许进行休眠
+ * @param ms 休眠时间
+ */
 export function sleep(ms: number) {
   return new Promise(resolve => setTimeout(resolve, ms));
 }

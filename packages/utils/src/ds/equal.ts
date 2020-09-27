@@ -5,6 +5,11 @@ const isArray = Array.isArray;
 const keyList = Object.keys;
 const hasProp = Object.prototype.hasOwnProperty;
 
+/**
+ * 判断是否不等
+ * @param a 参数一
+ * @param b 参数二
+ */
 export function safeNotEqual(a: any, b: any) {
   return a != a
     ? b == b

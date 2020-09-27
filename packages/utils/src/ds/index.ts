@@ -1,3 +1,4 @@
+export * from './address';
 export * from './array';
 export * from './datetime';
 export * from './equal';
