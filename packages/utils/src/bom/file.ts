@@ -91,3 +91,5 @@ export function readFileAsArrayBufferAsync(file: File): Promise<ArrayBuffer> {
     fr.readAsArrayBuffer(file);
   });
 }
+
+/** 执行文件的 MD5 计算操作 */

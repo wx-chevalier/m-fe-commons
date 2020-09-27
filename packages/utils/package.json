@@ -9,6 +9,7 @@
   "author": "wx-chevalier@github",
   "license": "MIT",
   "main": "dist/cjs",
+  "module": "dist/es/index.js",
   "types": "dist/types",
   "files": [
     "dist/"
@@ -18,8 +19,9 @@
     "react"
   ],
   "scripts": {
-    "build": "npm run clean && npm run build:cjs && npm run copy",
+    "build": "npm run clean && npm run build:es && npm run build:cjs && npm run copy",
     "build:cjs": "tsc --project ./tsconfig.cjs.json && npm run copy",
+    "build:es": "tsc --project ./tsconfig.es.json",
     "clean": "rimraf dist",
     "copy": "copyfiles -u 1 './src/**/*.(less|svg)' dist/cjs/",
     "dev": "webpack-dev-server --config ./scripts/webpack/webpack.config.dev.js --hot",
