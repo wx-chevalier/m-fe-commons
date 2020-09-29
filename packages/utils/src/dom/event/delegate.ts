@@ -1,14 +1,14 @@
 export type EventType = keyof GlobalEventHandlersEventMap;
 
-export type DelegateSubscription = {
+export interface DelegateSubscription {
   destroy: VoidFunction;
-};
+}
 
-export type Setup = {
+export interface Setup {
   selector: string;
   type: EventType;
   capture: boolean;
-};
+}
 
 export type DelegateEventHandler<
   TEvent extends Event = Event,

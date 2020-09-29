@@ -46,12 +46,15 @@ describe('get', function() {
 
   it('should replica lodash interface in cases below', () => {
     const result1 = get(inputAllPresent, it => it.a);
+    // tslint:disable-next-line: variable-name
     const result1_ = _get(inputAllPresent, 'a');
 
     const result2 = get(inputAllPresent, it => it.b.nested, 'Default');
+    // tslint:disable-next-line: variable-name
     const result2_ = _get(inputAllPresent, 'b.nested', 'Default');
 
     const result3 = get(inputOptionalsMissing, it => it.b.nested);
+    // tslint:disable-next-line: variable-name
     const result3_ = _get(inputOptionalsMissing, 'b.nested');
 
     const result4 = get(
@@ -59,6 +62,7 @@ describe('get', function() {
       it => it.b.nested,
       'Default',
     );
+    // tslint:disable-next-line: variable-name
     const result4_ = _get(
       inputOptionalsSafeAccessMissing,
       'b.nested',
@@ -70,6 +74,7 @@ describe('get', function() {
     expect(result3).toBe(result3_);
     expect(result4).toBe(result4_);
   });
+  // tslint:disable-next-line: only-arrow-functions
   it('should return undefined and default value in case of null (different from _.get)', function() {
     const inputWithNull: InputType = {
       a: 'Value',

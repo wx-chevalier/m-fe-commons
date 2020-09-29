@@ -1,4 +1,5 @@
 import URI from 'urijs';
+
 import { hasChinese } from './str';
 
 const utmParams = [

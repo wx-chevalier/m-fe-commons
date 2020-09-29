@@ -1,6 +1,8 @@
 export * from './delegate';
+export * from './scroll';
 
 export function destroyEach(iterations: any, detaching: boolean) {
+  // eslint-disable-next-line @typescript-eslint/prefer-for-of
   for (let i = 0; i < iterations.length; i += 1) {
     if (iterations[i]) iterations[i].d(detaching);
   }
@@ -17,7 +19,7 @@ export function listen(
 }
 
 export function preventDefault(fn: Function) {
-  return function (event: Event) {
+  return function(event: Event) {
     event.preventDefault();
     // @ts-ignore
     return fn.call(this, event);
@@ -25,7 +27,7 @@ export function preventDefault(fn: Function) {
 }
 
 export function stopPropagation(fn: Function) {
-  return function (event: Event) {
+  return function(event: Event) {
     event.stopPropagation();
     // @ts-ignore
     return fn.call(this, event);
