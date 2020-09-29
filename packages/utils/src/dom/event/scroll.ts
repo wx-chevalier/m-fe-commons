@@ -4,7 +4,7 @@
  * 为某些元素添加拖拽滚动的能力
  * @param className 类名选择器
  */
-export function enableDragScroll(className: string) {
+export function enableDragScroll(className: string, noChildDrag = true) {
   const _window = window;
   const _document = document;
   const mousemove = 'mousemove';
@@ -41,6 +41,7 @@ export function enableDragScroll(className: string) {
           mousedown,
           (cont.md = (e: any) => {
             if (
+              !noChildDrag ||
               !el.hasAttribute('nochilddrag') ||
               _document.elementFromPoint(e.pageX, e.pageY) == cont
             ) {
@@ -69,7 +70,6 @@ export function enableDragScroll(className: string) {
               (scroller = el.scroller || el).scrollLeft -= newScrollX =
                 -lastClientX + (lastClientX = e.clientX);
 
-              console.log((scroller = el.scroller || el).scrollLeft);
               scroller.scrollTop -= newScrollY =
                 -lastClientY + (lastClientY = e.clientY);
               if (el == _document.body) {
