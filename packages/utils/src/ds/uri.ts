@@ -128,6 +128,7 @@ export function getUrlParam(href: string, key: string) {
   return hashSp.get(key);
 }
 
+/** 为某个 URL 添加查询参数 */
 export function addQueryParams(url: string, params: Record<string, string>) {
   const uri = URI(url);
   return uri

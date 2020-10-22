@@ -29,17 +29,24 @@ export function getChromeVersion(): number | boolean {
 // Firefix has a "watch" function on Object.prototype...
 export const nativeWatch = ({} as any).watch;
 
-export let supportsPassive = false;
+export function isSupportPassive(): Promise<boolean> {
+  return new Promise(resolve => {
+    let supportsPassive = false;
 
-if (inBrowser) {
-  try {
-    const opts = {};
-    Object.defineProperty(opts, 'passive', {
-      get() {
-        /* istanbul ignore next */
-        supportsPassive = true;
-      },
-    });
-    window.addEventListener('test-passive', null as any, opts);
-  } catch (e) {}
+    if (inBrowser) {
+      try {
+        const opts = {};
+        Object.defineProperty(opts, 'passive', {
+          get() {
+            /* istanbul ignore next */
+            supportsPassive = true;
+            resolve(supportsPassive);
+          },
+        });
+        window.addEventListener('test-passive', null as any, opts);
+      } catch (e) {
+        resolve(supportsPassive);
+      }
+    }
+  });
 }

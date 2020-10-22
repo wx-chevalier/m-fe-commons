@@ -1,4 +1,4 @@
-import { element } from '../element';
+import { element } from '../element/utils';
 
 describe('create', () => {
   it('element', () => {
