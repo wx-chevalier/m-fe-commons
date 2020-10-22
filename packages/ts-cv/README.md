@@ -1,5 +1,7 @@
 # ts-cv
 
+基于 TypeScript 的图像识别系列项目
+
 # About
 
 ## Motivation & Credits
