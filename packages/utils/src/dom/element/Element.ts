@@ -27,12 +27,14 @@ class Element {
   on(eventNames: string, handler: Function) {
     const [fen, ...oen] = eventNames.split('.');
     let eventName = fen;
+
     if (
       eventName === 'mousewheel' &&
       /Firefox/i.test(window.navigator.userAgent)
     ) {
       eventName = 'DOMMouseScroll';
     }
+
     this.el.addEventListener(eventName, (evt: any) => {
       handler(evt);
 

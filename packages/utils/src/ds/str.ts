@@ -37,3 +37,12 @@ export function hasChinese(str: string) {
 
   return hasChinese;
 }
+
+/** 进行字符串截断 */
+export function ellipsis(str: string, maxLength = 10) {
+  if (str.length <= maxLength) {
+    return str;
+  }
+
+  return `${str.slice(0, maxLength)}...`;
+}
