@@ -77,6 +77,47 @@ const utmParams = [
   'sc_country',
 ];
 
+/** 简单地对 URL 进行解析 */
+export function parseUrl(url: string) {
+  const match = url.match(
+    /^(http|https|ftp)?(?:[\:\/]*)([a-z0-9\.-]*)(?:\:([0-9]+))?(\/[^?#]*)?(?:\?([^#]*))?(?:#(.*))?$/i,
+  );
+  const ret: any = new Object();
+
+  if (!match) {
+    return {};
+  }
+
+  ret.protocol = '';
+  ret.host = match[2];
+  ret.port = '';
+  ret.path = '';
+  ret.query = '';
+  ret.fragment = '';
+
+  if (match[1]) {
+    ret.protocol = match[1];
+  }
+
+  if (match[3]) {
+    ret.port = match[3];
+  }
+
+  if (match[4]) {
+    ret.path = match[4];
+  }
+
+  if (match[5]) {
+    ret.query = match[5];
+  }
+
+  if (match[6]) {
+    ret.fragment = match[6];
+  }
+
+  return ret;
+}
+
 /** 移除 UTM 相关的参数 */
 export function removeUtmParamsFromQuery(originUrl: string) {
   if (!originUrl) {

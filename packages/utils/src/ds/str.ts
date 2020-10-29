@@ -13,9 +13,9 @@ export function hash(str: string) {
   return hash >>> 0;
 }
 
-export function parseJson(str: string, defaultValue: any = {}) {
+export function parseJson(str: string, defaultValue: any = null) {
   try {
-    return JSON.parse(str);
+    return JSON.parse(str) || defaultValue;
   } catch (e) {
     return defaultValue;
   }
