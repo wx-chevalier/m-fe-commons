@@ -1,0 +1,64 @@
+#button {
+  .defaults(@pad: 1rem, @fs: 1rem) {
+    border: none;
+    outline: none;
+    padding: @pad;
+    font-size: @fs;
+    cursor: pointer;
+    transition: all 0.2s;
+
+    &:hover {
+      background-color: darken(@bg, 20%);
+    }
+
+    &:active {
+      background-color: darken(@bg, 40%);
+      font-size: calc(~'@{fs} - 1px');
+    }
+  }
+
+  .flat(@bg: @color-01, @col: white) when (default()) {
+    #button.defaults();
+    #display.colors(@col, @bg);
+  }
+
+  .flat(@type, @bg: @color-01, @col: white, @radius: 4px)
+    when
+    (@type = rounded) {
+    #button.defaults();
+    #display.colors(@col, @bg);
+
+    border-radius: @radius;
+  }
+
+  .flat(@type, @bg: @color-01, @col: white) when (@type = round) {
+    #button.defaults();
+    #display.colors(@col, @bg);
+
+    border-radius: 20px;
+  }
+
+  .custom(@bg: @color-01, @col: white, @pad: 1rem, @fs: 1rem, @radius: 0)
+    when
+    (default()) {
+    #button.defaults(@pad, @fs);
+    #display.colors(@col, @bg);
+
+    border-radius: @radius;
+  }
+
+  .link(@bg-col: @color-01, @col: white, @pad: 0.7rem 1rem, @fs: 1rem, @radius: 0) {
+    text-decoration: none;
+    font-size: @fs;
+    display: inline-block;
+    padding: @pad;
+    text-align: center;
+    border-radius: @radius;
+    #display.colors(@col, @bg-col);
+
+    &:hover,
+    &.active {
+      background-color: darken(@bg-col, 20%);
+    }
+  }
+}

@@ -1,0 +1,19 @@
+#gradient {
+  
+  .linear(@top: @color-01, @bottom: @color-02) when (default()) {
+    background: linear-gradient(to bottom, @top, @bottom);
+  }
+
+  .linear(@type, @top: @color-01, @bottom: @color-02) when (@type = top) {
+    background: linear-gradient(to top, @top, @bottom);
+  }
+  
+  .linear(@type, @left: @color-01, @right: @color-02) when (@type = left) {
+    background: linear-gradient(to left, @left, @right);
+  }
+  
+  .linear(@type, @left: @color-01, @right: @color-02) when (@type = right) {
+    background: linear-gradient(to right, @left, @right);
+  }
+  
+}

@@ -3,7 +3,7 @@ import { get as _get } from 'lodash';
 import { get } from '../get';
 
 // tslint:disable-next-line: only-arrow-functions
-describe('get', function() {
+describe('get', function () {
   interface InputType {
     a: string;
     b?: {
@@ -75,7 +75,7 @@ describe('get', function() {
     expect(result4).toBe(result4_);
   });
   // tslint:disable-next-line: only-arrow-functions
-  it('should return undefined and default value in case of null (different from _.get)', function() {
+  it('should return undefined and default value in case of null (different from _.get)', function () {
     const inputWithNull: InputType = {
       a: 'Value',
       b: {

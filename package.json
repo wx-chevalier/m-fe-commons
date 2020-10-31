@@ -4,7 +4,7 @@
   "description": "Micro-Frontend Libs, with React & TS & Webpack",
   "repository": {
     "type": "git",
-    "url": "https://github.com/FE-Kits/m-fe-libs"
+    "url": "https://github.com/wx-chevalier/m-fe-libs"
   },
   "author": "wx-chevalier@github",
   "license": "MIT",
@@ -28,7 +28,7 @@
     "lint": "./scripts/tools/lint_pkgs.sh",
     "lint-staged": "lint-staged",
     "postinstall": "node ./node_modules/husky/lib/installer/bin install",
-    "prettier-all": "prettier --write 'packages/**/src/**/*.{ts,tsx}' '!src/{assets,datas}/**'",
+    "prettier-all": "prettier --write './packages/**/src/**/*.{ts,tsx,less,scss,css}' '!src/{assets,datas}/**'",
     "start": "(cd packages/app-lib && npm start)",
     "test": "yarn workspaces run test",
     "test:cov": "yarn workspaces run test:cov",
@@ -37,7 +37,7 @@
   },
   "devDependencies": {
     "@svgr/webpack": "^5.1.0",
-    "@m-fe/app-config": "^0.4.2"
+    "@m-fe/app-config": "^0.6.9"
   },
   "browserslist": [
     "extends @m-fe/browserslist-config"

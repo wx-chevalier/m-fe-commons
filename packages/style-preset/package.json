@@ -1,0 +1,22 @@
+{
+  "name": "@m-fe/style-preset",
+  "version": "0.0.1",
+  "description": "Lightwight & Flexible SCSS/LessCSS Preset For Mobile & PC Web",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/wx-chevalier/m-fe-commons"
+  },
+  "author": "wx-chevalier",
+  "license": "ISC",
+  "main": "msp.scss",
+  "keywords": [
+    "scss",
+    "mobile",
+    "preset",
+    "flexbox",
+    "polyfill"
+  ],
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  }
+}

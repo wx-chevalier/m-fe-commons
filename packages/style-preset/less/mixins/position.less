@@ -1,0 +1,73 @@
+#position {
+  .absolute(@pos, @top: 0, @left: 0) when (@pos = top-left) {
+    position: absolute;
+    top: @top;
+    left: @left;
+  }
+
+  .absolute(@pos, @bottom: 0, @left: 0) when (@pos = bottom-left) {
+    position: absolute;
+    bottom: @bottom;
+    left: @left;
+  }
+
+  .absolute(@pos, @top: 0, @right: 0) when (@pos = top-right) {
+    position: absolute;
+    top: @top;
+    right: @right;
+  }
+
+  .absolute(@pos, @bottom: 0, @right: 0) when (@pos = bottom-right) {
+    position: absolute;
+    bottom: @bottom;
+    right: @right;
+  }
+
+  .relative(@pos, @top: 0, @left: 0) when (@pos = top-left) {
+    position: relative;
+    top: @top;
+    left: @left;
+  }
+
+  .relative(@pos, @bottom: 0, @left: 0) when (@pos = bottom-left) {
+    position: relative;
+    bottom: @bottom;
+    left: @left;
+  }
+
+  .relative(@pos, @top: 0, @right: 0) when (@pos = top-right) {
+    position: relative;
+    top: @top;
+    right: @right;
+  }
+
+  .relative(@pos, @bottom: 0, @right: 0) when (@pos = bottom-right) {
+    position: relative;
+    bottom: @bottom;
+    right: @right;
+  }
+
+  .fixed(@pos, @top: 0, @left: 0) when (@pos = top-left) {
+    position: fixed;
+    top: @top;
+    left: @left;
+  }
+
+  .fixed(@pos, @bottom: 0, @left: 0) when (@pos = bottom-left) {
+    position: fixed;
+    bottom: @bottom;
+    left: @left;
+  }
+
+  .fixed(@pos, @top: 0, @right: 0) when (@pos = top-right) {
+    position: fixed;
+    top: @top;
+    right: @right;
+  }
+
+  .fixed(@pos, @bottom: 0, @right: 0) when (@pos = bottom-right) {
+    position: fixed;
+    bottom: @bottom;
+    right: @right;
+  }
+}

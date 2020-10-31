@@ -121,7 +121,8 @@ export function addTransform(
     const style = getComputedStyle(node);
     const transform = style.transform === 'none' ? '' : style.transform;
 
-    node.style.transform = `${transform} translate(${a.left -
-      b.left}px, ${a.top - b.top}px)`;
+    node.style.transform = `${transform} translate(${a.left - b.left}px, ${
+      a.top - b.top
+    }px)`;
   }
 }

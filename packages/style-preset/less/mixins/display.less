@@ -1,0 +1,197 @@
+/*
+ * This file contains mixins / functions to which include very common style sets used for display.
+ * Usually benefecial if there are 2 or more rules declared.
+ */
+
+#display {
+  /*
+  * Use this for Gridwork:
+  */
+
+  .grid(@cols: 12, @gap: 20px, @rows: 1, @row-height: auto) when (default()) {
+    display: grid;
+    grid-template-columns: repeat(@cols, 1fr);
+    grid-template-rows: repeat(@rows, @row-height);
+    grid-column-gap: @gap;
+  }
+
+  .grid(@type, @cols: 12, @gap: 20px, @rows: auto) when (@type = center) {
+    display: grid;
+    grid-template-columns: repeat(@cols, 1fr);
+    grid-template-rows: @rows;
+    grid-column-gap: @gap;
+    place-items: center center;
+    justify-content: center;
+  }
+
+  .grid(@type, @cols: 12, @gap: 20px, @rows: auto) when (@type = stretch) {
+    display: grid;
+    grid-template-columns: repeat(@cols, 1fr);
+    grid-template-rows: @rows;
+    grid-column-gap: @gap;
+    place-items: center stretch;
+    justify-content: center;
+  }
+
+  /*
+   * Center all parent's children
+   */
+
+  .flex(@justify) when (@justify = space) {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+  }
+
+  /*
+   * Align children to left of container
+   */
+
+  .flex(@align) when (@align = start) {
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: flex-start;
+  }
+
+  /*
+   * Align children to right of container
+   */
+
+  .flex(@align) when (@align = end) {
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: flex-end;
+  }
+
+  /*
+   * Flexbox Grid alignment
+   */
+
+  .flex(@align) when (@align = grid) {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
+
+  /*
+   * Set color and background color
+   */
+
+  .colors(@col: black, @bg: white) {
+    color: @col;
+    background-color: @bg;
+  }
+
+  /*
+   * Set Width & Height
+   */
+
+  .dimensions(@w: 100px, @h: 100px) when (default()) {
+    width: @w;
+    height: @h;
+  }
+
+  /*
+   * Width & Height always equal
+   */
+
+  .dimensions(@type, @val: 100px) when (@type = equal) {
+    width: @val;
+    height: @val;
+  }
+
+  /*
+   * Set min-width & max-width
+   */
+  .width(@min: 100px, @max: 100%) {
+    min-width: @min;
+    max-width: @max;
+  }
+
+  /*
+   * Zero spacing inside and outside element
+   */
+
+  .no-space() {
+    margin: 0;
+    padding: 0;
+  }
+
+  /*
+   * Clearfix. Use this when elements are floated to fix the height of the parent element
+   * Also good for mis-aligned elements caused by floats.
+   */
+
+  .clearfix() {
+    &:before,
+    &:after {
+      content: '';
+      display: table;
+    }
+
+    &:after {
+      clear: both;
+    }
+  }
+
+  /*
+   * For quick display on :before & :after Pseudo elements.
+   */
+
+  .pseudo(@val: '') {
+    content: @val;
+    display: block;
+  }
+
+  /*
+   * Hide on mobile, Display on Desktop
+   * @max-mobile needs to be defined in the theme that uses this style
+   * @todo: Import media query variables (only after they are standardised and made global)
+   */
+
+  .desktop() {
+    display: none;
+
+    @media @desktop-small-min {
+      display: block;
+    }
+  }
+
+  /*
+   * Hide by default and display on tablet and desktop
+   */
+
+  .tablet() {
+    display: none;
+
+    @media @tablet-large-min {
+      display: block;
+    }
+  }
+
+  /*
+   * Hide on desktop, Display on Mobile
+   * @max-mobile needs to be defined in the theme that uses this style
+   * @todo: Import media query variables (only after they are standardised and made global)
+   */
+
+  .mobile() {
+    display: none;
+
+    @media @mobile-small-max {
+      display: block;
+    }
+  }
+
+  /*
+   * Fix for Chrome when it does not render webfonts
+   */
+
+  .webkit-delay() {
+    -webkit-animation-name: fontfix;
+    -webkit-animation-duration: 0.1s;
+    -webkit-animation-timing-function: linear;
+    -webkit-animation-delay: 0.1s;
+    -webkit-animation-iteration-count: 1;
+  }
+}

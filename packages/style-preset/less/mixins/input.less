@@ -1,0 +1,63 @@
+#input {
+  .colors(@col: black, @bg: lighten(@gray-light, 50%)) {
+    #display.colors(@col, @bg);
+  }
+
+  .input-defaults(@fs: 1rem) {
+    padding: 0.3rem 0.5rem;
+    font-size: @fs;
+    #display.dimensions(97%, 34px);
+    #border.solid(1px, @color-01);
+
+    &:focus {
+      border-color: lighten(@color-01, 50%);
+    }
+  }
+
+  .default() {
+    .input-defaults();
+    .colors();
+  }
+
+  .default(@type) when (@type = rounded) {
+    .input-defaults();
+    .colors();
+    border-radius: 4px;
+  }
+
+  .default(@type) when (@type = dark) {
+    .input-defaults();
+    .colors(lighten(@gray-light, 50%), darken(@gray-dark, 20%));
+  }
+
+  .default(@type) when (@type = dark-rounded) {
+    .input-defaults();
+    .colors(lighten(@gray-light, 50%), darken(@gray-dark, 20%));
+    border-radius: 4px;
+  }
+
+  .custom(@bg: white, @col: black, @pad: 0.3rem, @bd: @color-01, @w: 97%, @h: 34px, @fs: 1rem) {
+    padding: @pad;
+    font-size: @fs;
+    #display.colors(@col, @bg);
+    #display.dimensions(@w, @h);
+    #border.solid(1px, @bd);
+
+    &:focus {
+      border-color: lighten(@bd, 50%);
+    }
+  }
+
+  .style(@type, @border-color: @gray-dark, @focus-border-color: @color-01) when (@type = 1) {
+    height: 44px;
+    padding: 6px;
+    font-size: 1rem;
+    border: 1px solid @border-color;
+    width: 100%;
+    box-shadow: 1px 1px 1px @gray-light;
+
+    &:focus {
+      border-color: @focus-border-color;
+    }
+  }
+}

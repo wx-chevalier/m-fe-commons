@@ -16,7 +16,7 @@ export function debounce<F extends Procedure>(
 ): F {
   let timeoutId: NodeJS.Timeout | undefined;
 
-  return function(this: any, ...args: any[]) {
+  return function (this: any, ...args: any[]) {
     // eslint-disable-next-line @typescript-eslint/no-this-alias
     const context = this;
 

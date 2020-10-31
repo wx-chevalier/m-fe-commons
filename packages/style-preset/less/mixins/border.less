@@ -1,0 +1,117 @@
+#border {
+  /**
+   * Solid Borders
+   */
+
+  .solid(@size: 1px, @col: black) when (default()) {
+    border: @size solid @col;
+  }
+
+  .solid(@type, @size: 1px, @col: white) when (@type = horizontal) {
+    border-top: @size solid @col;
+    border-bottom: @size solid @col;
+  }
+
+  .solid(@type, @size: 1px, @col: white) when (@type = vertical) {
+    border-left: @size solid @col;
+    border-right: @size solid @col;
+  }
+
+  .solid(@type, @size: 1px, @col: white) when (@type = top) {
+    border-top: @size solid @col;
+  }
+
+  .solid(@type, @size: 1px, @col: white) when (@type = bottom) {
+    border-bottom: @size solid @col;
+  }
+
+  .solid(@type, @size: 1px, @col: white) when (@type = left) {
+    border-left: @size solid @col;
+  }
+
+  .solid(@type, @size: 1px, @col: white) when (@type = right) {
+    border-right: @size solid @col;
+  }
+
+  /**
+   * Dotted Borders
+   */
+
+  .dotted(@size: 1px, @col: black) when (default()) {
+    border: @size dotted @col;
+  }
+
+  .dotted(@type, @size: 1px, @col: white) when (@type = horizontal) {
+    border-top: @size dotted @col;
+    border-bottom: @size dotted @col;
+  }
+
+  .dotted(@type, @size: 1px, @col: white) when (@type = vertical) {
+    border-left: @size dotted @col;
+    border-right: @size dotted @col;
+  }
+
+  .dotted(@type, @size: 1px, @col: white) when (@type = top) {
+    border-top: @size solid @col;
+  }
+
+  .dotted(@type, @size: 1px, @col: white) when (@type = bottom) {
+    border-bottom: @size dotted @col;
+  }
+
+  .dotted(@type, @size: 1px, @col: white) when (@type = left) {
+    border-left: @size dotted @col;
+  }
+
+  .dotted(@type, @size: 1px, @col: white) when (@type = right) {
+    border-right: @size dotted @col;
+  }
+
+  /**
+   * Dashed Borders
+   */
+
+  .dashed(@size: 1px, @col: black) when (default()) {
+    border: @size dashed @col;
+  }
+
+  .dashed(@type, @size: 1px, @col: white) when (@type = horizontal) {
+    border-top: @size dashed @col;
+    border-bottom: @size dashed @col;
+  }
+
+  .dashed(@type, @size: 1px, @col: white) when (@type = vertical) {
+    border-left: @size dashed @col;
+    border-right: @size dashed @col;
+  }
+
+  .dashed(@type, @size: 1px, @col: white) when (@type = top) {
+    border-top: @size dashed @col;
+  }
+
+  .dashed(@type, @size: 1px, @col: white) when (@type = bottom) {
+    border-bottom: @size dashed @col;
+  }
+
+  .dashed(@type, @size: 1px, @col: white) when (@type = left) {
+    border-left: @size dashed @col;
+  }
+
+  .dashed(@type, @size: 1px, @col: white) when (@type = right) {
+    border-right: @size dashed @col;
+  }
+
+  /**
+   * Border Radius Control
+   */
+
+  .radius(@type, @size: 10px) when (@type = top) {
+    border-top-left-radius: @size;
+    border-top-right-radius: @size;
+  }
+
+  .radius(@type, @size: 10px) when (@type = bottom) {
+    border-bottom-left-radius: @size;
+    border-bottom-right-radius: @size;
+  }
+}

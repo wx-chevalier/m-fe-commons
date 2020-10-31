@@ -1,0 +1,36 @@
+#select {
+  .default(@width: 100%, @border-color: @color-01) when (default()) {
+    padding: 0.3rem 0.5rem;
+    font-size: 1rem;
+    box-shadow: 1px 1px 1px @gray-light;
+    appearance: none;
+    background: linear-gradient(45deg, @gray-light 50%, @gray-dark 50%),
+      linear-gradient(135deg, @gray-dark 50%, @gray-light 50%),
+      white linear-gradient(to right, @gray-light, @gray-light);
+    background-position: calc(100% - 21px) calc(1em + 2px),
+      calc(100% - 16px) calc(1em + 2px), 100% 0;
+    background-size: 5px 5px, 5px 5px, 2.5rem 2.5rem;
+    background-repeat: no-repeat;
+    #display.dimensions(@width, 40px);
+    #border.solid(1px, @border-color);
+  }
+
+  .default(@type, @width: 100%, @border-color: @color-01, @radius: 10px)
+    when
+    (@type = rounded) {
+    padding: 0.3rem 0.5rem;
+    font-size: 1rem;
+    border-radius: @radius;
+    box-shadow: 1px 1px 1px @gray-light;
+    appearance: none;
+    background: linear-gradient(45deg, @gray-light 50%, @gray-dark 50%),
+      linear-gradient(135deg, @gray-dark 50%, @gray-light 50%),
+      white linear-gradient(to right, @gray-light, @gray-light);
+    background-position: calc(100% - 21px) calc(1em + 2px),
+      calc(100% - 16px) calc(1em + 2px), 100% 0;
+    background-size: 5px 5px, 5px 5px, 2.5rem 2.5rem;
+    background-repeat: no-repeat;
+    #display.dimensions(@width, 40px);
+    #border.solid(1px, @border-color);
+  }
+}

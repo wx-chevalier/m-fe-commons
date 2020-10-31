@@ -2,9 +2,7 @@
 import dayjs, { Dayjs } from 'dayjs';
 
 export function getYesterdayDateStr() {
-  return dayjs()
-    .subtract(1, 'day')
-    .format('YYYY-MM-DD');
+  return dayjs().subtract(1, 'day').format('YYYY-MM-DD');
 }
 
 export function getTodayDateStr() {
@@ -38,11 +36,7 @@ export function getLastWeekDateStrList() {
   const dateStrList = [];
 
   for (let i = 7; i > 0; i--) {
-    dateStrList.push(
-      dayjs()
-        .subtract(i, 'day')
-        .format('YYYY-MM-DD'),
-    );
+    dateStrList.push(dayjs().subtract(i, 'day').format('YYYY-MM-DD'));
   }
 
   return dateStrList;

@@ -1,0 +1,32 @@
+#grid {
+  .column(@start: 1, @end: 12) when (default()) {
+    grid-column-start: @start;
+    grid-column-end: @end;
+  }
+
+  .column(@type) when (@type = across) {
+    grid-column: 1 / -1;
+  }
+
+  .column(@type, @start: 1, @amount: 12) when (@type = span) {
+    grid-column: @start / span @amount;
+  }
+
+  .column(@type, @start: 1, @span: 2) when (@type = responsive) {
+    #grid.column(across);
+
+    @media @tablet-min {
+      grid-column: @start / span @span;
+    }
+  }
+
+  .row(@start: 1, @end: 2) {
+    grid-row-start: @start;
+    grid-row-end: @end;
+  }
+
+  .gap(@value) {
+    grid-row-gap: @value;
+    grid-column-gap: @value;
+  }
+}

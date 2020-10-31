@@ -1,0 +1,56 @@
+#shape {
+  
+  .arrow(@type, @size: 1rem, @col: white) when (@type = up) {
+    border-left: @size solid transparent;
+    border-right: @size solid transparent;
+    border-bottom: @size solid @col;
+    #display.dimensions(equal, 0);
+  }
+  
+  .arrow(@type, @size: 1rem, @col: white) when (@type = down) {
+    border-left: @size solid transparent;
+    border-right: @size solid transparent;
+    border-top: @size solid @col;
+    #display.dimensions(equal, 0);
+  }
+  
+  .arrow(@type, @size: 1rem, @col: white) when (@type = left) {
+    border-top: @size solid transparent;
+    border-bottom: @size solid transparent;
+    border-right: @size solid @col;
+    #display.dimensions(equal, 0);
+  }
+  
+  .arrow(@type, @size: 1rem, @col: white) when (@type = right) {
+    border-top: @size solid transparent;
+    border-bottom: @size solid transparent;
+    border-left: @size solid @col;
+    #display.dimensions(equal, 0);
+  }
+  
+  .round(@pad: 1em, @val: 100px, @bg: black) {
+    padding: @pad;
+    background-color: @bg;
+    border-radius: 50%;
+    #display.dimensions(equal, @val);
+  }
+  
+  /*
+   * Width & Height always equal.
+   * Background-color, Padding and Border-radius can be changed.
+   * @paramas: @size = {width & height}, background-color, border-raduis & padding
+   */
+  
+
+  .square(@size: 100px, @bg: black, @col: white, @pad: 1em) when (default()) {
+    display: block;
+    padding: @pad;
+    #display.colors(@col, @bg);
+    #display.dimensions(equal, @size);
+  }
+  
+  .square(@type, @br) when (@type = rounded) {
+    #display.square();
+    border-radius: @br;
+  }
+}

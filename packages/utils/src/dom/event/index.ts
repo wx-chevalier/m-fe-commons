@@ -19,7 +19,7 @@ export function listen(
 }
 
 export function preventDefault(fn: Function) {
-  return function(event: Event) {
+  return function (event: Event) {
     event.preventDefault();
     // @ts-ignore
     return fn.call(this, event);
@@ -27,7 +27,7 @@ export function preventDefault(fn: Function) {
 }
 
 export function stopPropagation(fn: Function) {
-  return function(event: Event) {
+  return function (event: Event) {
     event.stopPropagation();
     // @ts-ignore
     return fn.call(this, event);

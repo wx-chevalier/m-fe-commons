@@ -1,0 +1,21 @@
+#label {
+  
+  .default-styles() {
+    font-weight: 500;
+    display: block;
+    cursor: pointer;
+    font-family: @primary-font;
+  }
+  
+  .default(@fs: 1rem) when (default()) {
+    .default-styles();
+    font-size: @fs;
+  }
+  
+  .default(@type, @fs: 1rem) when (@type = bold) {
+    .default-styles();
+    font-size: @fs;
+    font-weight: bold;
+  }
+  
+}

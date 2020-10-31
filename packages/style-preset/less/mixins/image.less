@@ -1,0 +1,11 @@
+// General, useful image styles
+#image {
+  .border(@size: 1px, @border-color: @color-01) when (default()) {
+    border: @size solid @border-color;
+  }
+
+  .border(@type, @size: 1px, @border-color: @color-01, @radius: 0) when (@type = rounded) {
+    border: @size solid @border-color;
+    border-radius: @radius;
+  }
+}
