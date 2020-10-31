@@ -1,18 +1,36 @@
 ![](https://i.postimg.cc/0N7w0mnN/image.png)
 
-# m-fe/utils
+# m-fe/commons
 
-在 [Web 开发导论/微前端与大前端](https://github.com/wx-chevalier/Web-Series)一文中，笔者简述了微服务与微前端的设计理念以及微前端的潜在可行方案。微服务与微前端，都是希望将某个单一的单体应用，转化为多个可以独立运行、独立开发、独立部署、独立维护的服务或者应用的聚合，从而满足业务快速变化及分布式多团队并行开发的需求。如康威定律(Conway’s Law)所言，设计系统的组织，其产生的设计和架构等价于组织间的沟通结构；微服务与微前端不仅仅是技术架构的变化，还包含了组织方式、沟通方式的变化。微服务与微前端原理和软件工程，面向对象设计中的原理同样相通，都是遵循单一职责(Single Responsibility)、关注分离(Separation of Concerns)、模块化(Modularity)与分而治之(Divide & Conquer)等基本的原则。
-
-![微前端项目结构](https://user-images.githubusercontent.com/5803001/44003230-de68ac5c-9e81-11e8-81f5-8092f7a9b421.png)
-
-当我们考量项目框架、模板或者脚手架的时候，首先想到的点就是希望尽可能对上层屏蔽细节，但是对于长期维护的、多人协作的中大型项目而言，如果项目的主导者直接使用了部分抽象的脚手架，不免会给未来的更新、迭代带来一定的技术负债；同时，目前也有很多成熟的工程化脚手架，因此笔者选择以项目模板的形式抽象出微前端中所需要的部分。尽可能地遵循简约、直观的原则，减少抽象/Magic Function 等；大型项目可能会抽象出专用的开发工具流，但是对于大部分项目而言，在现有框架/工具链的基础上进行适当封装会是较优选择。
+该仓库汇聚了笔者在开发微前端项目中一系列公共库。
 
 # Usage
 
-- @m-fe/utils
+- `@m-fe/utils`
 
-- @m-fe/react-hooks
+工具类。
+
+```js
+import {...} from "@m-fe/utils";
+```
+
+详细函数参考[在线文档](https://ng-tech.icu/m-fe-commons/utils)
+
+- `@m-fe/react-hocks`
+
+React 中常用的 Hooks & Hocs 集锦。
+
+- `@m-fe/style-preset`
+
+常用的 CSS/SCSS/Less 工具函数与默认样式。
+
+- `@m-fe/redux-middlewares`
+
+常用的 Redux 中间件。
+
+- `@m-fe/address`
+
+常用的地址相关操作，譬如物流场景下的收件地址解析等。
 
 ## Nav | 关联项目
 
