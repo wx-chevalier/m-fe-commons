@@ -1,4 +1,4 @@
-import { Dictionary } from '../types';
+type Dictionary<K extends keyof any, T> = { [P in K]?: T };
 
 const DEFAULT_VALUES = {
   emitDelay: 10,

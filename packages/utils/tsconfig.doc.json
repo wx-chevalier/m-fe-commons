@@ -1,0 +1,16 @@
+{
+  "extends": "@m-fe/tsconfig/tsconfig.json",
+  "compilerOptions": {
+    "baseUrl": ".",
+    "strictFunctionTypes": false,
+    "strictNullChecks": false,
+    "suppressImplicitAnyIndexErrors": true,
+    "module": "es6",
+    "outDir": "dist/es",
+    "declaration": true,
+    "declarationDir": "dist/types",
+    "resolveJsonModule": true,
+    "downlevelIteration": true
+  },
+  "include": ["**/*.ts", "**/*.tsx"]
+}

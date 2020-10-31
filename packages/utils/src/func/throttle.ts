@@ -3,7 +3,7 @@
  */
 export function once(fn: Function): Function {
   let called = false;
-  return function (this: any) {
+  return function(this: any) {
     if (!called) {
       called = true;
       // eslint-disable-next-line prefer-rest-params
@@ -60,7 +60,7 @@ export function throttleAndQueue(fn: Function, wait: number) {
     }
   };
 
-  return function (this: any, ...args: any[]) {
+  return function(this: any, ...args: any[]) {
     callQueue.push(fn.bind(this, ...args));
 
     caller();
