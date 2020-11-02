@@ -25,6 +25,7 @@
     "clean": "rimraf dist",
     "copy": "copyfiles -u 1 './src/**/*.(less|svg)' dist/cjs/",
     "dev": "webpack-dev-server --config ./scripts/webpack/webpack.config.dev.js --hot",
+    "doc": "typedoc --out ../../docs/utils --exclude '**/*.test.ts' --excludeNotExported --disableSources --mode modules --tsconfig ./tsconfig.doc.json ./src",
     "lint": "run-p lint:*",
     "lint:es": "cross-env PARSER_NO_WATCH=true eslint . --cache --ext js,md,ts,tsx -f friendly --max-warnings 10",
     "lint:ts": "tslint -p . -t stylish --fix",
