@@ -3,12 +3,12 @@ import {
   InjectDecorator,
   ServiceDecorator,
   Inject as defaultInject,
-  Service as defaultService
+  Service as defaultService,
 } from '../di';
 
 import {
   ApplicationContext,
-  applicationContext as defaultContainer
+  applicationContext as defaultContainer,
 } from '../../context/ApplicationContext';
 
 import { assert } from 'chai';
@@ -74,7 +74,7 @@ describe('decorators', () => {
       class Service3 {
         constructor(
           @Inject(SERVICE_1) private s1: Service1,
-          @Inject(SERVICE_2) private s2: Service2
+          @Inject(SERVICE_2) private s2: Service2,
         ) {}
         public getHelloWorld = () =>
           this.s1.getHello() + ' ' + this.s2.getWorld();
@@ -98,7 +98,7 @@ describe('decorators', () => {
       class Service3 {
         constructor(
           @Inject(SERVICE_1) private s1: Service1,
-          @Inject(SERVICE_2) private s2: Service2
+          @Inject(SERVICE_2) private s2: Service2,
         ) {}
         public getHelloWorld = () =>
           this.s1.getHello() + ' ' + this.s2.getWorld();
@@ -152,7 +152,7 @@ describe('decorators', () => {
       class Service3 {
         constructor(
           @Inject(SERVICE_1) private s1: Service1,
-          @Inject(SERVICE_2) private s2: Service2
+          @Inject(SERVICE_2) private s2: Service2,
         ) {}
         public getHelloWorld = () =>
           this.s1.getHello() + ' ' + this.s2.getWorld();
@@ -232,7 +232,7 @@ describe('decorators', () => {
         class Service3 {
           constructor(
             @defaultInject(SERVICE_1) private s1: Service1,
-            @defaultInject(SERVICE_2) private s2: Service2
+            @defaultInject(SERVICE_2) private s2: Service2,
           ) {}
           public getHelloWorld = () =>
             this.s1.getHello() + ' ' + this.s2.getWorld();

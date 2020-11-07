@@ -1,10 +1,10 @@
 {
-  "name": "@m-fe/utils",
+  "name": "@m-fe/types",
   "version": "0.3.16",
-  "description": "@m-fe/utils",
+  "description": "@m-fe/types",
   "repository": {
     "type": "git",
-    "url": "https://github.com/wx-chevalier/m-fe-utils"
+    "url": "https://github.com/wx-chevalier/m-fe-commons"
   },
   "author": "wx-chevalier@github",
   "license": "MIT",

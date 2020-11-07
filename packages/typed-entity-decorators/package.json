@@ -1,7 +1,7 @@
 {
-  "name": "@m-fe/address",
+  "name": "@m-fe/typed-entity-decorators",
   "version": "0.0.1",
-  "description": "@m-fe/address",
+  "description": "@m-fe/typed-entity-decorators",
   "repository": {
     "type": "git",
     "url": "https://github.com/wx-chevalier/m-fe-utils"

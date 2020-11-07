@@ -32,11 +32,11 @@ describe('Container', () => {
       it('should return the Service that has been registered under the correct symbol', () => {
         applicationContext.registerService<Service1>(
           SERVICE_IDENTIFIER_1,
-          Service1
+          Service1,
         );
         applicationContext.registerService<Service2>(
           SERVICE_IDENTIFIER_2,
-          Service2
+          Service2,
         );
 
         const service1 = applicationContext.get<Service1>(SERVICE_IDENTIFIER_1);
@@ -49,14 +49,14 @@ describe('Container', () => {
       it('should return the same instance of the Service if singleton-ness is not specified', () => {
         applicationContext.registerService<Service1>(
           SERVICE_IDENTIFIER_1,
-          Service1
+          Service1,
         );
 
         const serviceInstance1 = applicationContext.get<Service1>(
-          SERVICE_IDENTIFIER_1
+          SERVICE_IDENTIFIER_1,
         );
         const serviceInstance2 = applicationContext.get<Service1>(
-          SERVICE_IDENTIFIER_1
+          SERVICE_IDENTIFIER_1,
         );
 
         assert.instanceOf(serviceInstance1, Service1);
@@ -69,15 +69,15 @@ describe('Container', () => {
           SERVICE_IDENTIFIER_1,
           Service1,
           {
-            isSingleton: true
-          }
+            isSingleton: true,
+          },
         );
 
         const serviceInstance1 = applicationContext.get<Service1>(
-          SERVICE_IDENTIFIER_1
+          SERVICE_IDENTIFIER_1,
         );
         const serviceInstance2 = applicationContext.get<Service1>(
-          SERVICE_IDENTIFIER_1
+          SERVICE_IDENTIFIER_1,
         );
 
         assert.instanceOf(serviceInstance1, Service1);
@@ -90,15 +90,15 @@ describe('Container', () => {
           SERVICE_IDENTIFIER_1,
           Service1,
           {
-            isSingleton: false
-          }
+            isSingleton: false,
+          },
         );
 
         const serviceInstance1 = applicationContext.get<Service1>(
-          SERVICE_IDENTIFIER_1
+          SERVICE_IDENTIFIER_1,
         );
         const serviceInstance2 = applicationContext.get<Service1>(
-          SERVICE_IDENTIFIER_1
+          SERVICE_IDENTIFIER_1,
         );
 
         assert.instanceOf(serviceInstance1, Service1);
@@ -109,11 +109,11 @@ describe('Container', () => {
       it('should Inject any dependencies into the Service (added together)', () => {
         applicationContext.registerService<Service1>(
           SERVICE_IDENTIFIER_1,
-          Service1
+          Service1,
         );
         applicationContext.registerService<Service2>(
           SERVICE_IDENTIFIER_2,
-          Service2
+          Service2,
         );
         applicationContext
           .registerService<Service3>(SERVICE_IDENTIFIER_3, Service3)
@@ -128,11 +128,11 @@ describe('Container', () => {
       it('should Inject any dependencies into the Service (added individually)', () => {
         applicationContext.registerService<Service1>(
           SERVICE_IDENTIFIER_1,
-          Service1
+          Service1,
         );
         applicationContext.registerService<Service2>(
           SERVICE_IDENTIFIER_2,
-          Service2
+          Service2,
         );
         applicationContext
           .registerService<Service3>(SERVICE_IDENTIFIER_3, Service3)
@@ -156,7 +156,7 @@ describe('Container', () => {
       it('should throw an error if getting a Service that has missing dependencies', () => {
         applicationContext.registerService<Service1>(
           SERVICE_IDENTIFIER_1,
-          Service1
+          Service1,
         );
         // applicationContext.registerService<Service2>(SERVICE_IDENTIFIER_2, Service2); // oh no, not registered!
         applicationContext
@@ -172,11 +172,11 @@ describe('Container', () => {
       it('should throw an error if not registering enough dependencies (addDependency)', () => {
         applicationContext.registerService<Service1>(
           SERVICE_IDENTIFIER_1,
-          Service1
+          Service1,
         );
         applicationContext.registerService<Service2>(
           SERVICE_IDENTIFIER_2,
-          Service2
+          Service2,
         );
         applicationContext
           .registerService<Service3>(SERVICE_IDENTIFIER_3, Service3)
@@ -191,11 +191,11 @@ describe('Container', () => {
       it('should throw an error if not registering enough dependencies (addDependencies)', () => {
         applicationContext.registerService<Service1>(
           SERVICE_IDENTIFIER_1,
-          Service1
+          Service1,
         );
         applicationContext.registerService<Service2>(
           SERVICE_IDENTIFIER_2,
-          Service2
+          Service2,
         );
 
         assert.throws(() => {
@@ -208,11 +208,11 @@ describe('Container', () => {
       it('should throw an error if registering the same depenecency position', () => {
         applicationContext.registerService<Service1>(
           SERVICE_IDENTIFIER_1,
-          Service1
+          Service1,
         );
         applicationContext.registerService<Service2>(
           SERVICE_IDENTIFIER_2,
-          Service2
+          Service2,
         );
 
         assert.throws(() => {
@@ -276,11 +276,11 @@ describe('Container', () => {
 
         applicationContext.registerService<IService>(
           SERVICE_IDENTIFIER,
-          ServiceA
+          ServiceA,
         );
         applicationContext.registerService<IService>(
           SERVICE_IDENTIFIER,
-          ServiceB
+          ServiceB,
         );
 
         const Service = applicationContext.get<IService>(SERVICE_IDENTIFIER);
@@ -301,7 +301,7 @@ describe('Container', () => {
 
       const factory = () => {
         return {
-          method1: () => 'Hello'
+          method1: () => 'Hello',
         };
       };
       applicationContext.registerFactory<IService>(FUNC_SERVICE, factory);
@@ -326,7 +326,7 @@ describe('Container', () => {
 
       const helloServiceFactory = () => {
         return {
-          hello: () => 'Hello'
+          hello: () => 'Hello',
         };
       };
 
@@ -338,13 +338,13 @@ describe('Container', () => {
 
       const worldServiceFactory = (spaceService: SpaceService) => {
         return {
-          world: () => spaceService.space() + 'World!'
+          world: () => spaceService.space() + 'World!',
         };
       };
 
       applicationContext.registerFactory<IHelloService>(
         HELLO_SERVICE,
-        helloServiceFactory
+        helloServiceFactory,
       );
       applicationContext
         .registerService<SpaceService>(SPACE_SERVICE, SpaceService)

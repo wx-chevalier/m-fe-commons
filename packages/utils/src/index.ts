@@ -1,5 +1,6 @@
 export * from './animate';
 export * from './bom';
+export * from './color';
 export * from './dom';
 export * from './ds';
 export * from './env';

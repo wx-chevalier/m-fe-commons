@@ -1,14 +1,14 @@
 import {
   CircularDependencyError,
   MissingDependencyError,
-  AddDependencyError
+  AddDependencyError,
 } from '../misc/error';
 import { ApplicationContext } from './ApplicationContext';
 import {
   WrappedDependency,
   DependencyIdentifier,
   Factory,
-  DependencyOptions
+  DependencyOptions,
 } from '../types';
 
 export class BeanFactory<T> implements WrappedDependency<T> {
@@ -21,7 +21,7 @@ export class BeanFactory<T> implements WrappedDependency<T> {
     private identifier: DependencyIdentifier,
     private factoryFunction: Factory<T>,
     private options: DependencyOptions,
-    private applicationContext: ApplicationContext
+    private applicationContext: ApplicationContext,
   ) {}
 
   public getInstance(): T {
@@ -51,14 +51,14 @@ export class BeanFactory<T> implements WrappedDependency<T> {
 
   public addDependency(
     dependencyIdentifier: DependencyIdentifier,
-    paramIndex: number
+    paramIndex: number,
   ) {
     if (this.dependencies[paramIndex]) {
       throw new AddDependencyError(
         this.identifier,
         dependencyIdentifier,
         paramIndex,
-        'Dependency at that position already exists'
+        'Dependency at that position already exists',
       );
     }
 
@@ -67,7 +67,7 @@ export class BeanFactory<T> implements WrappedDependency<T> {
         this.identifier,
         dependencyIdentifier,
         paramIndex,
-        `Service only has ${this.factoryFunction.length} dependencies`
+        `Service only has ${this.factoryFunction.length} dependencies`,
       );
     }
 
@@ -94,7 +94,7 @@ export class BeanFactory<T> implements WrappedDependency<T> {
     if (indexOfMissingDependency !== -1) {
       throw new MissingDependencyError(
         this.identifier,
-        indexOfMissingDependency
+        indexOfMissingDependency,
       );
     }
   }

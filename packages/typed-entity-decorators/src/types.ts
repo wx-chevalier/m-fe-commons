@@ -12,24 +12,24 @@ export interface TypedPropertyDescriptor<T> {
 }
 
 export type ClassDecorator = <TFunction extends Function>(
-  target: TFunction
+  target: TFunction,
 ) => TFunction | void;
 
 export type PropertyDecorator = (
   target: Object,
-  propertyKey: string | symbol
+  propertyKey: string | symbol,
 ) => void;
 
 export type MethodDecorator = <T>(
   target: Object,
   propertyKey: string | symbol,
-  descriptor: TypedPropertyDescriptor<T>
+  descriptor: TypedPropertyDescriptor<T>,
 ) => TypedPropertyDescriptor<T> | void;
 
 export type ParameterDecorator = (
   target: Object,
   propertyKey: string | symbol,
-  parameterIndex: number
+  parameterIndex: number,
 ) => void;
 
 export type Dependency = any;

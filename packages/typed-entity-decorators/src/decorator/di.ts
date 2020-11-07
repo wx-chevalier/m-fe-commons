@@ -33,7 +33,7 @@ export function createDiDecorators(
     dependencyIdentifier: DependencyIdentifier,
     dependencyOptions: DependencyOptions = { isSingleton: true },
   ) {
-    return function(targetService: Service<any>) {
+    return function (targetService: Service<any>) {
       if (currentService !== null && currentService !== targetService) {
         const erroredServiceIdentifer = currentServiceIdentifier;
         resetInjections();
@@ -57,7 +57,7 @@ export function createDiDecorators(
   }
 
   function injectDecorator(dependencyIdentifier: DependencyIdentifier) {
-    return function(
+    return function (
       targetService: Service<any>,
       propertyKey: string | symbol,
       parameterIndex: number,
