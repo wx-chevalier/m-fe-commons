@@ -1,6 +1,6 @@
 {
   "name": "@m-fe/style-preset",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "Lightwight & Flexible SCSS/LessCSS Preset For Mobile & PC Web",
   "repository": {
     "type": "git",
