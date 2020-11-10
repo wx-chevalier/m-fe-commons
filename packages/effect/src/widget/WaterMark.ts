@@ -22,7 +22,7 @@ export interface MarkOptions {
   opacity?: number;
 }
 
-export default class Mark {
+export default class WaterMark {
   el: HTMLElement;
   options: MarkOptions = {};
   style: any = {};

@@ -1,4 +1,3 @@
-export * from './animate';
 export * from './bom';
 export * from './color';
 export * from './dom';

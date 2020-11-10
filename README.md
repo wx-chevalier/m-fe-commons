@@ -48,7 +48,7 @@ React 中常用的 Hooks & Hocs 集锦。
 
 - [m-fe-libs](https://github.com/wx-chevalier/m-fe-libs): Micro-Frontend boilerplate with React & TypeScript & Webpack, for complicated cooperative applications. | 微前端项目模板
 
-- [m-fe-utils](https://github.com/wx-chevalier/m-fe-utils): Micro-Frontend boilerplate with React & TypeScript & Webpack, for complicated cooperative applications. | 微前端项目工具箱
+- [m-fe-utils](https://github.com/wx-chevalier/m-fe-commons): Micro-Frontend boilerplate with React & TypeScript & Webpack, for complicated cooperative applications. | 微前端项目工具箱
 
 --
 

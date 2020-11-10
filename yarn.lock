@@ -4371,6 +4371,11 @@
   resolved "https://registry.yarnpkg.com/@types/normalize-package-data/-/normalize-package-data-2.4.0.tgz#e486d0d97396d79beedd0a6e33f4534ff6b4973e"
   integrity sha512-f5j5b/Gf71L+dbqxIpQ4Z2WlmI/mPJ0fOkGGmFgtb6sAu97EPczzbS3/tJKxmcYDj55OX6ssqwDAWOHIYDRDGA==
 
+"@types/p5@^0.9.1":
+  version "0.9.1"
+  resolved "https://registry.npm.taobao.org/@types/p5/download/@types/p5-0.9.1.tgz#920c6cd6ee30b5d9e5cc04cb9b11bb762c333bc5"
+  integrity sha1-kgxs1u4wtdnlzATLmxG7diwzO8U=
+
 "@types/parse-json@^4.0.0":
   version "4.0.0"
   resolved "https://registry.yarnpkg.com/@types/parse-json/-/parse-json-4.0.0.tgz#2f8bb441434d163b35fb8ffdccd7138927ffb8c0"
@@ -15283,6 +15288,11 @@ p-waterfall@^1.0.0:
   integrity sha1-ftlLPOszMngjU69qrhGqn8I1uwA=
   dependencies:
     p-reduce "^1.0.0"
+
+p5@^1.1.9:
+  version "1.1.9"
+  resolved "https://registry.npm.taobao.org/p5/download/p5-1.1.9.tgz#b33692100f991b993128fd8e3324cc56adad68b2"
+  integrity sha1-szaSEA+ZG5kxKP2OMyTMVq2taLI=
 
 package-json@^4.0.0:
   version "4.0.1"

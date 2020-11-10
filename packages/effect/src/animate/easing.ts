@@ -1,4 +1,4 @@
-export { identity as linear } from '../func';
+export { identity as linear } from '@m-fe/utils';
 
 export function backInOut(t: number) {
   const s = 1.70158 * 1.525;

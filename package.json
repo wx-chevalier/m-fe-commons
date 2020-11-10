@@ -1,5 +1,5 @@
 {
-  "name": "@m-fe/stl-viewer",
+  "name": "@m-fe/m-fe-commons",
   "version": "0.0.1",
   "description": "Micro-Frontend Libs, with React & TS & Webpack",
   "repository": {
