@@ -42,7 +42,7 @@ export function downloadUrl(url: string, fileName: string = 'fileName') {
   const a = document.createElement('a');
   a.download = fileName;
   a.href = url;
-  a.textContent = 'Download screenshot';
+  a.style.display = 'none';
 
   document.body.appendChild(a);
   a.click();
