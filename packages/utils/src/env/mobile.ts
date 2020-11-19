@@ -1,52 +1,13 @@
-interface HttpRequestHeadersInterfaceMock {
-  [id: string]: string | string[];
-}
+import MobileDetect from 'mobile-detect';
 
-interface HttpRequestInterfaceMock {
-  headers: HttpRequestHeadersInterfaceMock;
-
-  [id: string]: any;
-}
-
-const mobileRE = /(android|bb\d+|meego).+mobile|avantgo|bada\/|blackberry|blazer|compal|elaine|fennec|hiptop|iemobile|ip(hone|od)|iris|kindle|lge |maemo|midp|mmp|mobile.+firefox|netfront|opera m(ob|in)i|palm( os)?|phone|p(ixi|re)\/|plucker|pocket|psp|series[46]0|symbian|treo|up\.(browser|link)|vodafone|wap|windows (ce|phone)|xda|xiino/i;
-
-const tabletRE = /(android|bb\d+|meego).+mobile|avantgo|bada\/|blackberry|blazer|compal|elaine|fennec|hiptop|iemobile|ip(hone|od)|iris|kindle|lge |maemo|midp|mmp|mobile.+firefox|netfront|opera m(ob|in)i|palm( os)?|phone|p(ixi|re)\/|plucker|pocket|psp|series[46]0|symbian|treo|up\.(browser|link)|vodafone|wap|windows (ce|phone)|xda|xiino|android|ipad|playbook|silk/i;
-
-export interface IsMobileOptions {
-  ua?: string | HttpRequestInterfaceMock;
-  tablet?: boolean;
-  featureDetect?: boolean;
-  sizeDetect?: boolean;
-}
-
-const defaultOpts: IsMobileOptions = { sizeDetect: true };
-
-export function isMobile(_opts: IsMobileOptions = defaultOpts): boolean {
-  const opts = { ...defaultOpts, ..._opts };
-
-  let ua: any = opts.ua;
-
-  if (!ua && typeof navigator !== 'undefined') ua = navigator.userAgent;
-
-  if (ua && ua.headers && typeof ua.headers['user-agent'] === 'string') {
-    ua = ua.headers['user-agent'];
+/** 是否为移动端 */
+export function isMobile(_ua?: string) {
+  let ua = _ua;
+  if (typeof window !== undefined && !ua) {
+    ua = window.navigator.userAgent;
   }
 
-  if (typeof ua !== 'string') return false;
+  const md = new MobileDetect(window.navigator.userAgent);
 
-  let result = opts.tablet ? tabletRE.test(ua) : mobileRE.test(ua);
-
-  if (
-    !result &&
-    opts.tablet &&
-    opts.featureDetect &&
-    navigator &&
-    navigator.maxTouchPoints > 1 &&
-    ua.indexOf('Macintosh') !== -1 &&
-    ua.indexOf('Safari') !== -1
-  ) {
-    result = true;
-  }
-
-  return result;
+  return !!md.mobile();
 }
