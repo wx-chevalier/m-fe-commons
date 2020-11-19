@@ -16,16 +16,22 @@ export interface IsMobileOptions {
   ua?: string | HttpRequestInterfaceMock;
   tablet?: boolean;
   featureDetect?: boolean;
+  sizeDetect?: boolean;
 }
 
-export function isMobile(opts?: IsMobileOptions): boolean {
-  if (!opts) opts = {};
+const defaultOpts: IsMobileOptions = { sizeDetect: true };
+
+export function isMobile(_opts: IsMobileOptions = defaultOpts): boolean {
+  const opts = { ...defaultOpts, ..._opts };
+
   let ua: any = opts.ua;
+
   if (!ua && typeof navigator !== 'undefined') ua = navigator.userAgent;
 
   if (ua && ua.headers && typeof ua.headers['user-agent'] === 'string') {
     ua = ua.headers['user-agent'];
   }
+
   if (typeof ua !== 'string') return false;
 
   let result = opts.tablet ? tabletRE.test(ua) : mobileRE.test(ua);
