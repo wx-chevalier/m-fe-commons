@@ -103,6 +103,7 @@ export class AddressParser {
         Object.assign(result, this.result);
         parseName(result, { firstName });
       }
+
       if (!results.length) {
         const result = Object.assign(this.result, {
           province: '',

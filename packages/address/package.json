@@ -86,6 +86,8 @@
     "parcel-bundler": "^1.12.3",
     "postcss-loader": "3.0.0",
     "prettier": "^1.17.1",
+    "react": "^17.0.1",
+    "react-dom": "^17.0.1",
     "react-hot-loader": "^4.8.5",
     "resolve-url-loader": "3.1.0",
     "rimraf": "^2.6.3",
