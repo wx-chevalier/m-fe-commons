@@ -1,10 +1,10 @@
 {
-  "name": "redux-middleware-debounced",
-  "version": "0.0.4",
-  "description": "redux-middleware-debounced",
+  "name": "@m-fe/redux-middlewares",
+  "version": "0.0.1",
+  "description": "@m-fe/redux-middlewares",
   "repository": {
     "type": "git",
-    "url": "https://github.com/wx-chevalier/redux-middlewares"
+    "url": "https://github.com/wx-chevalier/m-fe-commons"
   },
   "author": "wx-chevalier@github",
   "license": "MIT",
@@ -35,28 +35,7 @@
     "redux": "^4.0.4"
   },
   "devDependencies": {
-    "@types/deline": "^1.0.0",
-    "@types/invariant": "^2.2.30",
-    "@types/lodash.throttle": "^4.1.6",
-    "@types/node": "^13.1.8",
-    "@types/uuid": "^3.4.5",
-    "@typescript-eslint/eslint-plugin": "^2.0.0",
-    "@typescript-eslint/parser": "^2.0.0",
-    "babel-core": "^6.26.3",
-    "eslint": "^6.2.2",
-    "eslint-config-airbnb": "^18.0.1",
-    "eslint-config-prettier": "^6.1.0",
-    "eslint-loader": "3.0.0",
-    "eslint-plugin-import": "^2.18.2",
-    "eslint-plugin-jsx-a11y": "^6.2.3",
-    "eslint-plugin-prettier": "^3.1.0",
-    "eslint-plugin-react": "^7.14.3",
-    "npm-watch": "^0.6.0",
-    "ts-jest": "^24.0.2",
-    "typescript": "^3.5.3",
-    "webpack": "^4.41.5",
-    "webpack-cli": "^3.3.10",
-    "webpack-merge": "^4.2.1"
+    "webpack": "^4.41.5"
   },
   "lint-staged": {
     "*.{ts,tsx,scss,less,md}": [

@@ -1,10 +1,10 @@
 {
   "name": "@m-fe/m-fe-commons",
   "version": "0.0.1",
-  "description": "Micro-Frontend Libs, with React & TS & Webpack",
+  "description": "Micro-Frontend Commons, with React & TS & Webpack",
   "repository": {
     "type": "git",
-    "url": "https://github.com/wx-chevalier/m-fe-libs"
+    "url": "https://github.com/wx-chevalier/m-fe-commons"
   },
   "author": "wx-chevalier@github",
   "license": "MIT",
@@ -37,7 +37,7 @@
   },
   "devDependencies": {
     "@svgr/webpack": "^5.1.0",
-    "@m-fe/app-config": "^0.6.9"
+    "@m-fe/app-config": "^0.7.1"
   },
   "browserslist": [
     "extends @m-fe/browserslist-config"

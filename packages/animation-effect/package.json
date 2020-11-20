@@ -1,7 +1,7 @@
 {
-  "name": "@m-fe/utils",
-  "version": "0.4.2",
-  "description": "@m-fe/utils",
+  "name": "@m-fe/animation-effect",
+  "version": "0.0.1",
+  "description": "@m-fe/animation-effect",
   "repository": {
     "type": "git",
     "url": "https://github.com/wx-chevalier/m-fe-commons"
@@ -35,17 +35,18 @@
     "test": "jest --config ../../scripts/jest/jest.config.js"
   },
   "dependencies": {
+    "@m-fe/utils": "^0.4.1",
     "dayjs": "^1.8.26",
     "fast-deep-equal": "^2.0.1",
     "history": "^4.10.1",
     "lodash.chunk": "^4.2.0",
     "lodash.upperfirst": "^4.3.1",
-    "mobile-detect": "^1.4.4",
+    "p5": "^1.1.9",
     "urijs": "^1.19.2",
     "uuid-random": "^1.3.2"
   },
   "devDependencies": {
-    "webpack": "^4.31.0"
+    "@m-fe/app-config": "^0.7.1"
   },
   "lint-staged": {
     "*.{ts,tsx,scss,less,md}": [
