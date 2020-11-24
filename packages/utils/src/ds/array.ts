@@ -62,12 +62,12 @@ export function groupByDistinctly(
 export function chunkWithFill(
   array: any[],
   size: number,
-  fillObj: any,
+  fillObj?: any,
 ): any[][] {
   const chunkedArray = chunk(array, size);
   const lastChunk = chunkedArray[chunkedArray.length - 1];
 
-  if (fillObj !== undefined && lastChunk.length < size) {
+  if (fillObj !== undefined && lastChunk && lastChunk.length < size) {
     lastChunk.push(
       ...Array.from({
         length: size - lastChunk.length,
