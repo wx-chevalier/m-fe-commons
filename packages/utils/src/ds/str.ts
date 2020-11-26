@@ -4,6 +4,14 @@ export function genId() {
   return uuid();
 }
 
+export function genRandomKey() {
+  return 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, c => {
+    const r = (Math.random() * 16) | 0,
+      v = c === 'x' ? r : (r & 0x3) | 0x8;
+    return v.toString(16);
+  });
+}
+
 // https://github.com/darkskyapp/string-hash/blob/master/index.js
 export function hash(str: string) {
   let hash = 5381;

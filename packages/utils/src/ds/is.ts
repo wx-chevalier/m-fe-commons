@@ -1,3 +1,4 @@
+/* eslint-disable prefer-const */
 export const ifExist = <T>(
   toCheck: T | null | undefined,
   truthyValue: T = toCheck,
@@ -16,23 +17,39 @@ export function isPromise<T = any>(value: any): value is PromiseLike<T> {
   return value && typeof value === 'object' && typeof value.then === 'function';
 }
 
-/**
- * Quick object check - this is primarily used to tell
- * Objects from primitive values when we know the value
- * is a JSON-compliant type.
- */
-export function isObject(obj: any): boolean {
-  return obj !== null && typeof obj === 'object';
+export function isObject(val: any) {
+  return val != null && typeof val === 'object' && Array.isArray(val) === false;
 }
 
 const _toString = Object.prototype.toString;
 
-/**
- * Strict object type check. Only returns true
- * for plain JavaScript objects.
- */
-export function isPlainObject(obj: any): boolean {
-  return _toString.call(obj) === '[object Object]';
+export function isObjectObject(o: any) {
+  return (
+    isObject(o) === true &&
+    Object.prototype.toString.call(o) === '[object Object]'
+  );
+}
+
+export function isPlainObject(o: any) {
+  let ctor, prot;
+
+  if (isObjectObject(o) === false) return false;
+
+  // If has modified constructor
+  ctor = o.constructor;
+  if (typeof ctor !== 'function') return false;
+
+  // If has modified prototype
+  prot = ctor.prototype;
+  if (isObjectObject(prot) === false) return false;
+
+  // If constructor does not have an Object-specific method
+  if (prot.hasOwnProperty('isPrototypeOf') === false) {
+    return false;
+  }
+
+  // Most likely a plain Object
+  return true;
 }
 
 export function isRegExp(v: any): boolean {
