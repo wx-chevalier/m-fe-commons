@@ -1,5 +1,7 @@
 import uuid from 'uuid-random';
 
+import { isValidArray } from './is';
+
 export function genId() {
   return uuid();
 }
@@ -53,4 +55,17 @@ export function ellipsis(str: string, maxLength = 10) {
   }
 
   return `${str.slice(0, maxLength)}...`;
+}
+
+/** 根据字符串进行排序 */
+export function sortByName(n1: string, n2: string) {
+  // 首先判断有数字
+  const p1n = n1.match(/\d+/g);
+  const p2n = n2.match(/\d+/g);
+
+  if (isValidArray(p1n) && isValidArray(p2n)) {
+    return Number(p1n[0]) - Number(p2n[0]);
+  }
+
+  return n1 > n2 ? 1 : -1;
 }

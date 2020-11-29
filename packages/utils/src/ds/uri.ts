@@ -1,3 +1,4 @@
+import 'core-js/features/string/replace-all';
 import URI from 'urijs';
 
 import { hasChinese } from './str';
@@ -202,10 +203,25 @@ export function setOssResize(url: string, width = 150) {
   );
 }
 
-/** 执行 URL 编码，注意避免多次重复 */
-export function encodeUri(uri: string) {
+/**
+ * 执行 URL 编码，注意避免多次重复
+ * @param pureUri 如果是纯 Uri，则使用 URIComponent 进行全编码，及忽略可能的 # 参数情况
+ */
+export function encodeUri(uri: string, pureUri = false) {
   if (hasChinese(uri)) {
-    return encodeURI(uri);
+    if (pureUri) {
+      let originUri = encodeURI(uri);
+
+      const reservedCharacters = ';,?@&=+$#';
+
+      for (const c of reservedCharacters) {
+        originUri = originUri.replaceAll(c, encodeURIComponent(c));
+      }
+
+      return originUri;
+    } else {
+      return encodeURI(uri);
+    }
   }
 
   return uri;
