@@ -1,5 +1,5 @@
 /* eslint-disable @typescript-eslint/prefer-for-of */
-import { is, isObject } from './is';
+import { is, isObject } from './validator';
 
 const isArray = Array.isArray;
 const keyList = Object.keys;

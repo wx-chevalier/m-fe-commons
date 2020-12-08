@@ -1,6 +1,6 @@
 import uuid from 'uuid-random';
 
-import { isValidArray } from './is';
+import { isValidArray } from './validator';
 
 export function genId() {
   return uuid();
@@ -68,4 +68,22 @@ export function sortByName(n1: string, n2: string) {
   }
 
   return n1 > n2 ? 1 : -1;
+}
+
+/** 在递归调用场景下序列化 */
+export function stringifyWithCircularRef(obj: any) {
+  const getCircularReplacer = () => {
+    const seen = new WeakSet();
+    return (_key: any, value: any) => {
+      if (typeof value === 'object' && value !== null) {
+        if (seen.has(value)) {
+          return;
+        }
+        seen.add(value);
+      }
+      return value;
+    };
+  };
+
+  return JSON.stringify(obj, getCircularReplacer());
 }
