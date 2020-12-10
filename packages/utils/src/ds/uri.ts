@@ -1,7 +1,6 @@
-import 'core-js/features/string/replace-all';
 import URI from 'urijs';
 
-import { hasChinese } from './str';
+import { hasChinese, replaceAll } from './str';
 
 const utmParams = [
   'utm_source',
@@ -215,7 +214,9 @@ export function encodeUri(uri: string, pureUri = false) {
       const reservedCharacters = ';,?@&=+$#';
 
       for (const c of reservedCharacters) {
-        originUri = originUri.replaceAll(c, encodeURIComponent(c));
+        originUri = originUri.replaceAll
+          ? originUri.replaceAll(c, encodeURIComponent(c))
+          : replaceAll(originUri, c, encodeURIComponent(c));
       }
 
       return originUri;
