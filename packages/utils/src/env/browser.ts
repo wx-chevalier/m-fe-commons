@@ -10,6 +10,7 @@ export const isEdge = UA && UA.indexOf('edge/') > 0;
 export const isAndroid = UA && UA.indexOf('android') > 0;
 export const isIOS = UA && /iphone|ipad|ipod|ios/.test(UA);
 export const isChrome = UA && /chrome\/\d+/.test(UA) && !isEdge;
+export const isisWeixinBrowser = UA && /micromessenger/.test(UA);
 
 /** 获得 Chrome 的版本号 */
 export function getChromeVersion(): number | boolean {

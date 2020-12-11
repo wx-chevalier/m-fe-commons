@@ -143,3 +143,31 @@ export function isElementVisible(elem: HTMLElement) {
   } while ((pointContainer = pointContainer.parentNode));
   return false;
 }
+
+export interface ElemPosition {
+  x: number;
+  y: number;
+}
+
+export const getPostionByHTMLElement = (
+  e: HTMLElement,
+  center?: boolean,
+): ElemPosition => {
+  const l = e.clientWidth;
+  const h = e.clientHeight;
+
+  let x = e.offsetLeft - e.scrollLeft;
+  let y = e.offsetTop - e.scrollTop;
+
+  while ((e = e.offsetParent as HTMLElement)) {
+    x += e.offsetLeft - e.scrollLeft;
+    y += e.offsetTop - e.scrollTop;
+  }
+
+  if (center) {
+    x = x + 0.5 * l;
+    y = y + 0.5 * h;
+  }
+
+  return { x, y };
+};

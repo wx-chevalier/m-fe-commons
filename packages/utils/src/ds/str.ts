@@ -2,17 +2,33 @@ import uuid from 'uuid-random';
 
 import { isValidArray } from './validator';
 
+/** UUID */
 export function genId() {
   return uuid();
 }
 
+/** 随机 xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx 键 */
 export function genRandomKey() {
-  return 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, c => {
+  return 'xxxxxxxx-xxxx-9xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, c => {
     const r = (Math.random() * 16) | 0,
       v = c === 'x' ? r : (r & 0x3) | 0x8;
     return v.toString(16);
   });
 }
+
+/**
+ * 生成随机字符串
+ * @param len 字符串长度 默认值：32
+ */
+export const randomString = (len = 32) => {
+  const $chars = 'ABCDEFGHJKMNPQRSTWXYZabcdefhijkmnprstwxyz2345678';
+  const maxPos = $chars.length;
+  let res = '';
+  for (let i = 0; i < len; i++) {
+    res += $chars.charAt(Math.floor(Math.random() * maxPos));
+  }
+  return res;
+};
 
 // https://github.com/darkskyapp/string-hash/blob/master/index.js
 export function hash(str: string) {

@@ -179,8 +179,21 @@ export function addQueryParams(url: string, params: Record<string, string>) {
     .href();
 }
 
-/** 添加默认的图片 URI 后缀 */
-export function setOssResize(url: string, width = 150) {
+/**
+ * 添加默认的图片 URI 后缀
+ * @param square 是否裁剪为正方形
+ * @param cropSize 裁剪的尺寸
+ * @param useJpeg 是否强制转化为 Jpeg
+ *  */
+export function setOssResize(
+  url: string,
+  width = 150,
+  {
+    square = false,
+    cropSize = 150,
+    useJpeg = false,
+  }: { square?: boolean; cropSize?: number; useJpeg?: boolean } = {},
+) {
   // 过滤无效的 url
   if (!url) {
     return url;
@@ -190,12 +203,30 @@ export function setOssResize(url: string, width = 150) {
     return url;
   }
 
+  const useJpegParam = 'image/format,jpg/interlace,1';
+  const setWidthParam = `image/resize,w_${width}`;
+  const cropParam = `image/crop,w_${cropSize},h_${cropSize},g_center`;
+
+  const params = [];
+
+  if (useJpeg) {
+    params.push(useJpegParam);
+  }
+
+  if (width) {
+    params.push(setWidthParam);
+  }
+
+  if (square) {
+    params.push(cropParam);
+  }
+
   const uri = URI(url);
 
   return (
     uri
       .addQuery({
-        'x-oss-process': `image/resize,w_${width}`,
+        'x-oss-process': params.join(','),
       })
       .href()
       .replace('http://', 'https://') || ''
