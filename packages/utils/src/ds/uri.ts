@@ -217,18 +217,18 @@ export function setOssResize(
     return url;
   }
 
-  const useJpegParam = 'image/format,jpg/interlace,1';
-  const setWidthParam = `image/resize,w_${width}`;
-  const cropParam = `image/crop,w_${cropSize},h_${cropSize},g_center`;
+  const useJpegParam = 'format,jpg/interlace,1';
+  const setWidthParam = `resize,w_${width}`;
+  const cropParam = `crop,w_${cropSize},h_${cropSize},g_center`;
 
   const params = [];
 
-  if (useJpeg) {
-    params.push(useJpegParam);
-  }
-
   if (width) {
     params.push(setWidthParam);
+  }
+
+  if (useJpeg) {
+    params.push(useJpegParam);
   }
 
   if (square) {
@@ -246,7 +246,7 @@ export function setOssResize(
 
     const positions = ['nw', 'ne', 'center', 'sw', 'se'];
     const watermarkParam = (p: string, o: number) =>
-      `image/watermark,type_d3F5LXplbmhlaQ,size_${fontSize},text_${base64Text},color_${color},shadow_50,t_${o},g_${p}`;
+      `watermark,type_d3F5LXplbmhlaQ,size_${fontSize},text_${base64Text},color_${color},t_${o},g_${p}`;
 
     positions.forEach(p => {
       params.push(watermarkParam(p, opacity));
@@ -259,13 +259,19 @@ export function setOssResize(
 
   const uri = URI(url);
 
-  return (
-    uri
-      .addQuery({
-        'x-oss-process': params.join(','),
-      })
-      .href()
-      .replace('http://', 'https://') || ''
+  return replaceAll(
+    replaceAll(
+      uri
+        .addQuery({
+          'x-oss-process': `image/${params.join('/')}`,
+        })
+        .href()
+        .replace('http://', 'https://') || '',
+      '%2C',
+      ',',
+    ),
+    '%2F',
+    '/',
   );
 }
 
