@@ -184,7 +184,7 @@ export function addQueryParams(url: string, params: Record<string, string>) {
  * @param square 是否裁剪为正方形
  * @param cropSize 裁剪的尺寸
  * @param useJpeg 是否强制转化为 Jpeg
- *  */
+ */
 export function setOssResize(
   url: string,
   width = 150,
@@ -192,7 +192,21 @@ export function setOssResize(
     square = false,
     cropSize = 150,
     useJpeg = false,
-  }: { square?: boolean; cropSize?: number; useJpeg?: boolean } = {},
+    watermark,
+  }: {
+    square?: boolean;
+    cropSize?: number;
+    useJpeg?: boolean;
+    watermark?: {
+      type: 'text' | 'image';
+      base64Text: string;
+      color: string;
+      fontSize: number;
+      opacity: number;
+      // 单独右下角的透明度
+      seOpacity: number;
+    };
+  } = {},
 ) {
   // 过滤无效的 url
   if (!url) {
@@ -219,6 +233,28 @@ export function setOssResize(
 
   if (square) {
     params.push(cropParam);
+  }
+
+  if (watermark) {
+    const {
+      fontSize = 30,
+      base64Text,
+      color = 'FFFFFF',
+      opacity = 100,
+      seOpacity,
+    } = watermark;
+
+    const positions = ['nw', 'ne', 'center', 'sw', 'se'];
+    const watermarkParam = (p: string, o: number) =>
+      `image/watermark,type_d3F5LXplbmhlaQ,size_${fontSize},text_${base64Text},color_${color},shadow_50,t_${o},g_${p}`;
+
+    positions.forEach(p => {
+      params.push(watermarkParam(p, opacity));
+    });
+
+    if (seOpacity !== opacity) {
+      params.push(watermarkParam('se', seOpacity));
+    }
   }
 
   const uri = URI(url);
