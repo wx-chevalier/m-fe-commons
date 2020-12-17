@@ -68,4 +68,29 @@ export function get<T, R>(
   }
 }
 
-export default get;
+export function getString<T>(
+  object: T,
+  accessorFn: AccessorFunction<T, string>,
+): string | undefined;
+export function getString<T>(
+  object: T,
+  accessorFn: AccessorFunction<T, string>,
+  defaultValue: string,
+): string;
+export function getString<T>(
+  object: T,
+  accessorFn: AccessorFunction<T, string>,
+  defaultValue?: string,
+): string | undefined {
+  try {
+    const result = get(object, accessorFn, defaultValue);
+
+    if (typeof result !== 'string') {
+      return JSON.stringify(result);
+    }
+  } catch (e) {
+    // 强提示
+    console.error('>>>getString>>>', e);
+    return defaultValue;
+  }
+}
