@@ -90,19 +90,27 @@ export function sortByName(n1: string, n2: string) {
 export function stringifyWithCircularRef(obj: any) {
   const getCircularReplacer = () => {
     const seen = new WeakSet();
+
     return (_key: any, value: any) => {
-      if (typeof value === 'object' && value !== null) {
-        if (seen.has(value)) {
-          return;
+      try {
+        if (typeof value === 'object' && value !== null) {
+          if (seen.has(value)) {
+            return;
+          }
+          seen.add(value);
         }
-        seen.add(value);
+
+        return value;
+      } catch (_) {
+        return value;
       }
-      return value;
     };
   };
 
   return JSON.stringify(obj, getCircularReplacer());
 }
+
+export const stringify = stringifyWithCircularRef;
 
 /** 替换全部 */
 
