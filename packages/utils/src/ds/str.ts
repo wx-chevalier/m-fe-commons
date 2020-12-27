@@ -39,6 +39,7 @@ export function hash(str: string) {
   return hash >>> 0;
 }
 
+/** 解析 JSON */
 export function parseJson(str: string, defaultValue: any = null) {
   try {
     return JSON.parse(str) || defaultValue;
@@ -71,6 +72,26 @@ export function ellipsis(str: string, maxLength = 10) {
   }
 
   return `${str.slice(0, maxLength)}...`;
+}
+
+/** 进行字符串 Mask */
+export function maskStr(
+  str: string,
+  minIndex: number = 0,
+  maxIndex: number = 10,
+  mask = '*',
+) {
+  let res = '';
+
+  for (let i = 0; i < str.length; i++) {
+    if (i >= minIndex && i <= maxIndex) {
+      res += mask;
+    } else {
+      res += str[i];
+    }
+  }
+
+  return res;
 }
 
 /** 根据字符串进行排序 */
@@ -115,35 +136,35 @@ export const stringify = stringifyWithCircularRef;
 /** 替换全部 */
 
 export function replaceAll(
-  string: string,
+  str: string,
   needle: string,
   replacement: string | Function,
   options: { fromIndex?: number; caseInsensitive?: boolean } = {},
 ) {
-  if (typeof string !== 'string') {
-    throw new TypeError(`Expected input to be a string, got ${typeof string}`);
+  if (typeof str !== 'string') {
+    throw new TypeError(`Expected input to be a string, got ${typeof str}`);
   }
 
   if (
     !(typeof needle === 'string' && needle.length > 0) ||
     !(typeof replacement === 'string' || typeof replacement === 'function')
   ) {
-    return string;
+    return str;
   }
 
   let result = '';
   let matchCount = 0;
   let prevIndex = options.fromIndex > 0 ? options.fromIndex : 0;
 
-  if (prevIndex > string.length) {
-    return string;
+  if (prevIndex > str.length) {
+    return str;
   }
 
   while (true) {
     // eslint-disable-line no-constant-condition
     const index = options.caseInsensitive
-      ? string.toLowerCase().indexOf(needle.toLowerCase(), prevIndex)
-      : string.indexOf(needle, prevIndex);
+      ? str.toLowerCase().indexOf(needle.toLowerCase(), prevIndex)
+      : str.indexOf(needle, prevIndex);
 
     if (index === -1) {
       break;
@@ -156,23 +177,23 @@ export function replaceAll(
         ? replacement
         : replacement(
             // If `caseInsensitive`` is enabled, the matched substring may be different from the needle.
-            string.slice(index, index + needle.length),
+            str.slice(index, index + needle.length),
             matchCount,
-            string,
+            str,
             index,
           );
 
     // Get the initial part of the string on the first iteration.
     const beginSlice = matchCount === 1 ? 0 : prevIndex;
 
-    result += string.slice(beginSlice, index) + replaceStr;
+    result += str.slice(beginSlice, index) + replaceStr;
 
     prevIndex = index + needle.length;
   }
 
   if (matchCount === 0) {
-    return string;
+    return str;
   }
 
-  return result + string.slice(prevIndex);
+  return result + str.slice(prevIndex);
 }
