@@ -53,7 +53,7 @@ export function getQueryValues(
   return queryValues;
 }
 
-/** 更新查询参数值 */
+/** 更新查询参数值，注意，这里是针对 History 进行处理，其并不会引发 Url 的刷新变化 */
 export function updateQueryValues(
   history: History,
   queryValues: Record<string, string | number | boolean | undefined>,

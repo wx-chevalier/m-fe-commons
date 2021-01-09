@@ -143,7 +143,7 @@ export function getFileNameFromUrl(href: string): string {
   return URI(href).filename();
 }
 
-/** 获取当前 url 中的参数 */
+/** 获取当前 Url 中的参数 */
 export function getUrlParamWithRegex(name: string) {
   const reg = new RegExp('(^|&)' + name + '=([^&]*)(&|$)');
   const r = window.location.search.substr(1).match(reg);
@@ -165,7 +165,9 @@ export function getUrlParam(href: string, key: string) {
   // 不存在，则从 hash 中获取
   const hash = uriObj.hash();
   const hashUriObj = newUri(hash.replace('#', 'http://domain'));
+
   const hashSp = new URLSearchParams(hashUriObj.query());
+
   return hashSp.get(key);
 }
 
