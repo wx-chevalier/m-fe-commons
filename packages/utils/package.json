@@ -1,6 +1,6 @@
 {
   "name": "@m-fe/utils",
-  "version": "0.5.7",
+  "version": "0.5.8",
   "description": "@m-fe/utils",
   "repository": {
     "type": "git",
@@ -36,7 +36,7 @@
   },
   "dependencies": {
     "core-js": "^3.8.0",
-    "dayjs": "^1.8.26",
+    "dayjs": "1.10.3",
     "fast-deep-equal": "^2.0.1",
     "history": "^4.10.1",
     "lodash.chunk": "^4.2.0",
