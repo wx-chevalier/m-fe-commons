@@ -1,13 +1,13 @@
 import {
+  numberInputToObject,
   rgbaToHex,
   rgbToHex,
   rgbToHsl,
   rgbToHsv,
-  numberInputToObject,
 } from './conversion';
 import { names } from './css-color-names';
 import { inputToRGB } from './format-input';
-import { HSL, HSLA, HSV, HSVA, RGB, RGBA, Numberify } from './interfaces';
+import { HSL, HSLA, HSV, HSVA, Numberify, RGB, RGBA } from './interfaces';
 import { bound01, boundAlpha, clamp01 } from './utils';
 
 export interface TinyColorOptions {
@@ -68,7 +68,6 @@ export class TinyColor {
   constructor(color: ColorInput = '', opts: Partial<TinyColorOptions> = {}) {
     // If input is already a tinycolor, return itself
     if (color instanceof TinyColor) {
-      // eslint-disable-next-line no-constructor-return
       return color;
     }
 

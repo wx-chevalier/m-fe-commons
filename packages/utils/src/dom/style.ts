@@ -1,7 +1,6 @@
 /* eslint-disable @typescript-eslint/camelcase */
 import { hash } from '../ds';
 import { raf } from '../func';
-
 import { element } from './element/utils';
 
 let stylesheet: CSSGroupingRule | StyleSheet | null;

@@ -1,7 +1,6 @@
 import { describe, expect, it } from '@jest/globals';
 
 import { TinyColor } from '../';
-
 import conversions from './conversions';
 
 describe('TinyColor Conversions', () => {

@@ -28,7 +28,7 @@
     "doc": "typedoc --out ../../docs/utils --exclude '**/*.test.ts' --excludeNotExported --disableSources --mode modules --tsconfig ./tsconfig.doc.json ./src",
     "lint": "run-p lint:*",
     "lint:es": "cross-env PARSER_NO_WATCH=true eslint . --cache --ext js,md,ts,tsx -f friendly --max-warnings 10",
-    "lint:ts": "tslint -p . -t stylish --fix",
+
     "lint:tsc": "tsc -p tsconfig.json --incremental false --noEmit",
     "pub": "npm run clean && npm run build && npm publish",
     "start": "npm run dev",
@@ -46,7 +46,7 @@
     "uuid-random": "^1.3.2"
   },
   "devDependencies": {
-    "@m-fe/app-config": "^0.7.1"
+    "@m-fe/app-config": "^0.7.18"
   },
   "lint-staged": {
     "*.{ts,tsx,scss,less,md}": [

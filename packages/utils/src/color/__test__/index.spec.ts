@@ -1,4 +1,4 @@
-import { describe, it, expect } from '@jest/globals';
+import { describe, expect, it } from '@jest/globals';
 
 import {
   default as defaultTiny,
@@ -8,9 +8,9 @@ import {
   mostReadable,
   names,
   readability,
+  TinyColor,
   tinycolor,
   toMsFilter,
-  TinyColor,
 } from '../public_api';
 import {
   BRIGHTENS,

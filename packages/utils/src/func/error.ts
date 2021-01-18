@@ -1,5 +1,4 @@
 import { inBrowser } from '../env/browser';
-
 import { warn } from './log';
 
 /** 处理异常 */

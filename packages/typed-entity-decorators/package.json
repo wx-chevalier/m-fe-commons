@@ -27,7 +27,7 @@
     "dev": "webpack-dev-server --config ./scripts/webpack/webpack.config.dev.js --hot",
     "lint": "run-p lint:*",
     "lint:es": "cross-env PARSER_NO_WATCH=true eslint . --cache --ext js,md,ts,tsx -f friendly --max-warnings 10",
-    "lint:ts": "tslint -p . -t stylish --fix",
+
     "lint:tsc": "tsc -p tsconfig.json --incremental false --noEmit",
     "pub": "npm run clean && npm run build && npm publish",
     "start": "npm run dev",
@@ -44,7 +44,7 @@
     "reflect-metadata": "^0.1.13"
   },
   "devDependencies": {
-    "@m-fe/app-config": "^0.7.1",
+    "@m-fe/app-config": "^0.7.18",
     "@types/history": "^4.7.3",
     "@types/jest": "^24.0.23",
     "@types/lodash": "^4.14.149",
@@ -86,7 +86,6 @@
     "parallelshell": "^3.0.2",
     "parcel-bundler": "^1.12.3",
     "postcss-loader": "3.0.0",
-    "prettier": "^1.17.1",
     "react-hot-loader": "^4.8.5",
     "resolve-url-loader": "3.1.0",
     "rimraf": "^2.6.3",

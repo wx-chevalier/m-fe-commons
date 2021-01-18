@@ -1,6 +1,5 @@
 import { now } from '../ds';
 import { inBrowser, isIOS, isNative } from '../env';
-
 import { handleError, noop } from '.';
 
 /**
