@@ -1,0 +1,17 @@
+.m-fe-commons-page-header-container {
+  border-bottom: 1px solid #e8e8e8;
+}
+
+.m-fe-commons-page-header-container .ant-page-header {
+  padding: 10px;
+}
+
+.m-fe-commons-page-header-container .ant-page-header-heading-title {
+  font-size: 16px;
+  font-weight: normal;
+}
+
+.m-fe-commons-page-header-container .ant-page-header-back {
+  margin-right: 16px;
+  font-weight: normal;
+}

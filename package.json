@@ -48,7 +48,6 @@
       "@m-fe"
     ]
   },
-  "prettier": "@m-fe/prettier-config/semi",
   "remarkConfig": {
     "plugins": [
       "@m-fe/remark-config"

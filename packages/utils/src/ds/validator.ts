@@ -1,10 +1,3 @@
-/* eslint-disable prefer-const */
-export const ifExist = <T>(
-  toCheck: T | null | undefined,
-  truthyValue: T = toCheck,
-  fallback?: T,
-) => (toCheck ? truthyValue : ((fallback || '') as T));
-
 /** 是否为某个对象 */
 export const is = (x: any, y: any) => {
   if (x === y) {
@@ -31,16 +24,14 @@ export function isObjectObject(o: any) {
 }
 
 export function isPlainObject(o: any) {
-  let ctor, prot;
-
   if (isObjectObject(o) === false) return false;
 
   // If has modified constructor
-  ctor = o.constructor;
+  const ctor = o.constructor;
   if (typeof ctor !== 'function') return false;
 
   // If has modified prototype
-  prot = ctor.prototype;
+  const prot = ctor.prototype;
   if (isObjectObject(prot) === false) return false;
 
   // If constructor does not have an Object-specific method

@@ -1,7 +1,7 @@
 {
-  "name": "@m-fe/address",
+  "name": "@m-fe/state-management",
   "version": "0.0.1",
-  "description": "@m-fe/address",
+  "description": "@m-fe/state-management",
   "repository": {
     "type": "git",
     "url": "https://github.com/wx-chevalier/m-fe-commons"
@@ -27,7 +27,6 @@
     "dev": "webpack-dev-server --config ./scripts/webpack/webpack.config.dev.js --hot",
     "lint": "run-p lint:*",
     "lint:es": "cross-env PARSER_NO_WATCH=true eslint . --cache --ext js,md,ts,tsx -f friendly --max-warnings 10",
-
     "lint:tsc": "tsc -p tsconfig.json --incremental false --noEmit",
     "pub": "npm run clean && npm run build && npm publish",
     "start": "npm run dev",
@@ -49,7 +48,7 @@
     "@types/use-subscription": "^1.0.0",
     "react": "^17.0.1",
     "react-dom": "^17.0.1",
-    "webpack": "^4.31.0"
+    "webpack": "^4.44.1"
   },
   "lint-staged": {
     "*.{ts,tsx,scss,less,md}": [

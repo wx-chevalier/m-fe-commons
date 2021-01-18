@@ -2,6 +2,7 @@ export * from './array';
 export * from './datetime';
 export * from './entity';
 export * from './equal';
+export * from './error';
 export * from './kv';
 export * from './number';
 export * from './object';

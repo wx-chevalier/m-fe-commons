@@ -35,7 +35,7 @@
     "redux": "^4.0.4"
   },
   "devDependencies": {
-    "webpack": "^4.41.5"
+    "webpack": "^4.44.1"
   },
   "lint-staged": {
     "*.{ts,tsx,scss,less,md}": [

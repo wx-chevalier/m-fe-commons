@@ -27,7 +27,6 @@
     "dev": "webpack-dev-server --config ./scripts/webpack/webpack.config.dev.js --hot",
     "lint": "run-p lint:*",
     "lint:es": "cross-env PARSER_NO_WATCH=true eslint . --cache --ext js,md,ts,tsx -f friendly --max-warnings 10",
-
     "lint:tsc": "tsc -p tsconfig.json --incremental false --noEmit",
     "pub": "npm run clean && npm run build && npm publish",
     "start": "npm run dev",
@@ -44,7 +43,7 @@
   },
   "devDependencies": {
     "@m-fe/app-config": "^0.7.18",
-    "webpack": "^4.31.0"
+    "webpack": "^4.44.1"
   },
   "lint-staged": {
     "*.{ts,tsx,scss,less,md}": [

@@ -1,6 +1,6 @@
 {
   "name": "@m-fe/utils",
-  "version": "0.5.9",
+  "version": "0.5.10",
   "description": "@m-fe/utils",
   "repository": {
     "type": "git",
@@ -28,7 +28,6 @@
     "doc": "typedoc --out ../../docs/utils --exclude '**/*.test.ts' --excludeNotExported --disableSources --mode modules --tsconfig ./tsconfig.doc.json ./src",
     "lint": "run-p lint:*",
     "lint:es": "cross-env PARSER_NO_WATCH=true eslint . --cache --ext js,md,ts,tsx -f friendly --max-warnings 10 --fix",
-
     "lint:tsc": "tsc -p tsconfig.json --incremental false --noEmit",
     "pub": "npm run clean && npm run build && npm publish",
     "start": "npm run dev",
@@ -47,7 +46,7 @@
   },
   "devDependencies": {
     "jest-environment-jsdom-sixteen": "^1.0.3",
-    "webpack": "^4.31.0"
+    "webpack": "^4.44.1"
   },
   "lint-staged": {
     "*.{ts,tsx,scss,less,md}": [
