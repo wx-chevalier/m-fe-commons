@@ -2,9 +2,16 @@
 # yarn lockfile v1
 
 
-"@ant-design/colors@^5.0.0", "@ant-design/colors@^5.0.1":
+"@ant-design/colors@^5.0.0":
   version "5.0.1"
   resolved "https://registry.npm.taobao.org/@ant-design/colors/download/@ant-design/colors-5.0.1.tgz?cache=0&sync_timestamp=1607912326029&other_urls=https%3A%2F%2Fregistry.npm.taobao.org%2F%40ant-design%2Fcolors%2Fdownload%2F%40ant-design%2Fcolors-5.0.1.tgz#09670f2f44a7473d7bc01be901c48ec10f12c7a4"
+  integrity sha1-CWcPL0SnRz17wBvpAcSOwQ8Sx6Q=
+  dependencies:
+    "@ctrl/tinycolor" "^3.3.1"
+
+"@ant-design/colors@^5.0.1":
+  version "5.0.1"
+  resolved "https://registry.npm.taobao.org/@ant-design/colors/download/@ant-design/colors-5.0.1.tgz?cache=0&sync_timestamp=1607912404971&other_urls=https%3A%2F%2Fregistry.npm.taobao.org%2F%40ant-design%2Fcolors%2Fdownload%2F%40ant-design%2Fcolors-5.0.1.tgz#09670f2f44a7473d7bc01be901c48ec10f12c7a4"
   integrity sha1-CWcPL0SnRz17wBvpAcSOwQ8Sx6Q=
   dependencies:
     "@ctrl/tinycolor" "^3.3.1"
