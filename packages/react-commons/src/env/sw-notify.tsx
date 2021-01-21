@@ -1,17 +1,9 @@
 import { Button, message, notification } from 'antd';
 import * as React from 'react';
 
-declare global {
-  interface Window {
-    gConfig: {
-      pwa: false;
-    };
-  }
-}
-
 export const setupSwNotify = () => {
   // if pwa is true
-  if (window.gConfig && window.gConfig.pwa) {
+  if ((window as any).gConfig && ((window as any).gConfig as any).pwa) {
     // Notify user if offline now
     window.addEventListener('sw.offline', () => {
       message.warning('App is offline');
