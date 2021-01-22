@@ -1,0 +1,29 @@
+@import '~antd/es/style/themes/default.less';
+
+.m-fe-react-commons-notice-icon-popover {
+  position: relative;
+  width: 336px;
+}
+
+.m-fe-react-commons-notice-icon-noticeButton {
+  display: inline-block;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+
+.m-fe-react-commons-notice-icon-icon {
+  padding: 4px;
+  vertical-align: middle;
+}
+
+.m-fe-react-commons-notice-icon-badge {
+  font-size: 16px;
+}
+
+.m-fe-react-commons-notice-icon-tabs .ant-tabs-nav-scroll {
+  text-align: center;
+}
+
+.m-fe-react-commons-notice-icon-tabs .ant-tabs-bar {
+  margin-bottom: 0;
+}
