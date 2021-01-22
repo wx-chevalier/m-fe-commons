@@ -49,7 +49,7 @@ export interface NoticeIconProps {
   onPopupVisibleChange?: (visible: boolean) => void;
 }
 
-export default class NoticeIcon extends Component<NoticeIconProps> {
+export class NoticeIcon extends Component<NoticeIconProps> {
   static defaultProps = {
     onItemClick: (): void => {},
     onPopupVisibleChange: (): void => {},

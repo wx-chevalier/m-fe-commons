@@ -1,6 +1,6 @@
 {
   "name": "@m-fe/react-commons",
-  "version": "0.0.7",
+  "version": "0.0.16",
   "description": "Common Snippets for React Application",
   "repository": {
     "type": "git",

@@ -8,14 +8,14 @@ import * as React from 'react';
 
 import { HeaderDropdown } from '../HeaderDropdown';
 
-interface SelectLangProps {
+interface LangSelectorProps {
   className?: string;
 
   selectedLang: string;
   onLangSelect: ({ key }: { key: React.Key }) => void;
 }
 
-const SelectLang: React.FC<SelectLangProps> = (props) => {
+export const LangSelector: React.FC<LangSelectorProps> = (props) => {
   const { className, selectedLang, onLangSelect } = props;
 
   const locales = ['zh-CN', 'zh-TW', 'en-US', 'pt-BR'];
@@ -31,6 +31,7 @@ const SelectLang: React.FC<SelectLangProps> = (props) => {
     'en-US': '🇬🇧',
     'pt-BR': '🇧🇷',
   };
+
   const langMenu = (
     <Menu className="m-fe-lang-selector-menu" selectedKeys={[selectedLang]} onClick={onLangSelect}>
       {locales.map((locale) => (
@@ -43,6 +44,7 @@ const SelectLang: React.FC<SelectLangProps> = (props) => {
       ))}
     </Menu>
   );
+
   return (
     <HeaderDropdown overlay={langMenu} placement="bottomRight">
       <span className={classNames('m-fe-lang-selector-dropDown', className)}>
@@ -51,5 +53,3 @@ const SelectLang: React.FC<SelectLangProps> = (props) => {
     </HeaderDropdown>
   );
 };
-
-export default SelectLang;
