@@ -49,7 +49,7 @@ export function parseJson(str: string, defaultValue: any = null) {
 }
 
 /** 从路径中获取到文件名 */
-export function getFileNameFromPath(str: string = '') {
+export function getFileNameFromPath(str = '') {
   return str.split(/(\\|\/)/g).pop();
 }
 
@@ -75,12 +75,7 @@ export function ellipsis(str: string, maxLength = 10) {
 }
 
 /** 进行字符串 Mask */
-export function maskStr(
-  str: string,
-  minIndex: number = 0,
-  maxIndex: number = 10,
-  mask = '*',
-) {
+export function maskStr(str: string, minIndex = 0, maxIndex = 10, mask = '*') {
   let res = '';
 
   for (let i = 0; i < str.length; i++) {
@@ -196,4 +191,30 @@ export function replaceAll(
   }
 
   return result + str.slice(prevIndex);
+}
+
+/** 与编解码相关的操作 */
+export function decodeUnicodeStr(str: string) {
+  const r = /\\x([\d\w]{2,4})/gi;
+
+  const x = str.replace(r, (match, grp) => {
+    return String.fromCharCode(parseInt(grp, 16));
+  });
+
+  return x;
+}
+
+export function getStrByIndexAfterSplit(
+  str: string,
+  separator: string,
+  index: number,
+) {
+  const splittedStrs = str.split(separator);
+
+  return splittedStrs[index] || '';
+}
+
+/** 判断是否字符串是否模糊匹配一系列 */
+export function fuzzyIncludes(str: string, targets: string[]) {
+  return targets.reduce((prev, cur) => str.includes(cur) || prev, false);
 }

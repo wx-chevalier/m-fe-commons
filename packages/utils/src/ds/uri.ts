@@ -283,6 +283,7 @@ export function setOssResize(
  */
 export function encodeUri(uri: string, pureUri = false) {
   if (hasChinese(uri)) {
+    // pureUri 即时将 # 等分隔符也认为是路径的一部分
     if (pureUri) {
       let originUri = encodeURI(uri);
 
@@ -296,7 +297,9 @@ export function encodeUri(uri: string, pureUri = false) {
 
       return originUri;
     } else {
-      return encodeURI(uri);
+      const u: URI = newUri(uri);
+
+      return `${u.scheme()}://${u.host()}${encodeURI(u.path())}`;
     }
   }
 
