@@ -1,4 +1,3 @@
-/* eslint-disable @typescript-eslint/camelcase */
 import { hash } from '../ds';
 import { raf } from '../func';
 import { element } from './element/utils';
@@ -15,7 +14,7 @@ export function createRule(
   delay: number,
   ease: (t: number) => number,
   fn: (t: number, u: number) => string,
-  uid: number = 0,
+  uid = 0,
 ) {
   const step = 16.666 / duration;
   let keyframes = '{\n';
@@ -93,3 +92,17 @@ export function hasClass(el: HTMLElement, str: string) {
 
   return result;
 }
+
+export const css = (styleBlock: string) => {
+  const className = hash(styleBlock);
+
+  const styleEl = document.createElement('style');
+  styleEl.textContent = `
+    .${className} {
+      ${styleBlock}
+    }
+  `;
+
+  document.head.appendChild(styleEl);
+  return className;
+};
