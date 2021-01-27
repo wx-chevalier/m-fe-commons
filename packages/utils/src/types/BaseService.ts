@@ -23,8 +23,6 @@ export abstract class BaseService<
   type: T;
   // 本地服务的状态
   status: BaseServiceStatus;
-  // 提供给应用侧访问的 url
-  baseUrl?: string;
 
   /** 清理器是否已经被初始化过 */
   hasVacuumInitialized = false;

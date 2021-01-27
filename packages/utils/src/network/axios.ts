@@ -41,7 +41,7 @@ export class AxiosApi {
   quickAxiosAgent: AxiosInstance;
   resultNotice = (...args: string[]) => {};
 
-  constructor(protected baseUrl: string) {
+  constructor(public baseUrl: string) {
     // 创建 Axios 实例
     this.axiosAgent = axios.create({
       baseURL: baseUrl,
