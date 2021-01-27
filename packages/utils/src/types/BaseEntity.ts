@@ -20,6 +20,8 @@ export class BaseEntity<T = {}, I = EntityId> {
     }
 
     this._formatDatetime();
+
+    Object.assign(this, props);
   }
 
   private _formatDatetime() {
@@ -41,9 +43,25 @@ export class BaseEntity<T = {}, I = EntityId> {
   }
 }
 
+/** 常见的类定义 */
+
 export class BaseKV extends BaseEntity<BaseKV> {
   key: string;
   value: string;
   type: string;
   desc: string;
+
+  constructor(data: Partial<BaseKV> = {}) {
+    super(data);
+
+    Object.assign(this, data);
+  }
+}
+
+export abstract class BaseLogger {
+  abstract debug(...args: any[]): void;
+  abstract log(...args: any[]): void;
+  abstract info(...args: any[]): void;
+  abstract warn(...args: any[]): void;
+  abstract error(...args: any[]): void;
 }
