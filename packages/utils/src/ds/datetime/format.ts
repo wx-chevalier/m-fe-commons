@@ -19,7 +19,7 @@ export function formatDatetimeWithoutYear(m: Dateable) {
     return '-';
   }
 
-  return dayjs(m).format('MM-DD HH:mm:sss');
+  return dayjs(m).format('MM-DD HH:mm');
 }
 
 /** 格式化为标准时间形式 */
