@@ -42,6 +42,8 @@ export class AxiosApi {
   resultNotice = (...args: string[]) => {};
 
   constructor(public baseUrl: string) {
+    this.baseUrl = baseUrl;
+
     // 创建 Axios 实例
     this.axiosAgent = axios.create({
       baseURL: baseUrl,
