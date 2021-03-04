@@ -6,9 +6,11 @@ export type BaseServiceStatus =
   | 'NOT_INSTALL'
   | 'INSTALLING'
   | 'NOT_RUNNING'
-  | 'RUNNING'
-  /** 未响应 */
-  | 'NO_RESPONSE';
+  | 'INITIALIZING' // 初始化中
+  | 'STARTING' // 启动中
+  | 'RUNNING' // 运行中
+  | 'STOPPING' // 停止中
+  | 'NO_RESPONSE'; // 未响应
 
 export abstract class BaseService<
   T extends string = string
@@ -22,7 +24,7 @@ export abstract class BaseService<
   // 本地服务的类型
   type: T;
   // 本地服务的状态
-  status: BaseServiceStatus;
+  status: BaseServiceStatus = 'NOT_RUNNING';
   baseUrl: string;
 
   /** 清理器是否已经被初始化过 */
