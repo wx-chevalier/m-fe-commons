@@ -5,10 +5,14 @@ export abstract class IntervalComponent<P, S> extends React.PureComponent<P, S> 
   interval: number;
 
   componentDidMount() {
-    this.onInterval();
+    if (this.onInterval) {
+      this.onInterval();
+    }
 
     this.intervalHandler = setInterval(() => {
-      this.onInterval();
+      if (this.onInterval) {
+        this.onInterval();
+      }
     }, this.interval || 15 * 1000);
   }
 
@@ -18,5 +22,5 @@ export abstract class IntervalComponent<P, S> extends React.PureComponent<P, S> 
     }
   }
 
-  onInterval: Function;
+  onInterval: () => void;
 }
