@@ -218,3 +218,8 @@ export function getStrByIndexAfterSplit(
 export function fuzzyIncludes(str: string, targets: string[]) {
   return targets.reduce((prev, cur) => str.includes(cur) || prev, false);
 }
+
+/** 移除哪些可能导致问题的 */
+export function escapeBugs(str: string) {
+  return str.replace(/[^a-zA-Z0-9\u4e00-\u9fa5]/g, '');
+}

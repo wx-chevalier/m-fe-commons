@@ -16881,6 +16881,11 @@ tslib@^2.0.0, tslib@^2.0.1:
   resolved "https://registry.npm.taobao.org/tslib/download/tslib-2.0.3.tgz#8e0741ac45fc0c226e58a17bfc3e64b9bc6ca61c"
   integrity sha1-jgdBrEX8DCJuWKF7/D5kubxsphw=
 
+tslib@^2.1.0:
+  version "2.1.0"
+  resolved "https://registry.npm.taobao.org/tslib/download/tslib-2.1.0.tgz?cache=0&sync_timestamp=1609887581211&other_urls=https%3A%2F%2Fregistry.npm.taobao.org%2Ftslib%2Fdownload%2Ftslib-2.1.0.tgz#da60860f1c2ecaa5703ab7d39bc05b6bf988b97a"
+  integrity sha1-2mCGDxwuyqVwOrfTm8Bba/mIuXo=
+
 tslint-angular@^3.0.2:
   version "3.0.2"
   resolved "https://registry.yarnpkg.com/tslint-angular/-/tslint-angular-3.0.2.tgz#6f7480cc34f26fcc03df18d7ec3d5ce364b65064"
