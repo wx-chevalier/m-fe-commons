@@ -221,5 +221,7 @@ export function fuzzyIncludes(str: string, targets: string[]) {
 
 /** 移除哪些可能导致问题的 */
 export function escapeStringBugs(str: string) {
-  return str.replace(/[^a-zA-Z0-9\u4e00-\u9fa5.%+-]/g, '');
+  // _ 用于区分支撑与实体
+  // . 用于留存文件后缀名
+  return str.replace(/[^a-zA-Z0-9\u4e00-\u9fa5.+-_#@=]/g, '');
 }
