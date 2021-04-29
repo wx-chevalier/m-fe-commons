@@ -153,7 +153,7 @@ export function getUrlParamWithRegex(name: string) {
 
 /** 从 Url 中获取参数 */
 export function getUrlParam(href: string, key: string) {
-  // 首先从 href 中获取，不存在则从 token 中获取
+  // 首先从 href 中获取，不存在则从 query 中获取
   const uriObj = newUri(href);
   const sp = new URLSearchParams(uriObj.query());
   const value = sp.get(key);
