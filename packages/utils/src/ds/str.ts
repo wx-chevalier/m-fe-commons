@@ -42,7 +42,13 @@ export function hash(str: string) {
 /** 解析 JSON */
 export function parseJson(str: string, defaultValue: any = null) {
   try {
-    return JSON.parse(str) || defaultValue;
+    const parsedValue = JSON.parse(str);
+
+    if (parsedValue === undefined || parsedValue === null) {
+      return defaultValue;
+    }
+
+    return parsedValue;
   } catch (e) {
     return defaultValue;
   }
@@ -66,7 +72,7 @@ export function hasChinese(str: string) {
 }
 
 /** 进行字符串截断 */
-export function ellipsis(str: string, maxLength = 10) {
+export function ellipsis(str = '', maxLength = 10) {
   if (str.length <= maxLength) {
     return str;
   }
