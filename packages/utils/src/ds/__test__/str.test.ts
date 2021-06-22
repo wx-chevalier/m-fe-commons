@@ -6,5 +6,6 @@ describe('str', () => {
     console.log(parseJson(null, undefined));
     console.log(parseJson('a', 'a'));
     console.log(parseJson('{"a":1}', {}));
+    console.log(parseJson('false', true));
   });
 });
