@@ -6,6 +6,30 @@ export const is = (x: any, y: any) => {
   return x !== x && y !== y; // eslint-disable-line
 };
 
+/**
+ * Checks if `value` is `null` or `undefined`.
+ *
+ * @static
+ * @memberOf _
+ * @since 4.0.0
+ * @category Lang
+ * @param {*} value The value to check.
+ * @returns {boolean} Returns `true` if `value` is nullish, else `false`.
+ * @example
+ *
+ * _.isNil(null);
+ * // => true
+ *
+ * _.isNil(void 0);
+ * // => true
+ *
+ * _.isNil(NaN);
+ * // => false
+ */
+export function isNil(value: any) {
+  return value == null;
+}
+
 export function isPromise<T = any>(value: any): value is PromiseLike<T> {
   return value && typeof value === 'object' && typeof value.then === 'function';
 }
@@ -132,16 +156,4 @@ export function isPrimitive(value: any): boolean {
     typeof value === 'number' ||
     typeof value === 'boolean'
   );
-}
-
-/** InputNumber 格式限制 */
-export function limitDecimals(value: string | number) {
-  const reg = /^(\-)*(\d+)\.(\d\d).*$/;
-  if (typeof value === 'string') {
-    return !isNaN(Number(value)) ? value.replace(reg, '$1$2.$3') : '';
-  } else if (typeof value === 'number') {
-    return !isNaN(value) ? String(value).replace(reg, '$1$2.$3') : '';
-  } else {
-    return '';
-  }
 }
