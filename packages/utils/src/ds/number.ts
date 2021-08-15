@@ -271,13 +271,18 @@ export const calcSum = (array: Array<any>) =>
   );
 
 /** InputNumber 格式限制 */
-export function limitDecimals(value: string | number) {
+export function limitDecimals(value: string | number): number {
   const reg = /^(\-)*(\d+)\.(\d\d).*$/;
+
   if (typeof value === 'string') {
-    return !isNaN(Number(value)) ? value.replace(reg, '$1$2.$3') : '';
+    return !isNaN(Number(value))
+      ? Number(value.replace(reg, '$1$2.$3'))
+      : Number(value);
   } else if (typeof value === 'number') {
-    return !isNaN(value) ? String(value).replace(reg, '$1$2.$3') : '';
+    return !isNaN(value)
+      ? Number(String(value).replace(reg, '$1$2.$3'))
+      : Number(value);
   } else {
-    return '';
+    return Number(value);
   }
 }

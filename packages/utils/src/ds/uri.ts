@@ -152,7 +152,7 @@ export function getUrlParamWithRegex(name: string) {
 }
 
 /** 从 Url 中获取参数 */
-export function getUrlParam(href: string, key: string) {
+export function getUrlParam(href: string, key: string, defaultValue = '') {
   // 首先从 href 中获取，不存在则从 query 中获取
   const uriObj = newUri(href);
   const sp = new URLSearchParams(uriObj.query());
@@ -168,7 +168,8 @@ export function getUrlParam(href: string, key: string) {
 
   const hashSp = new URLSearchParams(hashUriObj.query());
 
-  return hashSp.get(key);
+  // 这里默认值是 null，强制转化为 string
+  return hashSp.get(key) || defaultValue;
 }
 
 /** 为某个 URL 添加查询参数 */
@@ -304,4 +305,13 @@ export function encodeUri(uri: string, pureUri = false) {
   }
 
   return uri;
+}
+
+/** 判断是否为本地域名 */
+export function isLocalHost(str = '') {
+  return (
+    str.includes('localhost') ||
+    str.includes('127.0.0.1') ||
+    str.includes('0.0.0.0')
+  );
 }

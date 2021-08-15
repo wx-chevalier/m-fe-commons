@@ -41,3 +41,34 @@ export function getLastWeekDateStrList() {
 
   return dateStrList;
 }
+
+const range = (start: number, end: number) => {
+  const result = [];
+  for (let i = start; i < end; i++) {
+    result.push(i);
+  }
+  return result;
+};
+
+/** 禁用过去的时间 */
+export const disabledPassedTime = (date: Dayjs) => {
+  const currentDate = dayjs().date();
+  const currentMonth = dayjs().month();
+
+  const selectedDate = dayjs(date).date();
+  const selectedMonth = dayjs(date).month();
+
+  if (
+    selectedMonth > currentMonth ||
+    (selectedMonth === currentMonth && selectedDate > currentDate)
+  ) {
+    return {
+      disabledHours: () => range(0, 0),
+      disabledMinutes: () => range(0, 0),
+    };
+  } else {
+    return {
+      disabledHours: () => range(0, dayjs().hour()),
+    };
+  }
+};

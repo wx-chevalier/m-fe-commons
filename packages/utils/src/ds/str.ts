@@ -109,17 +109,34 @@ export function sortByName(n1: string, n2: string) {
 }
 
 /** 在递归调用场景下序列化 */
-export function stringifyWithCircularRef(obj: any) {
+export function stringifyWithCircularRef(
+  obj: any,
+  {
+    refSuffix = 'Ref',
+    objFrequency,
+  }: {
+    refSuffix?: string;
+    objFrequency?: number;
+  } = {},
+) {
   const getCircularReplacer = () => {
     const seen = new WeakSet();
 
     return (_key: any, value: any) => {
       try {
-        if (typeof value === 'object' && value !== null) {
-          if (seen.has(value)) {
-            return;
+        // 所有以 Ref 结尾的表示应该被忽略
+        if (refSuffix && _key.endsWith(refSuffix)) {
+          return {};
+        }
+
+        // 判断是否需要控制出现次数
+        if (objFrequency > 0) {
+          if (typeof value === 'object' && value !== null) {
+            if (seen.has(value)) {
+              return;
+            }
+            seen.add(value);
           }
-          seen.add(value);
         }
 
         return value;
