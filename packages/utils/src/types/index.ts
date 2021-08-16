@@ -14,3 +14,4 @@ export type StyleObject = Record<string, string | number>;
 
 export * from './BaseEntity';
 export * from './BaseService';
+export * from './basic';
