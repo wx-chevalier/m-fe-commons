@@ -62,7 +62,7 @@ export function getTargetParentAreaListByCode(target: string, code: string) {
 export function getTargetAreaListByCode(
   target: 'province' | 'city' | 'district',
   code: string,
-  parent: boolean = false,
+  parent = false,
 ) {
   if (parent) return getTargetParentAreaListByCode(target, code);
 
@@ -72,6 +72,7 @@ export function getTargetAreaListByCode(
       {
         city: 'cityList',
         district: 'districtList',
+        province: 'provinceList',
       }[target]
     ];
   if (code && list) {
