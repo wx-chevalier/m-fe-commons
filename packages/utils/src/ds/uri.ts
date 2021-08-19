@@ -216,7 +216,11 @@ export function setOssResize(
     return url;
   }
 
-  if (url.indexOf('aliyuncs.com') === -1 || url.indexOf('Signature') > -1) {
+  if (
+    url.indexOf('aliyuncs.com') === -1 ||
+    url.indexOf('Signature') > -1 ||
+    url.indexOf('x-oss-process') > -1 // 如果已经有了 x-oss-process，则不进行处理
+  ) {
     return url;
   }
 

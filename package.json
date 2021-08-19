@@ -41,6 +41,9 @@
     "prettier": "2.2.0",
     "tslib": "^2.1.0"
   },
+  "resolutions": {
+    "tslib": "^2.1.0"
+  },
   "browserslist": [
     "extends @m-fe/browserslist-config"
   ],
