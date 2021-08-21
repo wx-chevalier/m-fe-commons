@@ -8,7 +8,7 @@ Utils for JavaScript data structures, funcs and dom elements manipulation, etc.
 
 # About
 
-# Motivation & Credits
+## Motivation & Credits
 
 - [fbjs #Project#](https://github.com/facebook/fbjs): A collection of utility libraries used by other Facebook JS projects.
 
