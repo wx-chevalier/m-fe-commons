@@ -5,6 +5,10 @@ describe('isLanIp', () => {
     expect(isLanIp('192.168.1.1')).toBeTruthy();
   });
 
+  it('isLanIp true', () => {
+    expect(isLanIp('http://192.168.1.1/11')).toBeTruthy();
+  });
+
   it('isLanIp false', () => {
     expect(isLanIp('158.168.1.1')).not.toBeTruthy();
   });

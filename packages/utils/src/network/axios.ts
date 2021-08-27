@@ -39,6 +39,7 @@ interface PostConfig extends BaseConfig {
 export class AxiosApi {
   axiosAgent: AxiosInstance;
   quickAxiosAgent: AxiosInstance;
+
   resultNotice = (...args: string[]) => {};
 
   constructor(public baseUrl: string) {
