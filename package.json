@@ -39,10 +39,10 @@
     "@m-fe/app-config": "^0.7.18",
     "@svgr/webpack": "^5.1.0",
     "prettier": "2.2.0",
-    "tslib": "^2.1.0"
+    "tslib": "^2.3.1"
   },
   "resolutions": {
-    "tslib": "^2.1.0"
+    "tslib": "^2.3.1"
   },
   "browserslist": [
     "extends @m-fe/browserslist-config"
