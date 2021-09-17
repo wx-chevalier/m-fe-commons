@@ -10,6 +10,6 @@ describe('str', () => {
   // });
 
   it('escapeStringBugs', () => {
-    console.log(escapeStringBugs('1#1'));
+    console.log(escapeStringBugs('1# 1'));
   });
 });

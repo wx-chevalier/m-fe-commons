@@ -1,7 +1,5 @@
 import { History } from 'history';
 
-const valueToString = (v: string | boolean | number) => `${v}`;
-
 const defaultStringToValue = (str: string) => {
   if (str === 'null') {
     return null;
@@ -53,6 +51,8 @@ export function getQueryValues(
   return queryValues;
 }
 
+const valueToString = (v: string | boolean | number) => `${v}`;
+
 /** 更新查询参数值，注意，这里是针对 History 进行处理，其并不会引发 Url 的刷新变化 */
 export function updateQueryValues(
   history: History,
@@ -64,7 +64,8 @@ export function updateQueryValues(
 
   Object.keys(queryValues).forEach(param => {
     const rv = queryValues[param];
-    if (rv == null) {
+    if (rv == null || rv == undefined || rv == 'undefined') {
+      locationParams.delete(param);
       return;
     }
 
