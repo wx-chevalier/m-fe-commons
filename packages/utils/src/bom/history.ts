@@ -64,6 +64,8 @@ export function updateQueryValues(
 
   Object.keys(queryValues).forEach(param => {
     const rv = queryValues[param];
+
+    // 如果是传入值为空，则表示清除该值
     if (rv == null || rv == undefined || rv == 'undefined') {
       locationParams.delete(param);
       return;
