@@ -1,5 +1,5 @@
-import { Reg, strLen } from './utils';
 import { AreaParser, ParsedAddress } from './AreaParser';
+import { Reg, strLen } from './utils';
 
 const ExcludeKeys = [
   '发件人',

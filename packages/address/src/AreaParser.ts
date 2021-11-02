@@ -1,5 +1,5 @@
-import { getTargetAreaListByCode, shortIndexOf } from './utils';
 import { AddressData } from './AddressData';
+import { getTargetAreaListByCode, shortIndexOf } from './utils';
 
 const ProvinceKeys = [
   '特别行政区',
@@ -170,7 +170,7 @@ export class AreaParser {
    * @param parseAll 是否执行全部解析 默认识别到city终止
    * @returns {Array}
    */
-  parse(address: string, parseAll: boolean = false): ParsedAddress[] {
+  parse(address: string, parseAll = false): ParsedAddress[] {
     this.results = [];
 
     // 正向解析
