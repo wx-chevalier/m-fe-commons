@@ -33,11 +33,11 @@ export abstract class BaseService<
   hasVacuumInitialized = false;
   // 执行自动清理的间隔，每三天
   vaccumInterval = 3 * 24 * 60 * 60 * 1000;
-  vaccumTimeout: NodeJS.Timeout;
+  vaccumTimeout: ReturnType<typeof setInterval>;
 
   // 如果当前不适合进行自动清理，则设置重试的间隔
   retryInterval = 60 * 60 * 1000;
-  retryTimeout: NodeJS.Timeout;
+  retryTimeout: ReturnType<typeof setInterval>;
 
   /** 判断当前是否可以进行清理操作 */
   get canVacuumNow() {
@@ -91,7 +91,7 @@ export abstract class BaseService<
   }
 
   interval: number = 30 * 1000;
-  intervalHandler: NodeJS.Timeout;
+  intervalHandler: ReturnType<typeof setInterval>;
 
   onInterval() {}
 
