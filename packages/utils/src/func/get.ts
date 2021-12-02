@@ -88,6 +88,8 @@ export function getString<T>(
     if (typeof result !== 'string') {
       return JSON.stringify(result);
     }
+
+    return result;
   } catch (e) {
     // 强提示
     console.error('>>>getString>>>', e);
