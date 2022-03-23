@@ -1,11 +1,7 @@
 export * from './calendar';
 export * from './format';
 
-import { inBrowser } from '../../env';
-
-export const now: () => number = inBrowser
-  ? () => window.performance.now()
-  : () => Date.now();
+export const now: () => number = () => Date.now();
 
 // 从时间字符串中计算出秒数 13 : 28 : 44
 export function getSFromHMS(hms: string) {

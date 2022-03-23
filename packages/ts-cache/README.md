@@ -12,4 +12,6 @@
 
 - [Transitory](https://github.com/aholstenson/transitory): In-memory cache with high hit rates via LFU eviction for Node and browsers. Supports time-based expiration, automatic loading and metrics.
 
-- [apollo-cache-persist](https://github.com/apollographql/apollo-cache-persist): Simple persistence for all Apollo Client 3.0 cache implementations, including InMemoryCache and Hermes.
+- [apollo-cache-persist](https://github.com/apollographql/apollo-cache-persist): Simple persistence for all Apollo Client 3.0 cache implementations, including InMemoryCache and Hermes
+
+- [store.js](https://github.com/marcuswestin/store.js): Cross-browser storage for all use cases, used across the web.
