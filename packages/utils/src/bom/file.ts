@@ -61,7 +61,7 @@ export function arrayBufferToFile(
 }
 
 /** 将某个 Blob 变为文件对象 */
-export function blobToFile(theBlob: Blob, fileName: string = 'fileName'): File {
+export function blobToFile(theBlob: Blob, fileName = 'fileName'): File {
   const b: any = theBlob;
   // A Blob() is almost a File() - it's just missing the two properties below which we will add
   b.lastModifiedDate = new Date();
