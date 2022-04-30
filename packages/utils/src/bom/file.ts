@@ -25,7 +25,7 @@ export function downloadText(
 export function downloadArraybuffer(
   arrayBuffer: ArrayBuffer,
   type: string,
-  fileName: string = 'fileName',
+  fileName = 'fileName',
 ) {
   const blob = new Blob([arrayBuffer], { type });
   const url = window.URL.createObjectURL(blob);
@@ -34,7 +34,7 @@ export function downloadArraybuffer(
 }
 
 /** 下载某个 URL 对应的文件 */
-export function downloadUrl(url: string, fileName: string = 'fileName') {
+export function downloadUrl(url: string, fileName = 'fileName') {
   if (!inBrowser) {
     return;
   }
@@ -43,6 +43,7 @@ export function downloadUrl(url: string, fileName: string = 'fileName') {
   a.download = fileName;
   a.href = url;
   a.style.display = 'none';
+  a.target = '_self';
 
   document.body.appendChild(a);
   a.click();
@@ -51,7 +52,7 @@ export function downloadUrl(url: string, fileName: string = 'fileName') {
 export function arrayBufferToFile(
   arrayBuffer: ArrayBuffer,
   fileType = 'application/octet-binary',
-  fileName: string = 'fileName',
+  fileName = 'fileName',
 ): File {
   const iA = new Int8Array(arrayBuffer);
   const blob = new Blob([iA], { type: fileType });
