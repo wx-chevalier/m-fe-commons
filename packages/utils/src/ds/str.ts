@@ -80,6 +80,33 @@ export function ellipsis(str = '', maxLength = 10) {
   return `${str.slice(0, maxLength)}...`;
 }
 
+export function smartTrim(
+  string: string,
+  {
+    maxLength = 15,
+    leftRemain,
+    rightRemain,
+  }: { maxLength?: number; leftRemain?: number; rightRemain?: number },
+) {
+  if (!string) return string;
+  if (maxLength < 1) return string;
+  if (string.length <= maxLength) return string;
+  if (maxLength == 1) return string.substring(0, 1) + '...';
+
+  const midpoint = Math.ceil(string.length / 2);
+  const toremove = string.length - maxLength;
+  const lstrip = Math.ceil(toremove / 2);
+  const rstrip = toremove - lstrip;
+
+  return (
+    string.substring(0, leftRemain || midpoint - lstrip) +
+    '...' +
+    string.substring(
+      rightRemain ? string.length - rightRemain : midpoint + rstrip,
+    )
+  );
+}
+
 /** 进行字符串 Mask */
 export function maskStr(str: string, minIndex = 0, maxIndex = 10, mask = '*') {
   let res = '';
