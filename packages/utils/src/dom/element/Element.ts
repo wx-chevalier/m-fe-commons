@@ -1,6 +1,4 @@
 /* eslint-disable @typescript-eslint/prefer-for-of */
-/* global document */
-/* global window */
 class Element {
   el: HTMLElement;
   _data: Record<string, any>;

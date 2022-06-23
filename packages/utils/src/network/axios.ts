@@ -127,7 +127,7 @@ export class AxiosApi {
         );
       }
 
-      delete error.config;
+      delete (error as any).config;
 
       throw error;
     }

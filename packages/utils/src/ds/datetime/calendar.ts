@@ -42,6 +42,7 @@ export function getLastWeekDateStrList() {
   return dateStrList;
 }
 
+/** 获取某个时间范围 */
 const range = (start: number, end: number) => {
   const result = [];
   for (let i = start; i < end; i++) {
