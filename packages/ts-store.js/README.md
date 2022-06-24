@@ -15,3 +15,5 @@
 - [apollo-cache-persist](https://github.com/apollographql/apollo-cache-persist): Simple persistence for all Apollo Client 3.0 cache implementations, including InMemoryCache and Hermes
 
 - [store.js](https://github.com/marcuswestin/store.js): Cross-browser storage for all use cases, used across the web.
+
+- [fixed-size-queue](https://www.npmjs.com/package/fixed-size-queue)
