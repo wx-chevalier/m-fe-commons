@@ -274,5 +274,8 @@ export function escapeStringBugs(str: string) {
   // - 用于命名时候的连接符
   // _ 用于区分支撑与实体
   // . 用于留存文件后缀名
-  return str.replace(/[^a-zA-Z0-9\u4e00-\u9fa5.\-_@=\(\)（）]/g, '');
+  return str.replace(
+    /[^a-zA-Z0-9\u4e00-\u9fa5\u0800-\u4e00\uac00-\ud7ff\u0600-\u06FF.\-_@=\(\)（）]/g,
+    '',
+  );
 }

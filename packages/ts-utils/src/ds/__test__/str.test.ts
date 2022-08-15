@@ -10,6 +10,6 @@ describe('str', () => {
   // });
 
   it('escapeStringBugs', () => {
-    console.log(escapeStringBugs('1-# 1（）上海'));
+    console.log(escapeStringBugs('1-# 1（）上海매우111我的我的اللغة العربية'));
   });
 });
