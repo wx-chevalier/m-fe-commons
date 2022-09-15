@@ -1,3 +1,5 @@
+import { isEmpty } from 'lodash';
+
 import { isPrimitive } from './validator';
 
 /**
@@ -8,7 +10,9 @@ import { isPrimitive } from './validator';
 export function assignInConstructor(objThis: object, data: object = {}) {
   for (const key of Object.keys(data)) {
     if (
-      (objThis[key] === undefined || isPrimitive(objThis[key])) &&
+      (objThis[key] === undefined ||
+        isPrimitive(objThis[key]) ||
+        isEmpty(objThis[key])) &&
       data[key] !== undefined
     ) {
       objThis[key] = data[key];
