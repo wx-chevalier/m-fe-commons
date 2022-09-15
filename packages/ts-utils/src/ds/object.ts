@@ -1,3 +1,21 @@
+import { isPrimitive } from './validator';
+
+/**
+ * 用于构造函数的分配函数
+ * @param objThis 目标对象
+ * @param data 待处理的数据
+ */
+export function assignInConstructor(objThis: object, data: object = {}) {
+  for (const key of Object.keys(data)) {
+    if (
+      (objThis[key] === undefined || isPrimitive(objThis[key])) &&
+      data[key] !== undefined
+    ) {
+      objThis[key] = data[key];
+    }
+  }
+}
+
 /* eslint-disable @typescript-eslint/prefer-for-of */
 /**
  * Convert a value to a string that is actually rendered.
