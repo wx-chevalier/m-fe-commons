@@ -10,9 +10,15 @@ import { isPrimitive } from './validator';
 export function assignInConstructor(objThis: object, data: object = {}) {
   for (const key of Object.keys(data)) {
     if (
+      // 当前值为空，则使用传入值
       (objThis[key] === undefined ||
+        // 如果是基础类型，则表示肯定是默认值
         isPrimitive(objThis[key]) ||
-        isEmpty(objThis[key])) &&
+        // 如果为空，这里表示的是空数组或者空对象
+        isEmpty(objThis[key]) ||
+        // 或者是对象，但是不是类实例，则表示可能是默认值
+        (typeof objThis[key] === 'object' &&
+          objThis[key].constructor.name === 'Object')) &&
       data[key] !== undefined
     ) {
       objThis[key] = data[key];
