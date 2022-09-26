@@ -32,7 +32,7 @@ export const setupSwNotify = () => {
           worker.postMessage({ type: 'skip-waiting' }, [channel.port2]);
         });
         // Refresh current page to use the updated HTML and other assets after SW has skiped waiting
-        window.location.reload(true);
+        window.location.reload();
         return true;
       };
       const key = `open${Date.now()}`;

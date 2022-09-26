@@ -1,8 +1,7 @@
+import { getI18nFormat } from '@m-fe/utils';
 import { Button, Result } from 'antd';
 import * as React from 'react';
 import { Link } from 'react-router-dom';
-
-import { getI18nFormat } from '../../env';
 
 export const Exception403 = () => (
   <Result

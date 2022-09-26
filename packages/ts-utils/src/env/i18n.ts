@@ -1,6 +1,8 @@
 let i18nFormat: (id: string, values?: Record<string, any>) => string;
 
-export function setI18nFormat(_i: (id: string, values?: Record<string, any>) => string) {
+export function setI18nFormat(
+  _i: (id: string, values?: Record<string, any>) => string,
+) {
   i18nFormat = _i;
 }
 
