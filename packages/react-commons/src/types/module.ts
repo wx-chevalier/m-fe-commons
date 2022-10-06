@@ -1,4 +1,3 @@
-import { MenuDataItem } from '@ant-design/pro-layout';
 import { ComponentType } from 'react';
 
 export interface ResolvedModule {
@@ -11,7 +10,7 @@ export interface Module {
   getName: () => string;
   type: 'page' | 'module' | 'app' | 'widget' | 'extension';
 
-  getMenu?: () => MenuDataItem;
+  getMenu?: () => {};
   component?: React.ComponentType;
   loader?: () => Promise<ResolvedModule>;
 }

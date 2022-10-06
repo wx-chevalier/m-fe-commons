@@ -2,7 +2,7 @@ import { Spin } from 'antd';
 import isEqual from 'lodash/isEqual';
 import * as React from 'react';
 
-import { isComponentClass } from '../types/comp';
+import { isComponentClass } from '../../types/comp';
 
 interface PromiseRenderProps<T, K> {
   ok: T;

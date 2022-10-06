@@ -17,3 +17,5 @@
 - [store.js](https://github.com/marcuswestin/store.js): Cross-browser storage for all use cases, used across the web.
 
 - [fixed-size-queue](https://www.npmjs.com/package/fixed-size-queue)
+
+- [cachemap #Project#](https://github.com/badbatch/cachemap): An extensible, isomorphic cache with modules to interface with Redis, LocalStorage, IndexedDB and an in-memory Map.

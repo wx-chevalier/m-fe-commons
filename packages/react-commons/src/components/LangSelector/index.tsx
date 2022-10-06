@@ -1,7 +1,6 @@
 import './index.css';
 
 import { GlobalOutlined } from '@ant-design/icons';
-import { getFormatMessage } from '@ant-design/pro-layout/lib/components/SettingDrawer';
 import { Menu } from 'antd';
 import classNames from 'classnames';
 import * as React from 'react';
@@ -48,7 +47,7 @@ export const LangSelector: React.FC<LangSelectorProps> = (props) => {
   return (
     <HeaderDropdown overlay={langMenu} placement="bottomRight">
       <span className={classNames('m-fe-lang-selector-dropDown', className)}>
-        <GlobalOutlined title={getFormatMessage()({ id: 'navBar.lang' })} />
+        <GlobalOutlined />
       </span>
     </HeaderDropdown>
   );

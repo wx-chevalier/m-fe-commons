@@ -1,5 +1,5 @@
 import interact from 'interactjs';
-import React from 'react';
+import * as React from 'react';
 
 const options = ['draggable', 'resizable', 'gesturable', 'dropzone'];
 const events = [
@@ -39,10 +39,10 @@ export interface InjectedProps {
   getRef: React.Ref<any> | React.LegacyRef<any>;
 }
 export interface InteractProps {
-  draggable?: Interact.DraggableOptions | boolean;
-  resizable?: Interact.ResizableOptions | boolean;
-  gesturable?: Interact.ResizableOptions | boolean;
-  dropzone?: Interact.DropzoneOptions | boolean;
+  draggable?: boolean;
+  resizable?: boolean;
+  gesturable?: boolean;
+  dropzone?: boolean;
   onDragStart?: Interact.ListenersArg;
   onDragMove?: Interact.ListenersArg;
   onDragEnd?: Interact.ListenersArg;
@@ -77,6 +77,7 @@ export const reactable = <RefType, BaseProps extends object>(
     static displayName = `reactable(${getDisplayName(BaseComponent)})`;
     interactable: Interact.Interactable;
     node = React.createRef<RefType>();
+    props: any;
 
     // componentDidMount of parent is called after all his children is mounted
     componentDidMount() {

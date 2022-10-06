@@ -4,7 +4,7 @@ import * as React from 'react';
 import { RouteComponentProps } from 'react-router';
 import { withRouter } from 'react-router-dom';
 
-import { ResolvedModule } from '../types';
+import { ResolvedModule } from '../../types';
 
 const { Suspense, lazy } = React;
 

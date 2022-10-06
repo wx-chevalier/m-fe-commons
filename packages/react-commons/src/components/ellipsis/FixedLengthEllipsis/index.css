@@ -1,0 +1,25 @@
+.fixed-length-ellipsis {
+  overflow: hidden;
+  display: inline-block;
+  word-break: break-all;
+  width: 100%;
+}
+
+.fixed-length-ellipsis-lines {
+  position: relative;
+}
+
+.fixed-length-ellipsis-lines .shadow {
+  display: block;
+  position: relative;
+  color: transparent;
+  opacity: 0;
+  z-index: -999;
+}
+
+.fixed-length-ellipsis-line-clamp {
+  position: relative;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+}

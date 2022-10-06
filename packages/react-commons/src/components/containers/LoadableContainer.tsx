@@ -4,9 +4,9 @@ import Loadable from 'react-loadable';
 import { RouteComponentProps } from 'react-router';
 import { withRouter } from 'react-router-dom';
 
-import { PageLoading } from '../components';
-import { Exception500 } from '../components/Exception/Exception500';
-import { ResolvedModule } from '../types';
+import { PageLoading } from '..';
+import { Exception500 } from '../Exception/Exception500';
+import { ResolvedModule } from '../../types';
 
 export interface IProps extends RouteComponentProps {
   appId: string;
