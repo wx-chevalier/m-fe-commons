@@ -15,3 +15,6 @@ Utils for JavaScript data structures, funcs and dom elements manipulation, etc.
 - https://github.com/sveltejs/svelte/blob/master/src/runtime/internal/dom.ts
 
 - https://github.com/jhdevuk/tsdom
+
+- [slash](https://github.com/toss/slash): A collection of TypeScript/JavaScript packages to build high-quality web services.
+
