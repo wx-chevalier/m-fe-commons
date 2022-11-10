@@ -41,7 +41,7 @@
     "history": "^4.10.1",
     "lodash-es": "4.17.21",
     "mobile-detect": "^1.4.4",
-    "moment": "2.24.0",
+    "moment": "2.29.4",
     "parse-domain": "2.3.1",
     "urijs": "^1.19.2",
     "url-parse": "1.4.7",
