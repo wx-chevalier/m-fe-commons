@@ -1,6 +1,6 @@
-import parseDomain from 'parse-domain';
+import * as parseDomain from 'parse-domain';
 import URI from 'urijs';
-import parse from 'url-parse';
+import * as parse from 'url-parse';
 
 import { hasChinese, replaceAll } from './str';
 

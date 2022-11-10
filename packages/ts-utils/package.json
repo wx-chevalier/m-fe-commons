@@ -1,6 +1,6 @@
 {
   "name": "@m-fe/utils",
-  "version": "0.7.1",
+  "version": "0.7.2",
   "description": "@m-fe/utils",
   "repository": {
     "type": "git",
@@ -50,7 +50,6 @@
   "devDependencies": {
     "@types/lodash-es": "4.17.6",
     "@types/urijs": "^1.19.14",
-    "@types/url-parse": "^1.4.8",
     "jest-environment-jsdom-sixteen": "^1.0.3",
     "tslib": "^2.3.1",
     "webpack": "^4.44.1"
