@@ -1,4 +1,4 @@
-import isEmpty from 'lodash.isempty';
+import { isEmpty } from 'lodash-es';
 
 import { isPrimitive } from './validator';
 
