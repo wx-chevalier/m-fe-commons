@@ -1,4 +1,6 @@
+import parseDomain from 'parse-domain';
 import URI from 'urijs';
+import parse from 'url-parse';
 
 import { hasChinese, replaceAll } from './str';
 
@@ -77,45 +79,63 @@ const utmParams = [
   'sc_country',
 ];
 
-/** 简单地对 URL 进行解析 */
-export function parseUrl(url: string) {
-  const match = url.match(
-    /^(http|https|ftp)?(?:[\:\/]*)([a-z0-9\.-]*)(?:\:([0-9]+))?(\/[^?#]*)?(?:\?([^#]*))?(?:#(.*))?$/i,
-  );
-  const ret: any = new Object();
+export interface ParsedUrl {
+  // 完整地址
+  url: string;
 
-  if (!match) {
-    return {};
+  // 域名
+  domain: string;
+  hostname?: string;
+
+  // 根域名
+  rootDomain: string;
+  // 路径参数
+  pathname: string;
+
+  // 查询参数
+  query?: any;
+}
+
+/** 解析传入的 URL，并且提取根域名 */
+export function parseUrl(url: string): Partial<ParsedUrl> {
+  let patchedUrl = url;
+
+  if (url.indexOf('http') < 0 && url.indexOf('https') < 0) {
+    patchedUrl = `http://${patchedUrl}`;
   }
 
-  ret.protocol = '';
-  ret.host = match[2];
-  ret.port = '';
-  ret.path = '';
-  ret.query = '';
-  ret.fragment = '';
+  const res: Partial<ParsedUrl> = {
+    url: patchedUrl,
+  };
 
-  if (match[1]) {
-    ret.protocol = match[1];
+  try {
+    const parsedUrl = parse(patchedUrl, true);
+
+    if (parsedUrl.hostname) {
+      res.hostname = parsedUrl.port
+        ? `${parsedUrl.hostname}:${parsedUrl.port}`
+        : parsedUrl.hostname;
+      res.domain = parsedUrl.hostname;
+      res.pathname = (parsedUrl as any).pathname;
+
+      const parsedDomain =
+        parseDomain(res.domain) || ({} as { domain: string; tld: string });
+      res.rootDomain = parsedDomain.domain
+        ? `${parsedDomain.domain}.${parsedDomain.tld}`
+        : res.domain;
+    }
+
+    return res;
+  } catch (_) {
+    console.error('>>>parseUrl error:', _);
+
+    const urlObj = new URL(patchedUrl);
+
+    res.domain = urlObj.host;
+    res.rootDomain = urlObj.host;
+
+    return res;
   }
-
-  if (match[3]) {
-    ret.port = match[3];
-  }
-
-  if (match[4]) {
-    ret.path = match[4];
-  }
-
-  if (match[5]) {
-    ret.query = match[5];
-  }
-
-  if (match[6]) {
-    ret.fragment = match[6];
-  }
-
-  return ret;
 }
 
 /** 移除 UTM 相关的参数 */

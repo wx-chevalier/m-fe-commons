@@ -1,6 +1,6 @@
 {
   "name": "@m-fe/utils",
-  "version": "0.6.16",
+  "version": "0.7.0",
   "description": "@m-fe/utils",
   "repository": {
     "type": "git",
@@ -40,15 +40,21 @@
     "fast-deep-equal": "^2.0.1",
     "history": "^4.10.1",
     "lodash.chunk": "^4.2.0",
+    "lodash.isempty": "4.4.0",
     "lodash.upperfirst": "^4.3.1",
     "mobile-detect": "^1.4.4",
+    "moment": "2.24.0",
+    "parse-domain": "2.3.1",
     "urijs": "^1.19.2",
+    "url-parse": "1.4.7",
     "uuid-random": "^1.3.2"
   },
   "devDependencies": {
     "@types/lodash.chunk": "^4.2.6",
+    "@types/lodash.isempty": "^4.4.7",
     "@types/lodash.upperfirst": "^4.3.6",
     "@types/urijs": "^1.19.14",
+    "@types/url-parse": "^1.4.8",
     "jest-environment-jsdom-sixteen": "^1.0.3",
     "tslib": "^2.3.1",
     "webpack": "^4.44.1"
