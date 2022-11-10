@@ -3760,11 +3760,6 @@
   resolved "https://registry.npm.taobao.org/@types/urijs/download/@types/urijs-1.19.14.tgz#1c714cfbc23eb9e3f840dd02b7e8284ab85f1a6b"
   integrity sha1-HHFM+8I+ueP4QN0Ct+goSrhfGms=
 
-"@types/url-parse@^1.4.8":
-  version "1.4.8"
-  resolved "https://registry.npmmirror.com/@types/url-parse/-/url-parse-1.4.8.tgz#c3825047efbca1295b7f1646f38203d9145130d6"
-  integrity sha512-zqqcGKyNWgTLFBxmaexGUKQyWqeG7HjXj20EuQJSJWwXe54BjX0ihIo5cJB9yAQzH8dNugJ9GvkBYMjPXs/PJw==
-
 "@types/use-subscription@^1.0.0":
   version "1.0.0"
   resolved "https://registry.npm.taobao.org/@types/use-subscription/download/@types/use-subscription-1.0.0.tgz?cache=0&sync_timestamp=1605057386450&other_urls=https%3A%2F%2Fregistry.npm.taobao.org%2F%40types%2Fuse-subscription%2Fdownload%2F%40types%2Fuse-subscription-1.0.0.tgz#d146f8d834f70f50d48bd8246a481d096f11db19"
@@ -18420,10 +18415,10 @@ uri-js@^4.2.2:
   dependencies:
     punycode "^2.1.0"
 
-urijs@^1.19.2:
-  version "1.19.2"
-  resolved "https://registry.yarnpkg.com/urijs/-/urijs-1.19.2.tgz#f9be09f00c4c5134b7cb3cf475c1dd394526265a"
-  integrity sha512-s/UIq9ap4JPZ7H1EB5ULo/aOUbWqfDi7FKzMC2Nz+0Si8GiT1rIEaprt8hy3Vy2Ex2aJPpOQv4P4DuOZ+K1c6w==
+urijs@^1.19.11, urijs@^1.19.2:
+  version "1.19.11"
+  resolved "https://registry.yarnpkg.com/urijs/-/urijs-1.19.11.tgz#204b0d6b605ae80bea54bea39280cdb7c9f923cc"
+  integrity sha512-HXgFDgDommxn5/bIv0cnQZsPhHDA90NPHD6+c/v21U5+Sx5hoP8+dP9IZXBU1gIfvdRfhG8cel9QNPeionfcCQ==
 
 urix@^0.1.0:
   version "0.1.0"
