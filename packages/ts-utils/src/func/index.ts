@@ -3,6 +3,7 @@ export * from './error';
 export * from './event-loop';
 export * from './EventEmitter';
 export * from './get';
+export * from './idle-task';
 export * from './log';
 export * from './promise';
 export * from './throttle';
