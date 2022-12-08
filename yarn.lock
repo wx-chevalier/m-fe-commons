@@ -3760,11 +3760,6 @@
   resolved "https://registry.npm.taobao.org/@types/urijs/download/@types/urijs-1.19.14.tgz#1c714cfbc23eb9e3f840dd02b7e8284ab85f1a6b"
   integrity sha1-HHFM+8I+ueP4QN0Ct+goSrhfGms=
 
-"@types/url-parse@^1.4.8":
-  version "1.4.8"
-  resolved "https://registry.npmmirror.com/@types/url-parse/-/url-parse-1.4.8.tgz#c3825047efbca1295b7f1646f38203d9145130d6"
-  integrity sha512-zqqcGKyNWgTLFBxmaexGUKQyWqeG7HjXj20EuQJSJWwXe54BjX0ihIo5cJB9yAQzH8dNugJ9GvkBYMjPXs/PJw==
-
 "@types/use-subscription@^1.0.0":
   version "1.0.0"
   resolved "https://registry.npm.taobao.org/@types/use-subscription/download/@types/use-subscription-1.0.0.tgz?cache=0&sync_timestamp=1605057386450&other_urls=https%3A%2F%2Fregistry.npm.taobao.org%2F%40types%2Fuse-subscription%2Fdownload%2F%40types%2Fuse-subscription-1.0.0.tgz#d146f8d834f70f50d48bd8246a481d096f11db19"
@@ -6705,9 +6700,9 @@ decimal.js@^10.2.0:
   integrity sha1-I4rnsPDHk9PjzqQQEIs1osAUJqM=
 
 decode-uri-component@^0.2.0:
-  version "0.2.0"
-  resolved "https://registry.yarnpkg.com/decode-uri-component/-/decode-uri-component-0.2.0.tgz#eb3913333458775cb84cd1a1fae062106bb87545"
-  integrity sha1-6zkTMzRYd1y4TNGh+uBiEGu4dUU=
+  version "0.2.2"
+  resolved "https://registry.yarnpkg.com/decode-uri-component/-/decode-uri-component-0.2.2.tgz#e69dbe25d37941171dd540e024c444cd5188e1e9"
+  integrity sha512-FqUYQ+8o158GyGTrMFJms9qh3CqTKvAqgqsTnkLI8sKu0028orqBhxNMFkFen0zGyg6epACD32pjVk58ngIErQ==
 
 decompress-response@^3.3.0:
   version "3.3.0"
