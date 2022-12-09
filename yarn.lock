@@ -3760,11 +3760,6 @@
   resolved "https://registry.npm.taobao.org/@types/urijs/download/@types/urijs-1.19.14.tgz#1c714cfbc23eb9e3f840dd02b7e8284ab85f1a6b"
   integrity sha1-HHFM+8I+ueP4QN0Ct+goSrhfGms=
 
-"@types/url-parse@^1.4.8":
-  version "1.4.8"
-  resolved "https://registry.npmmirror.com/@types/url-parse/-/url-parse-1.4.8.tgz#c3825047efbca1295b7f1646f38203d9145130d6"
-  integrity sha512-zqqcGKyNWgTLFBxmaexGUKQyWqeG7HjXj20EuQJSJWwXe54BjX0ihIo5cJB9yAQzH8dNugJ9GvkBYMjPXs/PJw==
-
 "@types/use-subscription@^1.0.0":
   version "1.0.0"
   resolved "https://registry.npm.taobao.org/@types/use-subscription/download/@types/use-subscription-1.0.0.tgz?cache=0&sync_timestamp=1605057386450&other_urls=https%3A%2F%2Fregistry.npm.taobao.org%2F%40types%2Fuse-subscription%2Fdownload%2F%40types%2Fuse-subscription-1.0.0.tgz#d146f8d834f70f50d48bd8246a481d096f11db19"
@@ -14452,9 +14447,9 @@ qs@6.7.0:
   integrity sha512-VCdBRNFTX1fyE7Nb6FYoURo/SPe62QCaAyzJvUjwRaIsc+NePBEniHlvxFmmX56+HZphIGtV0XeCirBtpDrTyQ==
 
 qs@~6.5.2:
-  version "6.5.2"
-  resolved "https://registry.yarnpkg.com/qs/-/qs-6.5.2.tgz#cb3ae806e8740444584ef154ce8ee98d403f3e36"
-  integrity sha512-N5ZAX4/LxJmF+7wN74pUD6qAh9/wnvdQcjq9TZjevvXzSUo7bfmw91saqMjzGS2xq91/odN2dW/WOl7qQHNDGA==
+  version "6.5.3"
+  resolved "https://registry.yarnpkg.com/qs/-/qs-6.5.3.tgz#3aeeffc91967ef6e35c0e488ef46fb296ab76aad"
+  integrity sha512-qxXIEh4pCGfHICj1mAJQ2/2XVZkjCDTcEgfoSQxc/fYivUZxTkk7L3bDBJSoNrEzXI17oUO5Dp07ktqE5KzczA==
 
 query-string@^5.0.1:
   version "5.1.1"
