@@ -3760,11 +3760,6 @@
   resolved "https://registry.npm.taobao.org/@types/urijs/download/@types/urijs-1.19.14.tgz#1c714cfbc23eb9e3f840dd02b7e8284ab85f1a6b"
   integrity sha1-HHFM+8I+ueP4QN0Ct+goSrhfGms=
 
-"@types/url-parse@^1.4.8":
-  version "1.4.8"
-  resolved "https://registry.npmmirror.com/@types/url-parse/-/url-parse-1.4.8.tgz#c3825047efbca1295b7f1646f38203d9145130d6"
-  integrity sha512-zqqcGKyNWgTLFBxmaexGUKQyWqeG7HjXj20EuQJSJWwXe54BjX0ihIo5cJB9yAQzH8dNugJ9GvkBYMjPXs/PJw==
-
 "@types/use-subscription@^1.0.0":
   version "1.0.0"
   resolved "https://registry.npm.taobao.org/@types/use-subscription/download/@types/use-subscription-1.0.0.tgz?cache=0&sync_timestamp=1605057386450&other_urls=https%3A%2F%2Fregistry.npm.taobao.org%2F%40types%2Fuse-subscription%2Fdownload%2F%40types%2Fuse-subscription-1.0.0.tgz#d146f8d834f70f50d48bd8246a481d096f11db19"
@@ -18145,9 +18140,9 @@ typescript@^3.9.2:
   integrity sha1-mNYApevcOPQMsndSLxLcgA6eJfo=
 
 ua-parser-js@^0.7.18:
-  version "0.7.21"
-  resolved "https://registry.yarnpkg.com/ua-parser-js/-/ua-parser-js-0.7.21.tgz#853cf9ce93f642f67174273cc34565ae6f308777"
-  integrity sha512-+O8/qh/Qj8CgC6eYBVBykMrNtp5Gebn4dlGD/kKXVkJNDwyrAwSIqwz8CDf+tsAIWVycKcku6gIXJ0qwx/ZXaQ==
+  version "0.7.33"
+  resolved "https://registry.yarnpkg.com/ua-parser-js/-/ua-parser-js-0.7.33.tgz#1d04acb4ccef9293df6f70f2c3d22f3030d8b532"
+  integrity sha512-s8ax/CeZdK9R/56Sui0WM6y9OFREJarMRHqLB2EwkovemBxNQ+Bqu8GAsUnVcXKgphb++ghr/B2BZx4mahujPw==
 
 uglify-js@^3.6.0:
   version "3.8.0"
