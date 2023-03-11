@@ -1,5 +1,5 @@
 /** 加载脚本 */
-export function loadScript(src: string, cb: Function) {
+export function loadScript(src: string, cb: () => void) {
   // 创建一个script元素
   const el: any = document.createElement('script');
   let loaded = false;
