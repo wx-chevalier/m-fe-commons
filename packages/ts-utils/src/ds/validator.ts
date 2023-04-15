@@ -75,7 +75,7 @@ export function isRegExp(v: any): boolean {
  * Check is Array and contains some elements
  * @param arrayLike
  */
-export function isValidArray(arrayLike: any) {
+export function isValidArray(arrayLike: ArrayLike<any>) {
   return Array.isArray(arrayLike) && arrayLike.length > 0;
 }
 
