@@ -18,13 +18,14 @@ export const LangSelector: React.FC<LangSelectorProps> = (props) => {
   const { className, selectedLang, onLangSelect } = props;
 
   const locales = ['zh-CN', 'zh-TW', 'en-US', 'pt-BR'];
-  const languageLabels = {
+  const languageLabels: Record<string, string> = {
     'zh-CN': '简体中文',
     'zh-TW': '繁体中文',
     'en-US': 'English',
     'pt-BR': 'Português',
   };
-  const languageIcons = {
+
+  const languageIcons: Record<string, string> = {
     'zh-CN': '🇨🇳',
     'zh-TW': '🇭🇰',
     'en-US': '🇬🇧',

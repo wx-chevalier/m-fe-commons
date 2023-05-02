@@ -7,7 +7,6 @@
     },
     "strictFunctionTypes": false,
     "strictNullChecks": false,
-    "suppressImplicitAnyIndexErrors": true,
     "allowSyntheticDefaultImports": true
   },
   "include": ["**/*.ts", "**/*.tsx"]

@@ -88,7 +88,7 @@ export const reactable = <RefType, BaseProps extends object>(
       this.interactable = interact(this.node.current as any);
       options.forEach((option) => {
         if (option in this.props) {
-          this.interactable[option](this.props[option]);
+          (this.interactable as any)[option as string](this.props[option]);
         }
       });
       events.forEach((event) => {

@@ -14,8 +14,6 @@ import weekOfYear from 'dayjs/plugin/weekOfYear';
 import weekYear from 'dayjs/plugin/weekYear';
 import timeZone from 'dayjs-ext/plugin/timeZone';
 
-export * from './antd-dayjs';
-
 dayjs.extend(utc);
 dayjs.extend(advancedFormat);
 dayjs.extend(customParseFormat);

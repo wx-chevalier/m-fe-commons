@@ -4,9 +4,9 @@ import Loadable from 'react-loadable';
 import { RouteComponentProps } from 'react-router';
 import { withRouter } from 'react-router-dom';
 
+import { ResolvedModule } from '../../types';
 import { PageLoading } from '..';
 import { Exception500 } from '../Exception/Exception500';
-import { ResolvedModule } from '../../types';
 
 export interface IProps extends RouteComponentProps {
   appId: string;
@@ -26,7 +26,7 @@ export interface ILoadableContainerCompState {
 }
 
 // 应用缓存
-const appCache = {};
+const appCache: Record<string, Promise<ResolvedModule>> = {};
 
 /**
  * 应用懒加载与容错的容器

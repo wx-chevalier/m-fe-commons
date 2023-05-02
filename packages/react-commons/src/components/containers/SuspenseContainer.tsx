@@ -21,7 +21,7 @@ interface IState {
 }
 
 // 应用缓存
-const appCache = {};
+const appCache: Record<string, React.LazyExoticComponent<React.ComponentType<any>>> = {};
 
 /**
  * 应用懒加载与容错的容器

@@ -40,7 +40,7 @@ export const setupSwNotify = () => {
         <Button
           type="primary"
           onClick={() => {
-            notification.close(key);
+            notification.destroy(key);
             reloadSW();
           }}
         >

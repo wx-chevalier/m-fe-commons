@@ -1,7 +1,9 @@
 import './index.css';
 
-import { PageHeader as AntdPageHeader } from 'antd';
-import { PageHeaderProps as AntdPageHeaderProps } from 'antd/es/page-header';
+import {
+  PageHeader as AntdPageHeader,
+  PageHeaderProps as AntdPageHeaderProps,
+} from '@ant-design/pro-components';
 import React from 'react';
 
 export interface PageHeaderProps extends AntdPageHeaderProps {}
