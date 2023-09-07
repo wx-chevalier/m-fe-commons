@@ -1,6 +1,6 @@
+import loadable from '@loadable/component';
 import cn from 'classnames';
 import React from 'react';
-import Loadable from 'react-loadable';
 import { RouteComponentProps } from 'react-router';
 import { withRouter } from 'react-router-dom';
 
@@ -93,10 +93,7 @@ class LoadableContainerComp extends React.PureComponent<IProps, ILoadableContain
       return this.renderErrorPage();
     }
 
-    const LoadableComponent = Loadable({
-      loader: this.loadApp,
-      loading: PageLoading as any,
-    });
+    const LoadableComponent = loadable(this.loadApp, { fallback: <PageLoading /> });
 
     return (
       <div className={cn(className)}>
