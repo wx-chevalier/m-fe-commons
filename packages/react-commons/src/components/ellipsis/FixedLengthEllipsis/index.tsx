@@ -16,6 +16,7 @@ export interface IFixedLengthEllipsisProps {
   className?: string;
   fullWidthRecognition?: boolean;
   children?: string;
+  suffixCount?: number;
 }
 
 const TooltipOverlayStyle: React.CSSProperties = {
@@ -48,26 +49,44 @@ export const cutStrByFullLength = (str = '', maxLength: number) => {
   }, '');
 };
 
+/** 单行文本 */
 const EllipsisText = ({
   text,
   length,
   tooltip,
   fullWidthRecognition,
+  suffixCount,
   ...other
 }: IFixedLengthEllipsisProps & { text: string }) => {
   if (typeof text !== 'string') {
     throw new Error('Ellipsis children must be string.');
   }
+
   const textLength = fullWidthRecognition ? getStrFullLength(text) : text.length;
   if (textLength <= length || length < 0) {
     return <span {...other}>{text}</span>;
   }
+
   const tail = '...';
+
   let displayText;
+
+  // 允许的长度小于 tail 的长度，直接仅显示 ...
   if (length - tail.length <= 0) {
     displayText = '';
   } else {
-    displayText = fullWidthRecognition ? cutStrByFullLength(text, length) : text.slice(0, length);
+    let sliceText = text.slice(0, length);
+
+    if (suffixCount) {
+      // 考虑到首尾不能重复，选择小的那个
+      const startText = text.slice(0, text.length - suffixCount).trim();
+
+      if (startText.length < sliceText.length) {
+        sliceText = startText;
+      }
+    }
+
+    displayText = fullWidthRecognition ? cutStrByFullLength(text, length) : sliceText;
   }
 
   if (tooltip) {
