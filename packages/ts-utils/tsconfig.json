@@ -4,7 +4,9 @@
     "resolveJsonModule": true,
     "downlevelIteration": true,
     "esModuleInterop": true,
-    "allowSyntheticDefaultImports": true
+    "allowSyntheticDefaultImports": true,
+    "noImplicitAny": false,
+    "module": "ESNext"
   },
   "include": ["src/**/*", "example/**/*"]
 }

@@ -52,12 +52,6 @@ describe('idle-task', () => {
     jest.useFakeTimers();
   });
 
-  beforeEach(() => {
-    import('./index').then(module => {
-      idleTaskModule = module;
-    });
-  });
-
   afterAll(() => {
     jest.useRealTimers();
   });
