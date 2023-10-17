@@ -1,6 +1,6 @@
-import * as parseDomain from 'parse-domain';
+import parseDomain from 'parse-domain';
 import URI from 'urijs';
-import * as parse from 'url-parse';
+import parse from 'url-parse';
 
 import { hasChinese, replaceAll } from './str';
 
@@ -85,6 +85,7 @@ export interface ParsedUrl {
 
   // 域名
   domain: string;
+  host?: string;
   hostname?: string;
 
   // 根域名
@@ -109,9 +110,24 @@ export function parseUrl(url: string): Partial<ParsedUrl> {
   };
 
   try {
-    const parsedUrl = parse(patchedUrl, true);
+    const parsedUrl: {
+      slashes: boolean;
+      protocol: string;
+      hash: string;
+      query: object;
+      pathname: string;
+      auth: string;
+      host: string;
+      port: string;
+      hostname: string;
+      password: string;
+      username: string;
+      origin: string;
+      href: string;
+    } = parse(patchedUrl, true);
 
     if (parsedUrl.hostname) {
+      res.host = parsedUrl.host;
       res.hostname = parsedUrl.port
         ? `${parsedUrl.hostname}:${parsedUrl.port}`
         : parsedUrl.hostname;
@@ -339,3 +355,6 @@ export function isLocalHost(str = '') {
     str.includes('0.0.0.0')
   );
 }
+
+export const isURL = (text: string) =>
+  /^((https?:\/\/|www)[^\s]+)/g.test(text.toLowerCase());

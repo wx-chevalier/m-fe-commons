@@ -5,7 +5,7 @@ export * from './error';
 export * from './kv';
 export * from './number';
 export * from './object';
-export * from './regex';
+export * from './ip';
 export * from './set';
 export * from './str';
 export * from './uri';
