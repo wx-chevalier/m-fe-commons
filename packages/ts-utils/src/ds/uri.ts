@@ -85,8 +85,10 @@ export interface ParsedUrl {
 
   // 域名
   domain: string;
-  host?: string;
-  hostname?: string;
+  hostname?: string; // 包含端口
+  host?: string; // 仅包含域名
+  port?: number; // 端口
+  protocol?: string; // 协议
 
   // 根域名
   rootDomain: string;
@@ -104,11 +106,7 @@ export function parseUrl(url: string): Partial<ParsedUrl> {
   if (url.indexOf('http') < 0 && url.indexOf('https') < 0) {
     patchedUrl = `http://${patchedUrl}`;
   }
-
-  const res: Partial<ParsedUrl> = {
-    url: patchedUrl,
-  };
-
+  let res: Partial<ParsedUrl> = { url: patchedUrl };
   try {
     const parsedUrl: {
       slashes: boolean;
@@ -118,13 +116,18 @@ export function parseUrl(url: string): Partial<ParsedUrl> {
       pathname: string;
       auth: string;
       host: string;
-      port: string;
+      port: number;
       hostname: string;
       password: string;
       username: string;
       origin: string;
       href: string;
     } = parse(patchedUrl, true);
+
+    res = {
+      url: patchedUrl,
+      ...parsedUrl,
+    };
 
     if (parsedUrl.hostname) {
       res.host = parsedUrl.host;
@@ -139,6 +142,19 @@ export function parseUrl(url: string): Partial<ParsedUrl> {
       res.rootDomain = parsedDomain.domain
         ? `${parsedDomain.domain}.${parsedDomain.tld}`
         : res.domain;
+
+      if (res.protocol) {
+        res.protocol = res.protocol.replace(':', '');
+      } else {
+        res.protocol = 'http';
+      }
+
+      if (!parsedUrl.port) {
+        // 这里使用 res.protocol，因为其被转化过
+        res.port = res.protocol === 'https' ? 443 : 80;
+      } else {
+        res.port = parseInt(`${parsedUrl.port}`);
+      }
     }
 
     return res;

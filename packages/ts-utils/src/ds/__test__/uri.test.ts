@@ -1,4 +1,4 @@
-import { encodeUri, getUrlParam, setOssResize } from '../uri';
+import { encodeUri, getUrlParam, parseUrl, setOssResize } from '../uri';
 
 describe('getUrlParam', () => {
   // it('setOssResize', () => {
@@ -28,30 +28,36 @@ describe('getUrlParam', () => {
   //   console.log(encodeUri(encodeUri(testUri1)));
   //   console.log(encodeUri(encodeUri(testUri2)));
   // });
-  it('getUrlParam', () => {
-    console.log(
-      getUrlParam(
-        'http://0.0.0.0:8080/?token1=1#/home/dashboard/0?token2=2',
-        'token1',
-      ),
-    ); // 1
-    console.log(
-      getUrlParam(
-        'http://0.0.0.0:8080/?token1=1#/home/dashboard/0?token2=2',
-        'token2',
-      ),
-    ); // 2
-    console.log(
-      getUrlParam(
-        'http://0.0.0.0:8080/?token1=1&token2=3#/home/dashboard/0?token2=2',
-        'token2',
-      ),
-    ); // 3
-    console.log(
-      getUrlParam(
-        'http://0.0.0.0:8080/?token1=1#/home/dashboard/0?token2=2',
-        'token3',
-      ),
-    );
+  // it('getUrlParam', () => {
+  //   console.log(
+  //     getUrlParam(
+  //       'http://0.0.0.0:8080/?token1=1#/home/dashboard/0?token2=2',
+  //       'token1',
+  //     ),
+  //   ); // 1
+  //   console.log(
+  //     getUrlParam(
+  //       'http://0.0.0.0:8080/?token1=1#/home/dashboard/0?token2=2',
+  //       'token2',
+  //     ),
+  //   ); // 2
+  //   console.log(
+  //     getUrlParam(
+  //       'http://0.0.0.0:8080/?token1=1&token2=3#/home/dashboard/0?token2=2',
+  //       'token2',
+  //     ),
+  //   ); // 3
+  //   console.log(
+  //     getUrlParam(
+  //       'http://0.0.0.0:8080/?token1=1#/home/dashboard/0?token2=2',
+  //       'token3',
+  //     ),
+  //   );
+  // });
+
+  it('parseUrl', () => {
+    console.log(parseUrl('http://a.com'));
+    console.log(parseUrl('http://a.com:81'));
+    console.log(parseUrl('https://b.com'));
   });
 });
