@@ -1,0 +1,51 @@
+{
+  "name": "@m-fe/configs",
+  "version": "0.0.0",
+  "description": "Shareable Configurations for all micro-frontend projects.",
+  "repository": "https://github.com/wx-chevalier/m-fe-configs",
+  "author": "wx-chevalier",
+  "license": "MIT",
+  "private": true,
+  "workspaces": [],
+  "scripts": {
+    "build": "DEBUG=r:* rollup -c",
+    "check": "run-p check:*",
+    "check:eslint": "eslint --print-config .eslintrc.js | eslint-config-prettier-check",
+    "check:stylelint": "stylelint-config-prettier-check",
+    "check:tslint": "tslint-config-prettier-check ./tslint.json",
+    "dev": "DEBUG=r:* r -i $PWD/packages/rollup-config/config -w",
+    "lint": "run-p lint:**",
+    "lint:es": "eslint . --ext js,jsx,md,mdx,ts,tsx,vue -f friendly",
+    "lint:style:css": "stylelint --config stylelint.common.js tests/*.{css,less}",
+    "lint:style:scss": "stylelint tests/*.{scss,vue}",
+    "lint:ts": "tslint -p . -t stylish",
+    "lint:tsc": "tsc",
+    "test": "jest"
+  },
+  "dependencies": {},
+  "devDependencies": {
+    "@m-fe/app-config": "^0.7.3"
+  },
+  "commitlint": {
+    "extends": [
+      "@m-fe"
+    ]
+  },
+  "remarkConfig": {
+    "plugins": [
+      "@m-fe/remark-config"
+    ]
+  },
+  "stylelint": {
+    "extends": [
+      "@m-fe/stylelint-config",
+      "@m-fe/stylelint-config/modules"
+    ],
+    "rules": {
+      "font-family-no-missing-generic-family-keyword": null,
+      "no-descending-specificity": null,
+      "plugin/no-unsupported-browser-features": null,
+      "plugin/no-low-performance-animation-properties": null
+    }
+  }
+}

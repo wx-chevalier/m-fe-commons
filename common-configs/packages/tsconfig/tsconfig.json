@@ -1,0 +1,35 @@
+{
+  "compilerOptions": {
+    "esModuleInterop": true,
+    "experimentalDecorators": true,
+    "forceConsistentCasingInFileNames": true,
+    "importHelpers": true,
+    "incremental": true,
+    "jsx": "react",
+    "lib": ["dom", "esnext"],
+    "module": "esnext",
+    "moduleResolution": "node",
+    "noUnusedLocals": false,
+    "noUnusedParameters": false,
+    "resolveJsonModule": true,
+    "skipLibCheck": true,
+    "sourceMap": true,
+    "strict": true,
+    "stripInternal": true,
+    "target": "es5",
+    "outDir": "dist",
+  },
+  "include": ["**/*.ts", "**/*.tsx"],
+  "exclude": [
+    "assets",
+    "build",
+    "dist",
+    "indep-pkgs",
+    "node_modules",
+    "scripts",
+    "ssr",
+    "stories",
+    "__test__",
+    "test"
+  ]
+}

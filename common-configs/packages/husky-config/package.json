@@ -1,0 +1,18 @@
+{
+  "name": "@m-fe/husky-config",
+  "version": "0.0.2",
+  "description": "Shareable husky Configuration for all micro-frontend projects.",
+  "repository": "https://github.com/wx-chevalier/m-fe-configs",
+  "author": "wx-chevalier",
+  "license": "MIT",
+  "peerDependencies": {
+    "husky": ">=3.0.0",
+    "lint-staged": ">=9.0.0"
+  },
+  "dependencies": {
+    "@commitlint/cli": "^8.3.5"
+  },
+  "publishConfig": {
+    "access": "public"
+  }
+}

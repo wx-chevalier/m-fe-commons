@@ -1,0 +1,24 @@
+{
+  "name": "@m-fe/renovate-config",
+  "version": "0.0.1",
+  "description": "Shareable Renovate Configuration for all micro-frontend projects.",
+  "repository": "https://github.com/wx-chevalier/m-fe-configs",
+  "author": "wx-chevalier",
+  "license": "MIT",
+  "publishConfig": {
+    "access": "public"
+  },
+  "renovate-config": {
+    "default": {
+      "extends": [
+        "config:base",
+        "schedule:earlyMondays"
+      ],
+      "automerge": true,
+      "major": {
+        "automerge": false
+      },
+      "rangeStrategy": "bump"
+    }
+  }
+}

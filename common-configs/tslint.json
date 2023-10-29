@@ -1,0 +1,6 @@
+{
+  "extends": ["@m-fe/tslint-config/react", "tslint-config-eslint/prettier"],
+  "linterOptions": {
+    "exclude": ["node_modules/**"]
+  }
+}

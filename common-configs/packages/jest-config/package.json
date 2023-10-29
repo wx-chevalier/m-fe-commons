@@ -1,0 +1,24 @@
+{
+  "name": "@m-fe/jest-config",
+  "version": "0.0.5",
+  "description": "Shareable Commitlint Configuration for all micro-frontend projects.",
+  "repository": "https://github.com/wx-chevalier/m-fe-configs",
+  "author": "wx-chevalier",
+  "license": "MIT",
+  "peerDependencies": {},
+  "dependencies": {
+    "@testing-library/react": "^11.2.1",
+    "enzyme": "^3.11.0",
+    "enzyme-adapter-react-16": "^1.15.5",
+    "enzyme-to-json": "^3.6.1",
+    "jest": "26.6.3",
+    "jest-cli": "26.6.3",
+    "jest-environment-jsdom": "^26.6.2",
+    "jest-fetch-mock": "^3.0.3",
+    "jsdom": "^16.4.0",
+    "ts-jest": "^26.4.4"
+  },
+  "publishConfig": {
+    "access": "public"
+  }
+}

@@ -1,0 +1,14 @@
+.link {
+  padding: 4px 16px;
+  transition-duration: 0.2s;
+  transition-property: background-color, color;
+
+  &:hover {
+    background-color: @backgroundColorSecondary;
+  }
+
+  &.active {
+    color: @white;
+    background-color: @textColor;
+  }
+}

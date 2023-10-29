@@ -1,0 +1,44 @@
+{
+  "name": "@m-fe/lib-config",
+  "version": "0.0.1",
+  "description": "Shareable Library Configuration for all micro-frontend libs.",
+  "repository": "https://github.com/wx-chevalier/m-fe-configs",
+  "homepage": "https://github.com/wx-chevalier/m-fe-configs",
+  "author": "wx-chevalier",
+  "license": "MIT",
+  "engines": {
+    "node": ">=10.0.0"
+  },
+  "peerDependencies": {},
+  "dependencies": {
+    "@svgr/webpack": "^5.2.0",
+    "@types/classnames": "^2.2.10",
+    "@types/enzyme": "^3.10.5",
+    "@types/jest": "25.1.4",
+    "@types/lodash": "^4.14.149",
+    "@types/react-dom": "^16.9.5",
+    "@types/smoothscroll-polyfill": "^0.3.1",
+    "@m-fe/babel-preset": "^0.0.3",
+    "@m-fe/browserslist-config": "^0.0.1",
+    "@m-fe/commitlint-config": "^0.0.2",
+    "@m-fe/eslint-config": "^0.0.8",
+    "@m-fe/husky-config": "^0.0.1",
+    "@m-fe/jest-config": "^0.0.3",
+    "@m-fe/lint-staged": "^0.0.4",
+    "@m-fe/postcss-config": "^0.0.8",
+    "@m-fe/prettier-config": "^0.0.2",
+    "@m-fe/remark-config": "^0.0.1",
+    "@m-fe/tsconfig": "^0.0.3",
+    "@m-fe/tslint-config": "^0.0.2",
+    "autoprefixer": "^9.7.4",
+    "eslint": "^6.8.0",
+    "husky": "^4.2.3",
+    "json-server": "0.16.1",
+    "lint-staged": "^10.0.8",
+    "rimraf": "^3.0.2",
+    "typescript": "^3.8.3"
+  },
+  "publishConfig": {
+    "access": "public"
+  }
+}

@@ -1,0 +1,21 @@
+{
+  "name": "@m-fe/prettier-config",
+  "version": "0.0.6",
+  "description": "Shareable Prettier Configuration for all micro-frontend projects.",
+  "repository": "https://github.com/wx-chevalier/m-fe-configs",
+  "author": "wx-chevalier",
+  "license": "MIT",
+  "peerDependencies": {
+    "prettier": ">=2.0.4"
+  },
+  "dependencies": {
+    "@prettier/plugin-pug": "^1.2.0",
+    "@prettier/plugin-ruby": "^0.18.0",
+    "prettier-plugin-pkg": "^0.8.0",
+    "prettier-plugin-sh": "^0.3.0",
+    "prettier-plugin-toml": "^0.3.1"
+  },
+  "publishConfig": {
+    "access": "public"
+  }
+}

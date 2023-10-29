@@ -1,0 +1,2 @@
+extends @m-fe/browserslist-config
+>0%

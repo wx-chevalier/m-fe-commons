@@ -1,0 +1,19 @@
+{
+  "name": "@m-fe/tsconfig",
+  "version": "0.0.4",
+  "description": "Shareable TypeScript Configuration for all micro-frontend projects.",
+  "repository": "https://github.com/wx-chevalier/m-fe-configs",
+  "author": "wx-chevalier",
+  "license": "MIT",
+  "main": "tsconfig.json",
+  "peerDependencies": {
+    "typescript": ">=3.5.3"
+  },
+  "optionalDependencies": {
+    "tslib": "^1.10.0"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "tsconfig": "tsconfig.json"
+}
